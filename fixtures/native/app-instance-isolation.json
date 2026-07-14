@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "service": {
+    "path": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+    "bytes": 18739648,
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "uuid": "9E40FA2F-FC6C-3EE2-824A-E4975CA022AD",
+    "version": "26.710.1000387"
+  },
+  "directEvidence": {
+    "symbols": {
+      "applicationTargetIdentifier": {
+        "address": "0x00000001001e6508",
+        "pattern": "SystemSoftware17ApplicationTargetV10identifierSSvg"
+      },
+      "applicationTargetIdentifierForUrl": {
+        "address": "0x00000001001e6624",
+        "pattern": "SystemSoftware17ApplicationTargetV10identifier3for"
+      },
+      "appInstanceTargetIdentifier": {
+        "address": "0x00000001000999f4",
+        "pattern": "AppInstanceC16targetIdentifierSSvg"
+      },
+      "managerShared": {
+        "address": "0x000000010009b964",
+        "pattern": "AppInstanceManagerC6sharedACvgZ"
+      },
+      "managerInstance": {
+        "address": "0x000000010009c1a4",
+        "pattern": "AppInstanceManagerC8instance3for"
+      },
+      "managerSetInstance": {
+        "address": "0x000000010009c22c",
+        "pattern": "AppInstanceManagerC03setD0"
+      },
+      "managerRemoveInstance": {
+        "address": "0x000000010009a1e0",
+        "pattern": "AppInstanceManagerC06removeD03for"
+      },
+      "appInstanceActivate": {
+        "address": "0x0000000100099c54",
+        "pattern": "AppInstanceC8activateyyF"
+      },
+      "appInstanceDeactivate": {
+        "address": "0x0000000100099e98",
+        "pattern": "AppInstanceC10deactivateyyF"
+      },
+      "serialExecutor": {
+        "address": "0x000000010009b7c0",
+        "pattern": "AppInstanceC14SerialExecutorC07unownedF0"
+      },
+      "clearStoppedByUser": {
+        "address": "0x000000010009c758",
+        "pattern": "AppInstanceManagerC18clearStoppedByUser3for"
+      },
+      "chatID": {
+        "address": "0x000000010006be34",
+        "pattern": "AppControllerC6chatIDSSSgvg"
+      },
+      "lastAXTreeGetter": {
+        "address": "0x000000010006c370",
+        "pattern": "AppControllerC10lastAXTreeAA018RefetchableSkyshotF0CSgvg"
+      },
+      "lastAXTreeSetter": {
+        "address": "0x000000010006c3bc",
+        "pattern": "AppControllerC10lastAXTreeAA018RefetchableSkyshotF0CSgvs"
+      },
+      "appControllerDeactivate": {
+        "address": "0x0000000100072004",
+        "pattern": "AppControllerC10deactivateyyF"
+      }
+    },
+    "ivars": {
+      "chatID": {
+        "address": "0x0010000000d185c0",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse24ComputerUseAppController.chatID"
+      },
+      "lastAXTree": {
+        "address": "0x00100000010c4540",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse24ComputerUseAppController.lastAXTree"
+      },
+      "serialExecutorTail": {
+        "address": "0x0010000000d18f88",
+        "pattern": "OBJC_IVAR_$__TtCC11ComputerUse22ComputerUseAppInstance14SerialExecutor.tail"
+      },
+      "appInstanceApplicationTarget": {
+        "address": "0x00100000010c4688",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse22ComputerUseAppInstance.applicationTarget"
+      },
+      "appInstanceAppController": {
+        "address": "0x00100000010c4690",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse22ComputerUseAppInstance.appController"
+      },
+      "appInstanceSerialExecutor": {
+        "address": "0x00100000010c4698",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse22ComputerUseAppInstance.serialExecutor"
+      },
+      "managerState": {
+        "address": "0x0010000000d18fb0",
+        "pattern": "OBJC_IVAR_$__TtC11ComputerUse29ComputerUseAppInstanceManager.state"
+      },
+      "conversationTargets": {
+        "address": "0x0010000000d144e0",
+        "pattern": "OBJC_IVAR_$__TtC18Codex_Computer_Use30CodexComputerUseSessionTracker.targetIdentifiersByConversationID"
+      }
+    },
+    "strings": {
+      "conversationId": {
+        "fileOffset": "0xcdb9e4",
+        "value": "conversationId"
+      },
+      "targetIdentifiersByConversationID": {
+        "fileOffset": "0xcdbdf0",
+        "value": "targetIdentifiersByConversationID"
+      },
+      "targetIdentifier": {
+        "fileOffset": "0xdf3e70",
+        "value": "targetIdentifier"
+      },
+      "chatID": {
+        "fileOffset": "0xce072d",
+        "value": "chatID"
+      },
+      "lastAXTree": {
+        "fileOffset": "0xce0877",
+        "value": "lastAXTree"
+      },
+      "conversationEnded": {
+        "fileOffset": "0xe46420",
+        "value": "Codex thread ended or stopped conversationID=%s"
+      },
+      "deactivateFailure": {
+        "fileOffset": "0xe46540",
+        "value": "Failed to deactivate Computer Use for ended Codex thread app=%s: %@"
+      }
+    }
+  },
+  "recoveredAddresses": {
+    "applicationTargetIdentifier": "0x1001e6508",
+    "applicationTargetIdentifierForUrl": "0x1001e6624",
+    "applicationTargetIdentifierForUrlBody": "0x1001e9128",
+    "appInstanceTargetIdentifier": "0x1000999f4",
+    "managerShared": "0x10009b964",
+    "managerInstance": "0x10009c1a4",
+    "managerSetInstance": "0x10009c22c",
+    "managerRemoveInstance": "0x10009a1e0",
+    "actorTailEnqueueBody": "0x10009b418",
+    "serialExecutorUnownedExecutor": "0x10009b7c0",
+    "appControllerChatID": "0x10006be34",
+    "appControllerLastAXTreeGetter": "0x10006c370",
+    "appControllerLastAXTreeSetter": "0x10006c3bc",
+    "appControllerUpdateSkyshot": "0x10006ebe4",
+    "baselineDirectRead": "0x10006fbcc",
+    "baselineReplacement": "0x100070a8c",
+    "appControllerDeactivate": "0x100072004",
+    "appInstanceDeactivate": "0x100099e98",
+    "requestInstanceResolutionBody": "0x10013fbd8",
+    "existingInstanceLookup": "0x100140008",
+    "existingControllerRunningApplicationRead": "0x100140050",
+    "existingProcessTerminatedCheck": "0x10014006c",
+    "liveInstanceFastReturn": "0x100140070",
+    "terminatedInstanceRemove": "0x1001400a8",
+    "newControllerAllocation": "0x10014015c",
+    "newControllerInitialization": "0x10014018c",
+    "newInstanceControllerStore": "0x100140234",
+    "newInstanceManagerInsert": "0x100140258",
+    "clearStoppedByUser": "0x10009c758",
+    "trackerCleanupBody": "0x10000da60",
+    "cleanupClearStoppedByUserCall": "0x10000dc04",
+    "deactivateSuccessLog": "0x10000e304",
+    "deactivateFailureLog": "0x10000e4b8"
+  },
+  "contracts": {
+    "managerScope": "service-process-singleton",
+    "managerKey": "SystemSoftware.ApplicationTarget.identifier",
+    "managerStorage": "lock-protected Array<ComputerUseAppInstance>",
+    "managerLookup": "linear targetIdentifier search",
+    "managerInsert": "replace same targetIdentifier then append",
+    "managerKeyInputsExcluded": [
+      "pid",
+      "socket",
+      "node_repl_process",
+      "thread",
+      "conversation",
+      "chatID"
+    ],
+    "targetIdentifierDerivedFromBundleUrl": true,
+    "targetIdentifierCanonicalization": "resolvingSymlinksInPath.standardizedFileURL.path(percentEncoded:false).stripTrailingSlashExceptRoot",
+    "sameTargetSharesAppInstanceAcrossTransports": "strong-static-evidence",
+    "sameTargetSerialization": "per-AppInstance SerialExecutor tail",
+    "differentTargetParallelism": "independent AppInstance executors",
+    "conversationTrackerShape": "conversationID -> Set<ApplicationTarget.identifier>",
+    "conversationCleanup": [
+      "remove conversation tracker entry",
+      "clear stopped-by-user state for each target",
+      "deactivate the shared AppInstance asynchronously"
+    ],
+    "conversationCleanupRemovesInstance": false,
+    "conversationCleanupChecksOtherReferences": false,
+    "chatIDParticipatesInManagerKey": false,
+    "lastAXTreeOwner": "ComputerUseAppController",
+    "deactivateClearsLastAXTree": false,
+    "crossConversationBaselineReuse": "strong-static-evidence",
+    "liveProcessReusesExistingInstance": true,
+    "liveProcessReusesExistingController": true,
+    "appControllerReplacedWhileProcessAlive": false,
+    "terminatedProcessRemovesOldInstance": true,
+    "terminatedProcessCreatesNewControllerAndInstance": true,
+    "terminatedProcessClearsLastAXTreeByControllerReplacement": true,
+    "baselineLifetime": "canonical target path plus current live NSRunningApplication instance"
+  },
+  "ivarOffsets": {
+    "chatID": "0x38",
+    "serialExecutorTail": "0x70"
+  },
+  "pendingDynamicExperiment": {
+    "executed": false,
+    "targetRestriction": "com.openai.codex.cualab only",
+    "clients": [
+      "client A / conversation A / target X",
+      "client B / conversation B / target X",
+      "control client C / target Y"
+    ],
+    "expectedChecks": [
+      "A and B observe the same AppInstance and SerialExecutor pointers",
+      "B links behind A on the same executor tail",
+      "C uses a distinct executor and may overlap X",
+      "ending conversation A deactivates but does not remove X",
+      "B reuses the same controller and previous lastAXTree baseline"
+    ]
+  },
+  "unknowns": [
+    "Exact pointer equality across two live clients still requires debugger or equivalent runtime instrumentation.",
+    "No debugger attach was performed by this probe."
+  ],
+  "safety": {
+    "staticBinaryReadOnly": true,
+    "serviceStartedOrAttached": false,
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false
+  }
+}

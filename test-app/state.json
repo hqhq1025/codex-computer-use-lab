@@ -1,0 +1,35 @@
+{
+  "bundleIdentifier" : "com.openai.codex.cualab",
+  "checkbox" : false,
+  "counter" : 0,
+  "dragPosition" : {
+    "x" : 42,
+    "y" : 42
+  },
+  "duplicateButtons" : {
+    "firstPresses" : 0,
+    "generated" : false,
+    "secondPresses" : 0
+  },
+  "eventSequence" : 1,
+  "hierarchyVariant" : "A",
+  "lastEvent" : "application_launched",
+  "loading" : false,
+  "modalOpen" : false,
+  "popupSelection" : "Alpha",
+  "privacyBoundary" : {
+    "clipboardAccess" : false,
+    "externalFileReads" : false,
+    "networkAccess" : false,
+    "userDataAccess" : false
+  },
+  "schemaVersion" : 1,
+  "selectedListItem" : "Synthetic Item 01",
+  "slider" : 25,
+  "stateOutput" : "test-app\/state.json",
+  "text" : "",
+  "windowOrigin" : {
+    "x" : 440,
+    "y" : 286
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-ax-diff-no-visible-change",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "syntheticMarker": "CUA Lab Synthetic Surface"
+  },
+  "baselineFullState": {
+    "characterCount": 1551,
+    "sha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+  },
+  "noChangeDiff": {
+    "elapsedMilliseconds": 109,
+    "characterCount": 148,
+    "sha256": "ef85eec755e0214def6f8e46a4c22a50da9fedbe6236c1b198e00470b18ddb04",
+    "text": "There has been no change in the accessibility tree for Window: \"Codex CUA Lab\".\nThe focused UI element is 3 unknown CUA Lab Reset, ID: cua.lab.reset"
+  },
+  "afterRealButtonClick": {
+    "clickElapsedMilliseconds": 486,
+    "diffElapsedMilliseconds": 485,
+    "diffCharacterCount": 148,
+    "diffSha256": "ef85eec755e0214def6f8e46a4c22a50da9fedbe6236c1b198e00470b18ddb04",
+    "diffExactlyEqualsNoChangeDiff": true,
+    "oracleBeforeCount": 0,
+    "oracleAfterCount": 1,
+    "oracleLastAction": "button-click"
+  },
+  "conclusion": "The AX diff reports accessibility-tree and focus changes, not arbitrary application business-state effects."
+}

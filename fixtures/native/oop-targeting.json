@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "service": {
+    "path": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+    "bytes": 18739648,
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "version": "26.710.1000387"
+  },
+  "evidence": {
+    "symbols": {
+      "mouseTarget": {
+        "address": "0x000000010064727c",
+        "marker": "ApplicationUIElementV6target15forMouseEventAt4with"
+      },
+      "mouseTargetWithAxWindow": {
+        "address": "0x00000001006475bc",
+        "marker": "ApplicationUIElementV6target15forMouseEventAt08axWindowI5Point"
+      },
+      "oopMouseWindow": {
+        "address": "0x0000000100647e84",
+        "marker": "ApplicationUIElementV24outOfProcessTargetWindow3for6appPID"
+      },
+      "keyboardTarget": {
+        "address": "0x0000000100648204",
+        "marker": "ApplicationUIElementV22targetForKeyboardEvent"
+      },
+      "oopKeyboardTarget": {
+        "address": "0x0000000100648410",
+        "marker": "ApplicationUIElementV18outOfProcessTarget3for6appPID"
+      },
+      "insideWebView": {
+        "address": "0x000000010070e63c",
+        "marker": "UIElementProtocolPAAE15isInsideWebView"
+      },
+      "synthesizedSend": {
+        "address": "0x000000010067d838",
+        "marker": "SynthesizedEventV4send2to5delay"
+      },
+      "postToPid": {
+        "address": "0x00000001001ddd94",
+        "marker": "SystemSoftware10CGEventAPIO9postToPid"
+      }
+    },
+    "strings": {
+      "missingOop": {
+        "fileOffset": "0xdfd370",
+        "value": "elementPresumedOOPAndNotFound"
+      },
+      "missingEligibleParent": {
+        "fileOffset": "0xdfd390",
+        "value": "elementIsOOPButExpectedToTargetAppAndNoEligibleParentElementWasFound"
+      },
+      "webContent": {
+        "fileOffset": "0xfc4660",
+        "value": "webContent"
+      }
+    }
+  },
+  "contracts": {
+    "coordinateMouseTargeting": "target(forMouseEventAt:) -> outOfProcessTargetWindow(for:appPID:)",
+    "keyboardTargeting": "targetForKeyboardEvent() -> outOfProcessTarget(for:appPID:)",
+    "finalDelivery": "SynthesizedEvent.send(to:delay:) -> CGEventAPI.postToPid",
+    "insideWebViewInfluencesActivation": true,
+    "oopMissingAndAmbiguousFailuresAreExplicit": true
+  },
+  "debuggerAttach": {
+    "attemptedReadOnly": true,
+    "allowed": false,
+    "failure": "Not allowed to attach to process; no SIP, signature, entitlement, or TCC setting was changed."
+  },
+  "safety": {
+    "staticBinaryReadOnly": true,
+    "serviceMemoryModified": false,
+    "systemSecuritySettingsModified": false,
+    "uiActionsExecuted": false
+  }
+}

@@ -1,0 +1,29 @@
+# Codex Computer Use Reverse Engineering Lab
+
+> Independent, experiment-backed research into the macOS Computer Use stack
+> shipped with the Codex desktop app.
+
+Important resources:
+
+- [Project overview](README.md)
+- [Current synthesis: V10](reports/v10-target-identity-and-lifetime.md)
+- [Report index](reports/README.md)
+- [Methodology](docs/00-methodology.md)
+- [Reproduction guide](docs/07-reproduction-guide.md)
+- [Security threat model](docs/06-security-threat-model.md)
+- [Real experiment safety contract](docs/15-real-experiment-safety-contract.md)
+- [Full machine-readable project context](llms-full.txt)
+
+Core verified claims:
+
+- The observed Codex path uses deferred tool discovery, `node_repl`, a
+  Computer Use wrapper, a Sky JavaScript client, and a native macOS service.
+- The checked production fixture contains 21 passing synthetic-app scenarios.
+- Native target identity follows canonical app path plus live process lifetime.
+- Accepted native actions are not canceled when the JavaScript client times
+  out.
+- Stale element references and stale screenshot coordinates have materially
+  different freshness behavior.
+
+Build-specific reverse-engineering results are evidence, not a public API
+contract. The repository is independent and is not an official OpenAI project.

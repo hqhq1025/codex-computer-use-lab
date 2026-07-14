@@ -1,0 +1,33 @@
+{
+  "name": "codex-computer-use-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect:model-surface": "node scripts/extract-model-tool-surface.mjs --thread-id 019f55b2-9ab9-7253-a9e4-c7005a14e87b --out fixtures/model-tool-surface/latest.json",
+    "collect:plugin-model-context": "node scripts/plugin-model-context-probe.mjs --out fixtures/model-tool-surface/plugin-model-context.json",
+    "collect:wrapper-policy": "node scripts/wrapper-policy-probe.mjs --out fixtures/wrapper-policy/captured.json",
+    "build:test-app": "bash test-app/build.sh",
+    "collect:display": "bash scripts/display-geometry-probe.sh --out fixtures/display/current.json",
+    "collect:native-callgraph": "bash scripts/native-callgraph.sh",
+    "collect:policy": "bash scripts/extract-policy-evidence.sh --codex-source /private/tmp/openai-codex-rust-v0.144.0-alpha.4",
+    "collect:observability": "bash scripts/collect-observability-evidence.sh",
+    "collect:mcp-event-truncation": "node scripts/mcp-event-truncation-probe.mjs --out fixtures/electron/mcp-event-truncation.json",
+    "collect:electron-presentation": "node scripts/electron-presentation-contract-probe.mjs --out fixtures/electron/presentation-contract.json",
+    "collect:native-last-window": "node scripts/native-last-window-probe.mjs --out fixtures/native/last-window.json",
+    "collect:native-ax": "node scripts/native-ax-contract-probe.mjs --out fixtures/native/ax-diff-refetch.json",
+    "collect:native-instance": "node scripts/native-app-instance-contract-probe.mjs --out fixtures/native/app-instance-isolation.json",
+    "collect:application-target-identifier-static": "node scripts/application-target-identifier-static-probe.mjs --out fixtures/native/application-target-identifier-static.json",
+    "collect:application-target-identifier-behavior": "swift scripts/application-target-identifier-probe.swift --out fixtures/native/application-target-identifier-behavior.json",
+    "collect:native-oop": "node scripts/native-oop-targeting-probe.mjs --out fixtures/native/oop-targeting.json",
+    "collect:native-url-policy": "node scripts/native-url-policy-probe.mjs --out fixtures/native/url-policy.json",
+    "plan:real-cua": "node scripts/real-cua-lab-runner.mjs --out fixtures/real-cua/dry-run-plan.json",
+    "snapshot:real-cua": "node scripts/real-cua-snapshot.mjs --label manual --out fixtures/real-cua/manual-snapshot.json",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "verify": "node scripts/check-no-secrets.mjs && npm test",
+    "reproduce": "node scripts/run-all.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

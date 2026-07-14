@@ -1,0 +1,60 @@
+{
+  "algorithm" : [
+    "URL.resolvingSymlinksInPath()",
+    "URL.standardizedFileURL",
+    "URL.path(percentEncoded: false)",
+    "remove trailing slash while count > 1"
+  ],
+  "cases" : [
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Real App.app",
+      "input" : "file:///tmp/codex-cua-application-target-identifier-probe/Real%20App.app/",
+      "name" : "real"
+    },
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Real App.app",
+      "input" : "file:///tmp/codex-cua-application-target-identifier-probe/Alias.app/",
+      "name" : "symlink-alias"
+    },
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Real App.app",
+      "input" : "file:///tmp/codex-cua-application-target-identifier-probe/./temporary/../Real%20App.app/",
+      "name" : "dot-segments"
+    },
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Real App.app",
+      "input" : "file:///tmp/codex-cua-application-target-identifier-probe/Real%20App.app/",
+      "name" : "percent-encoded-space"
+    },
+    {
+      "identifier" : "/",
+      "input" : "file:///",
+      "name" : "root"
+    },
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Second App.app",
+      "input" : "file:///tmp/codex-cua-application-target-identifier-probe/Second%20App.app/",
+      "name" : "same-bundle-id-second-path"
+    },
+    {
+      "identifier" : "/tmp/codex-cua-application-target-identifier-probe/Real App.app",
+      "input" : "file:///tmp/CODEX-CUA-APPLICATION-TARGET-IDENTIFIER-PROBE/REAL%20APP.APP/",
+      "name" : "case-spelling-of-existing-path"
+    }
+  ],
+  "contracts" : {
+    "dotSegmentsConverge" : true,
+    "existingPathMayRecoverOnDiskCase" : true,
+    "percentEncodedSpaceDecodes" : true,
+    "rootSlashPreserved" : true,
+    "sameBundleIdDifferentPathsRemainDistinct" : true,
+    "symlinkAliasConverges" : true,
+    "trailingSlashRemoved" : true
+  },
+  "safety" : {
+    "realComputerUseSocketContacted" : false,
+    "temporaryDirectoryOnly" : true,
+    "uiActionsExecuted" : false
+  },
+  "schemaVersion" : 1
+}

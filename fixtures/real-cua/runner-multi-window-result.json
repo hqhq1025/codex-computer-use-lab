@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "mode": "execute",
+  "passed": false,
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "<lab-app>",
+    "stateOraclePath": "<lab-state>"
+  },
+  "provenance": {
+    "labAppExecutable": {
+      "path": "<lab-app>/Contents/MacOS/Codex CUA Lab",
+      "bytes": 267536,
+      "modifiedUnixMilliseconds": 1783871565370,
+      "sha256": "37781c3f2dd0c9dd94ba9e2dfe2e9b9a7fe13616a38a25e4f58c86bad866af58"
+    },
+    "skyServiceExecutable": {
+      "path": "<sky-service>",
+      "bytes": 18739648,
+      "modifiedUnixMilliseconds": 1783840636593,
+      "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+    },
+    "wrapper": {
+      "path": "<computer-use-wrapper>",
+      "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+    }
+  },
+  "safety": {
+    "productionCuaRequestSent": true,
+    "uiActionsExecuted": true,
+    "externalCommunicationAllowed": false,
+    "deleteAllowed": false,
+    "systemSettingsAllowed": false,
+    "persistentApprovalAllowed": false,
+    "persistentApprovalStoreBefore": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalStoreAfter": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalChecks": [
+      {
+        "label": "list_apps",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ],
+    "approvalStoreDeletedByRunner": false
+  },
+  "completedScenarios": [],
+  "error": {
+    "name": "Error",
+    "message": "Accessibility state contains unexpected non-synthetic labels: Codex CUA Lab Secondary"
+  }
+}

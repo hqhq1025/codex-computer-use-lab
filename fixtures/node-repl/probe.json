@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "binary": "<ChatGPT.app>/Contents/Resources/cua_node/bin/node_repl",
+    "binarySha256": "6e895795c6506cb6e4ff24ccca87625fbae6555309534e2fc242423b46f622fa",
+    "nodeVersion": "24.14.0",
+    "nodeReplArchive": "20260707.2",
+    "runtimeArchiveVersion": "0.0.3/20260708050802-66a5641b5362-pr-1103797"
+  },
+  "transport": {
+    "outer": "MCP JSON-RPC 2.0 over newline-delimited stdio",
+    "protocolVersion": "2025-06-18",
+    "serverInfo": {
+      "name": "rmcp",
+      "version": "1.5.0"
+    },
+    "capabilities": {
+      "tools": {
+        "listChanged": true
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "js",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "description": "JavaScript source to execute in the persistent Node-backed kernel. The code runs with top-level await and can use the `nodeRepl` helpers. Examples: `nodeRepl.write(nodeRepl.cwd)`, `const { chromium } = await import(\"playwright\")`, or `await nodeRepl.emitImage(pngBuffer)`.",
+            "type": "string"
+          },
+          "timeout_ms": {
+            "description": "Optional execution timeout in milliseconds. Defaults to 30000 (30 seconds) when omitted.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": {
+            "description": "Short user-facing description of what this code block is doing. Use a few words, for example `Inspect package metadata` or `Render chart preview`.",
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "type": "object"
+      },
+      "annotations": null
+    },
+    {
+      "name": "js_add_node_module_dir",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "Absolute path to a node_modules directory to add to Node package resolution.",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "js_reset",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "ordinaryCell": {
+    "globalProcessType": "undefined",
+    "ownKeys": [
+      "cwd",
+      "emitImage",
+      "env",
+      "homeDir",
+      "requestMeta",
+      "setResponseMeta",
+      "tmpDir",
+      "write"
+    ],
+    "prototypeOwnKeys": [
+      "__defineGetter__",
+      "__defineSetter__",
+      "__lookupGetter__",
+      "__lookupSetter__",
+      "__proto__",
+      "constructor",
+      "hasOwnProperty",
+      "isPrototypeOf",
+      "propertyIsEnumerable",
+      "toLocaleString",
+      "toString",
+      "valueOf"
+    ],
+    "frozen": true,
+    "envFrozen": true,
+    "envKeys": [],
+    "privileged": {
+      "addAfterSubmittedCodeHook": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "gaasBrowserConfig": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "createElicitation": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "launchServices": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "nativePipe": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "withSuspendedTimeout": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "config": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "fetch": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      },
+      "telemetry": {
+        "visible": false,
+        "own": false,
+        "type": "undefined"
+      }
+    }
+  },
+  "processDenial": {
+    "globalType": "undefined",
+    "imports": {
+      "process": {
+        "blocked": true,
+        "name": "Error",
+        "message": "Importing module \"process\" is not allowed in node_repl"
+      },
+      "node:process": {
+        "blocked": true,
+        "name": "Error",
+        "message": "Importing module \"node:process\" is not allowed in node_repl"
+      }
+    }
+  },
+  "persistentBinding": {
+    "firstCall": 41,
+    "secondCall": 42
+  },
+  "emitImage": {
+    "type": "image",
+    "mimeType": "image/png",
+    "bytes": 68,
+    "width": 1,
+    "height": 1,
+    "sha256": "431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+    "detail": "original"
+  },
+  "safety": {
+    "isolatedEnvironment": true,
+    "trustedCodeVariablesPresent": false,
+    "codexCliPathPresent": false,
+    "realWrapperLoaded": false,
+    "nativeSocketOpened": false,
+    "clientCapabilities": {},
+    "unexpectedServerRequests": 0
+  }
+}

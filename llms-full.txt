@@ -1,0 +1,109 @@
+# Codex Computer Use Reverse Engineering Lab: Full Context
+
+## Purpose
+
+This repository studies the Computer Use implementation shipped with the
+macOS Codex desktop app. It combines sanitized live observations, bounded
+static binary evidence, hermetic protocol experiments, and explicitly
+authorized production actions against a synthetic AppKit application.
+
+It does not distribute proprietary binaries and does not describe an official
+or stable OpenAI API.
+
+## Architecture
+
+The observed execution path is:
+
+```text
+Responses model
+  -> deferred tool discovery
+  -> node_repl
+  -> Computer Use wrapper
+  -> Sky JavaScript client
+  -> length-prefixed JSON-RPC over a Unix socket
+  -> SkyComputerUseService
+  -> Accessibility / ScreenCaptureKit / synthesized input
+  -> target application
+  -> MCP result projection
+  -> Codex desktop presentation
+```
+
+## Current Verification
+
+- 191 automated checks pass.
+- The production behavior fixture covers 21 scenarios and 66 steps.
+- Production actions are restricted to `com.openai.codex.cualab`.
+- Persistent approval is checked before and after audited calls and remains
+  disabled in the fixture.
+- Fixtures contain no screenshots, credentials, private prompts, or user
+  application content.
+
+## High-Value Findings
+
+1. The observed base Responses request does not contain a native `computer`
+   tool. Computer Use is reached through deferred discovery and `node_repl`.
+2. The native protocol uses four-byte length-prefixed JSON-RPC and an 8 MiB
+   frame limit.
+3. Native target identity is the canonical app installation path combined with
+   the current live process lifetime.
+4. The native AX diff baseline survives JavaScript client and transport
+   replacement.
+5. Stale element references are conservatively refetched and fail closed when
+   missing or ambiguous.
+6. Screenshot coordinates are not revision-bound and can affect a different
+   element after layout changes.
+7. Client timeout is not native cancellation. An accepted action may complete
+   after the client rejects.
+8. A production coordinate action reached a distinct WKWebView WebContent
+   process and generated a trusted DOM event.
+9. Policy, approval, URL, lock-screen, and application-target checks are
+   separate gates.
+10. Desktop presentation labels are not proof of native action success.
+
+## Evidence Classes
+
+- Live read-only: installed versions, processes, schemas, signatures, and
+  aggregate logs.
+- Static binary: bounded symbols, strings, metadata, and disassembly from the
+  pinned signed build.
+- Hermetic dynamic: mock sockets and isolated app-server or Node probes.
+- Synthetic production: allowlisted actions against the network-disabled test
+  app only.
+
+## Reading Order
+
+1. `README.md`
+2. `docs/00-methodology.md`
+3. `reports/v10-target-identity-and-lifetime.md`
+4. `docs/02-node-repl-trust-boundary.md`
+5. `docs/03-sky-native-pipe-protocol.md`
+6. `docs/04-native-service-internals.md`
+7. `docs/10-real-cua-behavior-harness.md`
+8. `docs/22-native-ax-diff-refetch-and-instance-isolation.md`
+9. `docs/24-oop-webcontent-and-cross-client-dynamics.md`
+10. `docs/25-timeout-deadline-url-policy-and-lifecycle.md`
+11. `docs/26-application-target-identity-resolution-and-process-lifetime.md`
+
+The `reports/` directory preserves V1 through V10 so later claims can be traced
+to their evidence history.
+
+## Safety Boundary
+
+Default commands must not connect to the production Computer Use socket or
+synthesize input. Opt-in production experiments are restricted to the
+synthetic bundle identifier, fixed app path, static scenario allowlist, and
+fixture output directory.
+
+The repository must not be used to bypass user consent, platform protections,
+application authorization, or product policy.
+
+## Known Unknowns
+
+- Pointer-level native instance sharing across two live clients.
+- Real mixed-scale 1x/2x display behavior.
+- Function-level dynamic tracing of the final OOP target PID.
+- Independent visual confirmation of the virtual cursor overlay.
+- Guardian rendezvous capability acquisition boundaries.
+- Dynamic app-target deactivate/reactivate after turn completion.
+- Private server-side enablement for deferred tool discovery.
+- Cached target behavior after an app bundle is moved or replaced.

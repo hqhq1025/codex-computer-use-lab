@@ -1,0 +1,21 @@
+area	evidence	source	value
+ipc-server	D3	string	CodexComputerUseIPC-2
+ipc-server	D3	string	computeruse.sock
+sender-auth	D3	string	cua_ipc_sender_responsible_team_id
+sender-auth	D3	string	ComputerUseIPCSenderAuthorization
+sender-auth	D3	string	ComputerUseIPCSenderContextResolver
+sender-auth	D3	import	SecTaskCreateWithAuditToken
+sender-auth	D3	import	SecCodeCopySigningInformation
+app-policy	D3	string	allowed_bundle_ids
+app-policy	D3	string	denied_bundle_ids
+url-policy	D3	string	Computer Use stopped due to encountering a disallowed URL
+xpc-transport	D3	dependency	libswiftXPC.dylib
+xpc-transport	D3	import	xpc_pipe_routine
+apple-event-bridge	D3	string	Could not get XPC bootstrap mach port from Apple event
+apple-event-bridge	D3	string	Could not get request type name from Apple event
+apple-event-bridge	D3	string	Could not get sender PID from Apple event
+apple-event-bridge	D3	import	NSAppleEventManager
+screenshot	D3	dependency	ScreenCaptureKit.framework
+screenshot	D3	import	SCScreenshotManager
+input-dispatch	D3	import	CGEventGetFlags
+lock-screen	D3	string	/tmp/com.openai.sky.CUAService/LockScreenLoginAuthorization.sock

@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "label": "after-unlocked-observation",
+  "capturedAt": "2026-07-12T12:49:24.160Z",
+  "safety": {
+    "readOnly": true,
+    "screenshotsRead": false,
+    "axContentRead": false,
+    "approvalContentsRead": false,
+    "realCuaRequestSent": false,
+    "realInputSynthesized": false
+  },
+  "expectedTarget": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appRoot": "$LAB/test-app/build/Codex CUA Lab.app",
+    "appMetadata": {
+      "present": true,
+      "type": "directory",
+      "mode": "755",
+      "bytes": 96,
+      "modifiedUnixMilliseconds": 1783860508896
+    }
+  },
+  "processes": {
+    "sky": [
+      {
+        "pid": 94559,
+        "command": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+      }
+    ],
+    "testApp": [
+      {
+        "pid": 8074,
+        "command": "$HOME/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app/Contents/MacOS/Codex CUA Lab"
+      }
+    ]
+  },
+  "ipc": {
+    "cuaSocket": {
+      "present": true,
+      "type": "socket",
+      "mode": "600",
+      "bytes": 0,
+      "modifiedUnixMilliseconds": 1783840663458
+    },
+    "approvalStore": {
+      "present": false
+    }
+  },
+  "displays": [
+    {
+      "displayID": "2",
+      "frame": "{{0, 0}, {1920, 1200}}",
+      "index": 0,
+      "pixelsHigh": "1200",
+      "scale": "1.0",
+      "visibleFrame": "{{0, 103}, {1920, 1066}}",
+      "pixelsWide": "1920"
+    },
+    {
+      "scale": "1.0",
+      "index": 1,
+      "displayID": "3",
+      "visibleFrame": "{{-1920, 244}, {1920, 1200}}",
+      "frame": "{{-1920, 244}, {1920, 1200}}",
+      "pixelsWide": "1920",
+      "pixelsHigh": "1200"
+    }
+  ],
+  "syntheticOracle": {
+    "present": true,
+    "schemaVersion": 1,
+    "revision": null,
+    "syntheticMarker": "CUA Lab Synthetic Surface",
+    "state": {
+      "ambiguous": {
+        "clickCount": 0,
+        "lastTarget": null
+      },
+      "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app",
+      "bundleIdentifier": "com.openai.codex.cualab",
+      "controls": {
+        "buttonClickCount": 0,
+        "checkboxChecked": false,
+        "dragPosition": {
+          "x": 42,
+          "y": 42
+        },
+        "loading": false,
+        "popupSelection": "Alpha",
+        "scrollOffset": 0,
+        "selectTextValue": "",
+        "setValue": "",
+        "sliderValue": 25,
+        "typeText": ""
+      },
+      "coordinate": {
+        "clickCount": 0
+      },
+      "focus": {
+        "control": null
+      },
+      "hierarchy": {
+        "generation": 0,
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0
+      },
+      "meta": {
+        "lastAction": "launch",
+        "resetCount": 0
+      },
+      "metrics": {
+        "diffProbeCount": 0,
+        "fullStateProbeCount": 0
+      },
+      "modal": {
+        "open": false
+      },
+      "schemaVersion": 1,
+      "selection": {
+        "text": "",
+        "type": ""
+      },
+      "synthetic": true,
+      "syntheticMarker": "CUA Lab Synthetic Surface",
+      "window": {
+        "x": 580,
+        "y": 413
+      }
+    }
+  },
+  "cuaTempAggregates": {
+    "tempRoot": "<system-temp>",
+    "matchingFileCount": 9,
+    "totalBytes": 582317,
+    "newestModifiedUnixSeconds": 1783860541
+  }
+}

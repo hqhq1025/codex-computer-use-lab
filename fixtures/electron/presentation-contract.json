@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": {
+    "electronAppVersion": "26.707.71524",
+    "electronAppBuild": "5263",
+    "codexSourceTag": "rust-v0.144.0-alpha.4"
+  },
+  "source": {
+    "asar": {
+      "path": "/Applications/ChatGPT.app/Contents/Resources/app.asar",
+      "bytes": 195069720,
+      "sha256": "d28f31b4bbb04c519be65c2af8277d8c5faf77b4239ee89b928f0a7423dacd84"
+    },
+    "selectedFiles": {
+      "core": {
+        "path": "webview/assets/app-initial~app-main~onboarding-page~hotkey-window-thread-page~quick-chat-window-page~chatg~gwqc41kz-CnQKtQ6U.js",
+        "bytes": 3989238,
+        "sha256": "beed8b3ca3f499be57fe3603e326b05eab99d29c3d69476456374f8bc2f4b6df",
+        "anchors": [
+          {
+            "anchor": "case`item/started`",
+            "offset": 1876560
+          },
+          {
+            "anchor": "case`item/completed`",
+            "offset": 1877695
+          },
+          {
+            "anchor": "case`item/mcpToolCall/progress`",
+            "offset": 1882128
+          },
+          {
+            "anchor": "Ignoring mcpToolCall progress message",
+            "offset": 1882283
+          }
+        ]
+      },
+      "mcpRenderer": {
+        "path": "webview/assets/app-initial~app-main~onboarding-page-qmFVRsFx.js",
+        "bytes": 2626733,
+        "sha256": "99169976a3a20b02980beae3eef89ad3a6d31729a4df4b8a9df2c9d596f69653",
+        "anchors": [
+          {
+            "anchor": "function tY(",
+            "offset": 1894353
+          },
+          {
+            "anchor": "function Yot(",
+            "offset": 1895342
+          },
+          {
+            "anchor": "case`computer-use`:return",
+            "offset": 1895738
+          },
+          {
+            "anchor": "codex.mcpTool.rawOutputTriggerTooltip",
+            "offset": 1901447
+          }
+        ]
+      },
+      "localConversation": {
+        "path": "webview/assets/app-initial~app-main~onboarding-page-qmFVRsFx.js",
+        "bytes": 2626733,
+        "sha256": "99169976a3a20b02980beae3eef89ad3a6d31729a4df4b8a9df2c9d596f69653",
+        "anchors": [
+          {
+            "anchor": "source?.kind===`computerUse`",
+            "offset": 1155352
+          },
+          {
+            "anchor": "mcpServerElicitationItems",
+            "offset": 2282841
+          },
+          {
+            "anchor": "case`mcpToolCall`:return e.elicitation.approval.connector_id",
+            "offset": 2284069
+          },
+          {
+            "anchor": ".filter(e=>e.type!==`mcp-tool-call`||e.completed||!d.has(e.invocation.server))",
+            "offset": 2281829
+          }
+        ]
+      },
+      "formatter": {
+        "path": "webview/assets/app-initial~app-main~onboarding-page~hotkey-window-thread-page~quick-chat-window-page~chatg~gwqc41kz-CnQKtQ6U.js",
+        "bytes": 3989238,
+        "sha256": "beed8b3ca3f499be57fe3603e326b05eab99d29c3d69476456374f8bc2f4b6df",
+        "anchors": [
+          {
+            "anchor": "function ZMt(",
+            "offset": 1930159
+          },
+          {
+            "anchor": "codex.mcpTool.computerUse.click.active",
+            "offset": 1933078
+          },
+          {
+            "anchor": "codex/toolSurface",
+            "offset": 1946593
+          },
+          {
+            "anchor": "if(t!==`node_repl`||e==null)return null",
+            "offset": 1946505
+          }
+        ]
+      }
+    },
+    "contracts": {
+      "formatterReachable": true,
+      "nodeReplTitleShortCircuits": true,
+      "nodeReplCodeNotParsed": true,
+      "resultMetaRequiresNodeRepl": true,
+      "resultTimeStandalone": true,
+      "completedDoesNotMeanSucceeded": true,
+      "formatterReceivesResultButDirectFormatterIgnoresIt": true,
+      "completedAtomicallyReplacesItem": true,
+      "noMcpResultDelta": true,
+      "rendererIgnoresProgress": true,
+      "rmcpOnlyLogsProgress": true,
+      "elicitationProtocolHasNoItemId": true,
+      "elicitationStateKeyedByServerAndRequestId": true,
+      "pendingSuppressionUsesConnectorOrServerKey": true,
+      "startedBeforeCompleted": true
+    },
+    "rustPaths": {
+      "mcpToolCall": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/core/src/mcp_tool_call.rs",
+      "mcpSession": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/core/src/session/mcp.rs",
+      "loggingClient": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/rmcp-client/src/logging_client_handler.rs",
+      "protocol": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/app-server-protocol/src/protocol/v2/mcp.rs"
+    }
+  },
+  "behavior": {
+    "titleCases": {
+      "declared": {
+        "label": "Clicking in Finder",
+        "source": "node-repl-title",
+        "resultTypeConsulted": false
+      },
+      "codeOnly": {
+        "label": "Js",
+        "source": "generic-tool-name",
+        "resultTypeConsulted": false
+      },
+      "truncated": {
+        "label": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+        "source": "node-repl-title",
+        "resultTypeConsulted": false
+      }
+    },
+    "resultTimeIdentity": {
+      "started": {
+        "source": null,
+        "grouping": "groupable"
+      },
+      "completed": {
+        "source": {
+          "kind": "computerUse",
+          "app": {
+            "kind": "appId",
+            "appId": "com.openai.codex.cualab"
+          }
+        },
+        "grouping": "standalone"
+      }
+    },
+    "failedDirectComputerUse": {
+      "resultType": "error",
+      "completed": true,
+      "label": "Clicked in Finder",
+      "formatterConsultedResultType": false
+    },
+    "elicitationCorrelation": {
+      "suppressionKey": "computer-use",
+      "visibleCallIds": [
+        "node-repl"
+      ],
+      "hiddenCallIds": [
+        "direct-a",
+        "direct-b"
+      ]
+    }
+  },
+  "safety": {
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false,
+    "appStateMutated": false
+  }
+}

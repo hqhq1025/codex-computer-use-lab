@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-set-value-before-test-app-ax-setter-fix",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "label": "CUA Lab Set Value Field"
+  },
+  "productionCall": {
+    "requestSent": true,
+    "actionReturnedError": false
+  },
+  "oracle": {
+    "lastAction": "set-value",
+    "expectedValue": "cua-lab-set-value",
+    "actualValue": "",
+    "passed": false
+  },
+  "accessibilityAfter": {
+    "line": "7 unknown (settable, string) Description: CUA Lab Set Value Field, ID: cua.lab.set-value-field",
+    "newValueVisible": false
+  },
+  "rootCause": "The synthetic AppKit test control override observed the AX setter call but did not copy the incoming String into NSTextField.stringValue.",
+  "boundary": "This failure diagnosed the test fixture, not the production Computer Use transport."
+}

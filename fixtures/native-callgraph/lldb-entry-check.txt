@@ -1,0 +1,38 @@
+(lldb) target create '<SkyComputerUseService>'
+Current executable set to '<SkyComputerUseService>' (arm64).
+(lldb) image lookup -a 0x000000010013f9e4
+      Address: SkyComputerUseService[0x000000010013f9e4] (SkyComputerUseService.__TEXT.__text + 1299252)
+      Summary: SkyComputerUseService`ComputerUse.ExecutableComputerUseIPCRequest.handle() async throws -> τ_0_0.Response
+(lldb) disassemble --start-address 0x000000010013f9e4 --count 1
+SkyComputerUseService`handle:
+SkyComputerUseService[0x10013f9e4] <+0>: orr    x29, x29, #0x1000000000000000
+(lldb) image lookup -a 0x000000010012df9c
+      Address: SkyComputerUseService[0x000000010012df9c] (SkyComputerUseService.__TEXT.__text + 1226988)
+      Summary: SkyComputerUseService`ComputerUseClient.ComputerUseIPCAppPerformActionRequest.handle(senderContext: Swift.Optional<ComputerUse.ComputerUseIPCSenderContext>) async throws -> ComputerUseClient.ComputerUseIPCActionResult
+(lldb) disassemble --start-address 0x000000010012df9c --count 1
+SkyComputerUseService`handle:
+SkyComputerUseService[0x10012df9c] <+0>: orr    x29, x29, #0x1000000000000000
+(lldb) image lookup -a 0x0000000100136904
+      Address: SkyComputerUseService[0x0000000100136904] (SkyComputerUseService.__TEXT.__text + 1262164)
+      Summary: SkyComputerUseService`ComputerUseClient.ComputerUseIPCAppGetSkyshotRequest.handle(senderContext: Swift.Optional<ComputerUse.ComputerUseIPCSenderContext>) async throws -> ComputerUseClient.ComputerUseIPCSkyshotResult
+(lldb) disassemble --start-address 0x0000000100136904 --count 1
+SkyComputerUseService`handle:
+SkyComputerUseService[0x100136904] <+0>: orr    x29, x29, #0x1000000000000000
+(lldb) image lookup -a 0x00000001001b6bfc
+      Address: SkyComputerUseService[0x00000001001b6bfc] (SkyComputerUseService.__TEXT.__text + 1787212)
+      Summary: SkyComputerUseService`ComputerUse.SkyshotOperation.captureAXTree(treeCache: Swift.Optional<AccessibilitySupport.TransformedUIElement.TreeCache>, continuingFrom: Swift.Optional<AccessibilitySupport.UIElementTreeRevision<AccessibilitySupport.TransformedUIElement>>, performAccessibilityEnablement: Swift.Bool) async throws -> ComputerUse.SystemSelection
+(lldb) disassemble --start-address 0x00000001001b6bfc --count 1
+SkyComputerUseService`captureAXTree:
+SkyComputerUseService[0x1001b6bfc] <+0>: strb   w3, [x22, #0x48]
+(lldb) image lookup -a 0x00000001001b7cec
+      Address: SkyComputerUseService[0x00000001001b7cec] (SkyComputerUseService.__TEXT.__text + 1791548)
+      Summary: SkyComputerUseService`ComputerUse.SkyshotOperation.captureScreenshot(imageSize: Swift.Optional<__C.CGSize>) async throws -> __C.CGImageRef
+(lldb) disassemble --start-address 0x00000001001b7cec --count 1
+SkyComputerUseService`captureScreenshot:
+SkyComputerUseService[0x1001b7cec] <+0>: stp    x1, x20, [x22, #0x20]
+(lldb) image lookup -a 0x000000010064a280
+      Address: SkyComputerUseService[0x000000010064a280] (SkyComputerUseService.__TEXT.__text + 6585296)
+      Summary: SkyComputerUseService`AccessibilitySupport.ApplicationUIElement.waitForUIToSettle(delay: Swift.Optional<Swift.Double>, notificationDelay: Swift.Double, includingScrollEvents: Swift.Bool) async throws -> Swift.Optional<AccessibilitySupport.TransformedUIElement.TreeCache>
+(lldb) disassemble --start-address 0x000000010064a280 --count 1
+SkyComputerUseService`waitForUIToSettle:
+SkyComputerUseService[0x10064a280] <+0>: orr    x29, x29, #0x1000000000000000

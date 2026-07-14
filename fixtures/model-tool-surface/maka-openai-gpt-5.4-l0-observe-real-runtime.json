@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "evidenceClass": "real-runtime",
+  "policyMode": "bypassed",
+  "toolExposure": "direct-e2e",
+  "scenarioId": "l0-observe-only",
+  "producer": "cu-real-model-launcher",
+  "transportClass": "live-network",
+  "provider": "openai",
+  "model": "gpt-5.4",
+  "terminal": {
+    "type": "complete",
+    "stopReason": "end_turn",
+    "ts": 1783971635723
+  },
+  "run": {
+    "status": "completed",
+    "durationMs": 8158
+  },
+  "actionCount": 1,
+  "actionCounts": {
+    "observe": 1
+  },
+  "minimumActionsPassed": true,
+  "actions": [
+    {
+      "type": "observe",
+      "durationMs": 1069
+    }
+  ],
+  "fixtureState": {
+    "target": {
+      "verificationCode": "CUA-L0-417",
+      "interactions": 0
+    }
+  },
+  "expectedState": [
+    {
+      "windowId": "target",
+      "path": "verificationCode",
+      "equals": "CUA-L0-417",
+      "actual": "CUA-L0-417",
+      "pass": true
+    },
+    {
+      "windowId": "target",
+      "path": "interactions",
+      "equals": 0,
+      "actual": 0,
+      "pass": true
+    }
+  ],
+  "forbiddenEffects": {
+    "status": "pass",
+    "violations": []
+  },
+  "status": "pass",
+  "traces": [
+    {
+      "type": "tool_start",
+      "actionType": "observe"
+    },
+    {
+      "type": "tool_result",
+      "durationMs": 1069
+    },
+    {
+      "type": "complete"
+    }
+  ]
+}

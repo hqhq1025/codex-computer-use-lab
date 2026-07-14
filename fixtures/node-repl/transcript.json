@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "redaction": {
+    "code": "replaced with probe name and SHA-256",
+    "serverInstructions": "omitted",
+    "imageData": "replaced with byte length and SHA-256",
+    "hostPaths": "not requested by probe cells"
+  },
+  "messages": [
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "codex-cu-lab-node-repl-probe",
+          "version": "0.1.0"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "rmcp",
+          "version": "1.5.0"
+        },
+        "instructions": "<omitted: stable server instructions>"
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/list",
+      "params": {}
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "tools": [
+          {
+            "name": "js",
+            "inputSchema": {
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "description": "JavaScript source to execute in the persistent Node-backed kernel. The code runs with top-level await and can use the `nodeRepl` helpers. Examples: `nodeRepl.write(nodeRepl.cwd)`, `const { chromium } = await import(\"playwright\")`, or `await nodeRepl.emitImage(pngBuffer)`.",
+                  "type": "string"
+                },
+                "timeout_ms": {
+                  "description": "Optional execution timeout in milliseconds. Defaults to 30000 (30 seconds) when omitted.",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "title": {
+                  "description": "Short user-facing description of what this code block is doing. Use a few words, for example `Inspect package metadata` or `Render chart preview`.",
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code"
+              ],
+              "type": "object"
+            },
+            "annotations": null
+          },
+          {
+            "name": "js_add_node_module_dir",
+            "inputSchema": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "description": "Absolute path to a node_modules directory to add to Node package resolution.",
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "type": "object"
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "destructiveHint": false,
+              "openWorldHint": false
+            }
+          },
+          {
+            "name": "js_reset",
+            "inputSchema": {
+              "additionalProperties": false,
+              "properties": {},
+              "type": "object"
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "destructiveHint": false,
+              "openWorldHint": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "js",
+        "arguments": {
+          "title": "Inspect ordinary cell surface",
+          "timeout_ms": 5000,
+          "code": "<probe:ordinary-surface sha256:3653d67c34f05aeb48fdde17e4f913fc9c311d2c794f0a96e32f1169f18e4fa8>"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"globalProcessType\":\"undefined\",\"ownKeys\":[\"cwd\",\"emitImage\",\"env\",\"homeDir\",\"requestMeta\",\"setResponseMeta\",\"tmpDir\",\"write\"],\"prototypeOwnKeys\":[\"__defineGetter__\",\"__defineSetter__\",\"__lookupGetter__\",\"__lookupSetter__\",\"__proto__\",\"constructor\",\"hasOwnProperty\",\"isPrototypeOf\",\"propertyIsEnumerable\",\"toLocaleString\",\"toString\",\"valueOf\"],\"frozen\":true,\"envFrozen\":true,\"envKeys\":[],\"privileged\":{\"addAfterSubmittedCodeHook\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"gaasBrowserConfig\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"createElicitation\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"launchServices\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"nativePipe\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"withSuspendedTimeout\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"config\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"fetch\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"},\"telemetry\":{\"visible\":false,\"own\":false,\"type\":\"undefined\"}}}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "js",
+        "arguments": {
+          "title": "Verify process denial",
+          "timeout_ms": 5000,
+          "code": "<probe:process-denial sha256:bc7472b2cc87511747cfa60ff26939c1401124a649f78edc4eea87aee5cc4435>"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"globalType\":\"undefined\",\"imports\":{\"process\":{\"blocked\":true,\"name\":\"Error\",\"message\":\"Importing module \\\"process\\\" is not allowed in node_repl\"},\"node:process\":{\"blocked\":true,\"name\":\"Error\",\"message\":\"Importing module \\\"node:process\\\" is not allowed in node_repl\"}}}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "js",
+        "arguments": {
+          "title": "Create persistent binding",
+          "timeout_ms": 5000,
+          "code": "<probe:binding-create sha256:e6b40fa61d36ada2690173daf301dae84feee83e26ac08f259ca1b379f404a12>"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "41"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "js",
+        "arguments": {
+          "title": "Reuse persistent binding",
+          "timeout_ms": 5000,
+          "code": "<probe:binding-reuse sha256:3f4064bb4ef1c567b79ed3c9a33529969661e6733fb2080b2ed5092f96ba66af>"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 6,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "42"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "direction": "client->server",
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "js",
+        "arguments": {
+          "title": "Emit in-memory PNG",
+          "timeout_ms": 5000,
+          "code": "<probe:emit-image sha256:41ea27dfb5ec8f32fd5633d054833fddadea1e02f2041e835beb1d7e63113661>"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "image-emitted"
+          },
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "bytes": 68,
+            "width": 1,
+            "height": 1,
+            "sha256": "431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+            "detail": "original"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ]
+}

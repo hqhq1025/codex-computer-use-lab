@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "pluginRoot": "/Users/haoqing/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387",
+    "wrapperPath": "/Users/haoqing/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/scripts/computer-use-client.mjs",
+    "wrapperSha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+  },
+  "safety": {
+    "socketPath": "<temporary-/tmp-unix-socket>",
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false,
+    "analyticsDisabled": true
+  },
+  "approval": {
+    "requests": [
+      {
+        "message": "Allow Computer Use to use \"Sky Wire Fixture\"?",
+        "meta": {
+          "codex_approval_kind": "mcp_tool_call",
+          "connector_id": "computer-use",
+          "connector_name": "Computer Use",
+          "persist": [
+            "session",
+            "always"
+          ],
+          "riskLevel": "low",
+          "tool_params": {
+            "app": "com.example.sky-wire-fixture"
+          },
+          "tool_params_display": [
+            {
+              "name": "app",
+              "display_name": "App",
+              "value": "Sky Wire Fixture"
+            }
+          ]
+        }
+      }
+    ],
+    "responseMeta": [
+      {
+        "codex/toolSurface": {
+          "app": null,
+          "kind": "computerUse"
+        }
+      },
+      {
+        "codex/toolSurface": {
+          "app": {
+            "appId": "com.example.sky-wire-fixture",
+            "kind": "appId"
+          },
+          "kind": "computerUse"
+        }
+      }
+    ],
+    "responseMetaAfterListApps": [
+      {
+        "codex/toolSurface": {
+          "app": null,
+          "kind": "computerUse"
+        }
+      }
+    ],
+    "suspendedTimeoutCalls": 1
+  },
+  "listApps": {
+    "result": [
+      {
+        "id": "com.example.sky-wire-fixture",
+        "displayName": "Sky Wire Fixture",
+        "isRunning": true,
+        "lastUsedDate": "2026-01-02T03:04:05.000Z",
+        "useCount": 7
+      }
+    ],
+    "policyRequestCountBeforeClick": 0,
+    "approvalRequestCountBeforeClick": 0
+  },
+  "mutationTest": {
+    "callerObjectAfterCall": {
+      "app": "com.example.mutated-after-call",
+      "element_index": 999,
+      "click_count": 99,
+      "mouse_button": "right"
+    },
+    "wireApp": "/Applications/Sky Wire Fixture.app",
+    "wireAction": {
+      "click": {
+        "at": {
+          "elementID": {
+            "_0": "1"
+          }
+        },
+        "clickCount": 2,
+        "mouseButton": 1
+      }
+    },
+    "usesApprovedCanonicalAppPath": true,
+    "preservedPreAwaitSnapshot": true,
+    "getterRejected": true
+  },
+  "policyRequest": {
+    "id": 3,
+    "jsonrpc": "2.0",
+    "method": "request",
+    "params": {
+      "clientApiVersion": "CodexComputerUseIPC-2",
+      "codexTurnMetadata": {
+        "session_id": "fixture-session",
+        "turn_id": "fixture-turn",
+        "source": "wrapper-policy-probe"
+      },
+      "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+      "request": {
+        "app": "com.example.sky-wire-fixture"
+      },
+      "requestType": "ComputerUseIPCAppPolicyRequest"
+    }
+  },
+  "actionRequest": {
+    "id": 4,
+    "jsonrpc": "2.0",
+    "method": "request",
+    "params": {
+      "clientApiVersion": "CodexComputerUseIPC-2",
+      "codexTurnMetadata": {
+        "session_id": "fixture-session",
+        "turn_id": "fixture-turn",
+        "source": "wrapper-policy-probe"
+      },
+      "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+      "request": {
+        "app": "/Applications/Sky Wire Fixture.app",
+        "action": {
+          "click": {
+            "at": {
+              "elementID": {
+                "_0": "1"
+              }
+            },
+            "clickCount": 2,
+            "mouseButton": 1
+          }
+        }
+      },
+      "requestType": "ComputerUseIPCAppPerformActionRequest"
+    }
+  },
+  "exchanges": [
+    {
+      "sequence": 1,
+      "request": {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "method": "ping",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2"
+        }
+      },
+      "response": {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "result": {
+          "serverApiVersion": "CodexComputerUseIPC-2"
+        }
+      }
+    },
+    {
+      "sequence": 2,
+      "request": {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "wrapper-policy-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {},
+          "requestType": "ComputerUseIPCListAppsRequest"
+        }
+      },
+      "response": {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "appPath": "/Applications/Sky Wire Fixture.app",
+            "bundleIdentifier": "com.example.sky-wire-fixture",
+            "displayName": "Sky Wire Fixture",
+            "isFrontmost": true,
+            "isRunning": true,
+            "lastUsedDate": "2026-01-02T03:04:05.000Z",
+            "useCount": 7
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "request": {
+        "id": 3,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "wrapper-policy-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture"
+          },
+          "requestType": "ComputerUseIPCAppPolicyRequest"
+        }
+      },
+      "response": {
+        "id": 3,
+        "jsonrpc": "2.0",
+        "result": {
+          "allowPersistentApproval": true,
+          "decision": "allowed",
+          "target": {
+            "appPath": "/Applications/Sky Wire Fixture.app",
+            "bundleIdentifier": "com.example.sky-wire-fixture",
+            "displayName": "Sky Wire Fixture",
+            "risk": "low",
+            "warningSubtitle": null
+          }
+        }
+      }
+    },
+    {
+      "sequence": 4,
+      "request": {
+        "id": 4,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "wrapper-policy-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "/Applications/Sky Wire Fixture.app",
+            "action": {
+              "click": {
+                "at": {
+                  "elementID": {
+                    "_0": "1"
+                  }
+                },
+                "clickCount": 2,
+                "mouseButton": 1
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "response": {
+        "id": 4,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    }
+  ]
+}

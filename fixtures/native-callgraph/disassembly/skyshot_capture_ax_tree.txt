@@ -1,0 +1,8 @@
+1001b6bfc: 390122c3    	strb	w3, [x22, #0x48]
+1001b6c00: a90252c2    	stp	x2, x20, [x22, #0x20]
+1001b6c04: a90106c0    	stp	x0, x1, [x22, #0x10]
+1001b6c08: 90000000    	adrp	x0, 0x1001b6000 <__text+0x1b3950>
+1001b6c0c: 91307000    	add	x0, x0, #0xc1c
+1001b6c10: d2800001    	mov	x1, #0x0                ; =0
+1001b6c14: d2800002    	mov	x2, #0x0                ; =0
+1001b6c18: 142c7521    	b	0x100cd409c <_xpc_pipe_routine_reply+0x100cd409c>

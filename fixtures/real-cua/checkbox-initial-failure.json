@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-checkbox-before-native-role-preservation",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "label": "CUA Lab Checkbox",
+    "accessibilityIdentifier": "cua.lab.checkbox"
+  },
+  "productionCall": {
+    "requestSent": true,
+    "actionReturnedError": false
+  },
+  "accessibilityBefore": {
+    "line": "13 unknown CUA Lab Checkbox, ID: cua.lab.checkbox",
+    "role": "unknown",
+    "secondaryActionsExposed": false
+  },
+  "oracle": {
+    "expectedChecked": true,
+    "actualChecked": false,
+    "lastAction": "reset",
+    "passed": false
+  },
+  "rootCause": "The synthetic marker helper forced NSControl to be a generic accessibility element, replacing the native checkbox role and press behavior.",
+  "boundary": "This failure diagnosed the synthetic AppKit accessibility wrapper, not the production Computer Use transport."
+}

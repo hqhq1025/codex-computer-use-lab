@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "service": {
+    "path": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+    "bytes": 18739648,
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "version": "26.710.1000387"
+  },
+  "evidence": {
+    "symbols": {
+      "isWebBrowser": {
+        "address": "0x0000000100657100",
+        "marker": "AccessibilitySupport20ApplicationUIElementV12isWebBrowserSbvg"
+      },
+      "webAreaUrl": {
+        "address": "0x000000010066b8fc",
+        "marker": "AccessibilitySupport16WebAreaUIElementV3url10Foundation3URLVSgvg"
+      },
+      "elementUrl": {
+        "address": "0x000000010070b0a8",
+        "marker": "AccessibilitySupport17UIElementProtocolPAAE3url10Foundation3URLVSgvg"
+      },
+      "urlPolicyNotification": {
+        "address": "0x00000001000e7b58",
+        "marker": "eventStreamServiceURLPolicyStateDidChange"
+      },
+      "appPolicyProvider": {
+        "address": "0x0000000100fa6e98",
+        "marker": "_OBJC_CLASS_$__TtC11ComputerUse39CodexAppServerComputerUsePolicyProvider"
+      },
+      "urlBlocklistCache": {
+        "address": "0x0000000100fa7468",
+        "marker": "_OBJC_CLASS_$__TtC11ComputerUse28ComputerUseURLBlocklistCache"
+      }
+    },
+    "strings": {
+      "addressField": {
+        "fileOffset": "0xce0650",
+        "value": "WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD"
+      },
+      "accountHeader": {
+        "fileOffset": "0xce1600",
+        "value": "ChatGPT-Account-ID"
+      },
+      "featureStatus": {
+        "fileOffset": "0xcde931",
+        "value": "feature_status"
+      },
+      "stopped": {
+        "fileOffset": "0xce1620",
+        "value": "Computer Use stopped due to encountering a disallowed URL: "
+      },
+      "blockedUserMessage": {
+        "fileOffset": "0xd056b0",
+        "value": "This session has been stopped because Computer Use is not allowed on the current browser URL."
+      },
+      "failOpenLog": {
+        "fileOffset": "0xe472a0",
+        "value": "URL blocklist check failed for %s: %{public}s"
+      }
+    },
+    "recoveredAddresses": {
+      "checkerFailureLog": "0x1001427d4",
+      "checkerFailOpenReturn": "0x1001428ac",
+      "urlObservationCallback": "0x1000a55b4",
+      "blockedCompletion": "0x1000a546c",
+      "blockedLogReference": "0x1000a5538",
+      "actionHandler": "0x10012df9c",
+      "getStateHandler": "0x100136904",
+      "requestHandler": "0x10013f9e4"
+    }
+  },
+  "contracts": {
+    "onlyWebBrowsersUseUrlPolicy": true,
+    "currentUrlComesFromAccessibility": true,
+    "checkerReturnsIsAllowedAndServiceStoresIsBlocked": true,
+    "checkerFailureBehavior": "fail-open",
+    "blockedUrlErrorCode": -10015,
+    "urlChangesAreObservedAsynchronously": true,
+    "actionAndUrlPolicyAreNotAtomic": true,
+    "acceptedSideEffectsCannotBeRolledBackAfterBlockedRedirect": true
+  },
+  "unknowns": [
+    "Address-field versus WebArea URL priority is not recovered.",
+    "Aura endpoint path, response schema, and concrete TTL constants remain private.",
+    "Only AX-visible current URL is confirmed; HTTP redirect intermediates are not observed."
+  ],
+  "safety": {
+    "staticBinaryReadOnly": true,
+    "auraNetworkContacted": false,
+    "uiActionsExecuted": false
+  }
+}

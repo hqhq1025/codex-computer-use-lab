@@ -1,0 +1,20 @@
+caller_id	site	kind	target	target_symbol
+ipc_request_dispatch	0x10013fa14	direct-bl	0x10000ea98	anonymous-function@0x000000010000ea98
+ipc_request_dispatch	0x10013fa68	direct-bl	0x100cd400c	_swift_task_alloc
+ipc_request_dispatch	0x10013faac	indirect-branch	x4	register:x4
+perform_action_request	0x10012dfbc	direct-bl	0x1001e64d0	type metadata accessor for SystemSoftware.ApplicationTarget
+perform_action_request	0x10012dfd0	direct-bl	0x100cd400c	_swift_task_alloc
+perform_action_request	0x10012dff4	direct-tail-b	0x100cd409c	_swift_task_switch
+get_skyshot_request	0x10013693c	direct-bl	0x100cd400c	_swift_task_alloc
+get_skyshot_request	0x100136970	direct-tail-b	0x10012c14c	anonymous-function@0x000000010012c14c
+skyshot_capture_ax_tree	0x1001b6c18	direct-tail-b	0x100cd409c	_swift_task_switch
+skyshot_capture_screenshot	0x1001b7d08	direct-tail-b	0x100cd409c	_swift_task_switch
+wait_for_ui_to_settle	0x10064a2b0	direct-bl	0x1006be6c8	type metadata accessor for AccessibilitySupport.TransformedUIElement.TreeCache
+wait_for_ui_to_settle	0x10064a2cc	direct-bl	0x100cd400c	_swift_task_alloc
+wait_for_ui_to_settle	0x10064a2d8	direct-bl	0x100cd400c	_swift_task_alloc
+wait_for_ui_to_settle	0x10064a2e4	direct-bl	0x100cd127c	local-stub@0x0000000100cd127c
+wait_for_ui_to_settle	0x10064a300	direct-bl	0x100cd400c	_swift_task_alloc
+wait_for_ui_to_settle	0x10064a30c	direct-bl	0x100cd400c	_swift_task_alloc
+wait_for_ui_to_settle	0x10064a318	direct-bl	0x100cd1294	local-stub@0x0000000100cd1294
+wait_for_ui_to_settle	0x10064a334	direct-bl	0x100cd400c	_swift_task_alloc
+wait_for_ui_to_settle	0x10064a358	direct-tail-b	0x100cd409c	_swift_task_switch

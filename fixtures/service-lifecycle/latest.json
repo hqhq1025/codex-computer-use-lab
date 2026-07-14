@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-07-12T13:42:30Z",
+  "artifact": {
+    "chatgptVersion": "26.707.51957",
+    "chatgptBuild": "5175",
+    "computerUseVersion": "26.710.1000387",
+    "computerUseBuild": "1000387",
+    "macOSVersion": "26.5.2",
+    "architecture": "arm64",
+    "serviceExecutableSha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "sourceCacheCanonicalHashesMatch": true
+  },
+  "processTree": {
+    "electronMain": {
+      "pid": 94159,
+      "parentPid": 1,
+      "startedLocal": "2026-07-12T15:17:30+08:00",
+      "launchdKind": "submitted_application_job"
+    },
+    "appServer": {
+      "pid": 94341,
+      "parentPid": 94159,
+      "startedLocal": "2026-07-12T15:17:36+08:00"
+    },
+    "skyService": {
+      "pid": 94559,
+      "parentPid": 94159,
+      "startedLocal": "2026-07-12T15:17:42+08:00",
+      "launchdKind": "unmanaged_process"
+    },
+    "guardian": {
+      "pid": 81912,
+      "parentPid": 94559,
+      "startedLocal": "2026-07-12T20:18:47+08:00",
+      "launchdKind": "unmanaged_process",
+      "observedAtAppStartup": false,
+      "observedAfterLockedExperiment": true
+    },
+    "nodeReplCount": 56,
+    "separateComputerUseLaunchAgentFound": false,
+    "separateComputerUseLaunchDaemonFound": false
+  },
+  "spawnAndRecovery": {
+    "electronManagerChecksCachedPid": true,
+    "electronManagerChecksExactExecutablePath": true,
+    "electronManagerSpawnsThroughSkyNode": true,
+    "skyNodeUsesPosixSpawn": true,
+    "skyNodeUsesResponsibilitySpawnDisclaim": true,
+    "electronManagerExplicitKillInSelectedClass": false,
+    "nativeLifecycleSymbols": {
+      "lifecycleMode": true,
+      "inactivityTask": true,
+      "managedCodexOwnerExitSource": true,
+      "clientExitSources": true,
+      "terminatesWhenNoActiveIPCClients": true,
+      "shouldTerminateWhenNoClientsRemain": true,
+      "idleTimeoutAnalyticsEvent": true
+    },
+    "currentLifecycleMode": "unknown",
+    "idleTimeoutSeconds": "unknown",
+    "noClientTerminationPolicy": "unknown",
+    "guardianExitPolicy": "unknown"
+  },
+  "upgradeTimeline": {
+    "chatgptStartedLocal": "2026-07-12T15:17:30+08:00",
+    "canonicalExecutableCtimeLocal": "2026-07-12T15:17:36+08:00",
+    "skyServiceStartedLocal": "2026-07-12T15:17:42+08:00",
+    "ordinarySocketCreatedLocal": "2026-07-12T15:17:43+08:00",
+    "pluginCacheRootCreatedLocal": "2026-07-12T15:17:48+08:00",
+    "canonicalRefreshPreservesSourceMtime": true,
+    "observedOrder": [
+      "chatgpt_start",
+      "canonical_refresh",
+      "app_server_start",
+      "sky_service_spawn",
+      "ordinary_socket_listen",
+      "plugin_cache_materialization_complete"
+    ],
+    "separateServiceUpdaterFound": false,
+    "chatgptSparkleStatePresent": true,
+    "oldCacheEvictionPolicy": "unknown"
+  },
+  "ipc": {
+    "ordinary": {
+      "directoryMode": "700",
+      "lockFileMode": "600",
+      "socketMode": "600",
+      "listenerHeldBySkyService": true,
+      "collectorConnected": false
+    },
+    "guardian": {
+      "transport": "anonymous_xpc_endpoint_via_mach_bootstrap_rendezvous",
+      "guardianNamedUnixSocketFound": false,
+      "threadBoundUnlockGuards": true,
+      "connectionLossFailClosedRelock": true,
+      "physicalInputFailClosedRelock": true
+    },
+    "authorizationBroker": {
+      "socketModeWhenLinked": "666",
+      "listenerHeldBySkyService": true,
+      "pathnameObservedUnlinkedWhileFdOpen": true,
+      "peerAuditTokenCheck": true,
+      "peerSigningIdentifierCheck": true,
+      "peerTeamIdentifierCheck": true,
+      "pathnameUnlinkTrigger": "unknown"
+    },
+    "pip": {
+      "launchdDynamicEndpointPresent": true,
+      "endpointName": "com.openai.codex.remote-hosted-pip-content",
+      "hostProcess": "electron_main",
+      "producerProcess": "sky_service",
+      "transport": "xpc_remote_layer_presentation",
+      "activePresentationAtFinalInstant": "unknown"
+    }
+  },
+  "trustBoundary": {
+    "signing": {
+      "strictVerificationPassedForAllInspectedComponents": true,
+      "teamIdentifier": "2DC432GLL2",
+      "hardenedRuntimePresent": true
+    },
+    "entitlements": {
+      "chatgptAppSandbox": true,
+      "skyServiceAppSandbox": false,
+      "skyServiceAppGroup": true,
+      "skyServiceKeychainGroup": true,
+      "guardianEntitlementKeysObserved": 0,
+      "installerEntitlementKeysObserved": 0,
+      "authorizationPluginEntitlementKeysObserved": 0
+    },
+    "tcc": {
+      "chatgptAccessibility": "allowed",
+      "chatgptScreenCapture": "allowed",
+      "skyServiceAccessibility": "allowed",
+      "skyServiceScreenCapture": "allowed",
+      "guardianRowsObserved": 0,
+      "clientRowsObserved": 0
+    },
+    "lockedUse": {
+      "embeddedAuthorizationPluginSigned": true,
+      "installedAuthorizationPlugin": false,
+      "authorizationDbReferencesPlugin": false,
+      "effectiveManagedRequirement": "unset",
+      "ready": false
+    }
+  },
+  "runtimeObservability": {
+    "eightHourServiceAndGuardianLogAggregate": {
+      "records": 92196,
+      "skyServiceRecords": 92038,
+      "guardianRecords": 158,
+      "topSubsystemCounts": {
+        "empty": 59604,
+        "com.apple.coremedia": 24480,
+        "com.apple.xpc": 2407,
+        "com.apple.TCC": 1860,
+        "com.apple.network": 1851,
+        "inc.software.app": 551,
+        "com.apple.CFNetwork": 427,
+        "com.apple.appleevents": 310
+      },
+      "selectedCategoryCounts": {
+        "Computer Use": 88,
+        "Accessibility": 170,
+        "Screenshot Implementation": 52,
+        "Computer Use Cursor": 43,
+        "SystemFocusStealPreventer": 34,
+        "Security": 12
+      },
+      "rawEventsStored": false
+    },
+    "twoHourPipAggregate": {
+      "remoteHostedPipRecords": 518,
+      "genericPresentationPublishMarkers": 14,
+      "explicitBrowserUsePublishMarkers": 1,
+      "presentationIdentifiersStored": false
+    },
+    "exactNamedSkysightRecordsInEightHours": 0,
+    "exactNamedEventStreamRecordsInEightHours": 0,
+    "publicOsLogFormatStringCount": 95,
+    "privateOsLogFormatStringCount": 0,
+    "instantaneousTcpUdpFds": 0,
+    "intermittentNetworkFrameworkEvidence": true,
+    "networkDestinationsCollected": false,
+    "networkBodiesCollected": false
+  },
+  "retention": {
+    "canonicalApp": {
+      "persistent": true,
+      "cleanup": "whole_target_replacement_on_refresh"
+    },
+    "pluginCache": {
+      "currentVersionDirectoryCount": 1,
+      "oldVersionCleanup": "unknown"
+    },
+    "ordinarySocketLockFile": {
+      "persistentAcrossObservedServiceStarts": true,
+      "bytes": 0
+    },
+    "screenshots": {
+      "currentTemporaryFileCount": 0,
+      "currentOpenFdCount": 0,
+      "productionExperimentCleanup": "removed_after_target_app_session_end",
+      "exactCleanupOwner": "unknown"
+    },
+    "skysight": {
+      "currentSegmentFileCount": 0,
+      "currentOpenFdCount": 0,
+      "rawSegmentStaticDescription": "ephemeral_not_persisted",
+      "clearHistoryApiPresent": true,
+      "durableSummaryStore": "unknown"
+    },
+    "eventStream": {
+      "genericMatchingTemporaryFileCount": 1,
+      "genericFileAttributedToComputerUse": false,
+      "exactSessionRoot": "unknown",
+      "currentRecording": "unknown"
+    },
+    "pip": {
+      "dedicatedPersistentStoreFound": false,
+      "connectionAndTurnCleanupMethodsPresent": true
+    },
+    "analyticsDatabase": {
+      "bytes": 598016,
+      "analyticsEventRows": 0,
+      "distinctIdRows": 2,
+      "distinctIdAliasRows": 0,
+      "journalMode": "delete",
+      "secureDelete": "FAST",
+      "autoVacuum": "incremental",
+      "pageCount": 146,
+      "freelistPageCount": 138,
+      "payloadBodiesRead": false,
+      "deletedPayloadRecoverability": "unknown"
+    },
+    "statsigPreferences": {
+      "topLevelKeyCount": 5,
+      "localStorageDataBytes": 412859,
+      "stableIdCharacterCount": 36,
+      "valuesCopied": false
+    },
+    "urlCache": {
+      "responseRows": 1,
+      "blobRows": 1,
+      "receiverRows": 1,
+      "urlOrBodyRead": false
+    },
+    "httpStorage": {
+      "altServiceRows": 0,
+      "hostOrBodyRead": false
+    }
+  },
+  "unknowns": [
+    "current_managed_lifecycle_mode",
+    "service_idle_timeout_seconds",
+    "no_client_termination_policy",
+    "guardian_exit_policy",
+    "authorization_broker_pathname_unlink_trigger",
+    "current_skysight_eligibility",
+    "skysight_durable_summary_store",
+    "current_event_stream_recording",
+    "event_stream_exact_session_root",
+    "current_pip_active_presentation_count",
+    "telemetry_destinations_and_payloads",
+    "plugin_cache_old_version_eviction",
+    "analytics_deleted_payload_recoverability"
+  ],
+  "safety": {
+    "readOnly": true,
+    "realComputerUseSocketConnected": false,
+    "realActionTriggered": false,
+    "processRestartedOrTerminated": false,
+    "installerExecuted": false,
+    "tccModified": false,
+    "authorizationDbModified": false,
+    "rawUnifiedLogsStored": false,
+    "screenshotPixelsRead": false,
+    "accessibilityTextRead": false,
+    "approvalContentsRead": false,
+    "eventStreamContentsRead": false,
+    "analyticsPayloadsRead": false,
+    "networkBodiesRead": false
+  }
+}

@@ -1,0 +1,1097 @@
+{
+  "schemaVersion": 2,
+  "artifacts": {
+    "desktop": {
+      "version": "26.707.71524",
+      "build": "5263",
+      "asar": {
+        "path": "$APP/Contents/Resources/app.asar",
+        "bytes": 195069720,
+        "sha256": "d28f31b4bbb04c519be65c2af8277d8c5faf77b4239ee89b928f0a7423dacd84"
+      }
+    },
+    "codex": {
+      "path": "$APP/Contents/Resources/codex",
+      "bytes": 260354768,
+      "sha256": "28699add67540b93390329a740649a9eb9bdbc5538d92c1679c8c6b6fa2c623c",
+      "version": "0.144.0-alpha.4",
+      "sourceCommit": "049586f41571e74b44c841868bca3a2233214a71"
+    },
+    "nodeRepl": {
+      "path": "$APP/Contents/Resources/cua_node/bin/node_repl",
+      "bytes": 15869952,
+      "sha256": "3eec7a8ae812c1c0230474d44700e57725dc347116116c4e6aa67c79418d730f",
+      "archive": "20260707.2",
+      "runtimeArchiveVersion": "0.0.3/20260708050802-66a5641b5362-pr-1103797"
+    },
+    "plugin": {
+      "id": "computer-use@openai-bundled",
+      "version": "1.0.1000387",
+      "cacheRoot": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387",
+      "bundledContentVariant": "node-repl",
+      "skill": {
+        "path": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/skills/computer-use/SKILL.md",
+        "bytes": 12942,
+        "sha256": "8e6a753cb166190a7f573b04dc73ae13a1c991497c77f0ef07e0c3e71d143a08"
+      },
+      "wrapper": {
+        "path": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/scripts/computer-use-client.mjs",
+        "bytes": 2461,
+        "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+      }
+    },
+    "policy": {
+      "path": "$APP/Contents/Resources/cua_node/lib/node_modules/@oai/sky/dist/project/cua/sky_js/src/targets/mac/computer-use-policy.js",
+      "bytes": 3407,
+      "sha256": "796af1a9d3eaa6ead62f7734a1009492a56a566d20431a58a01ceb2e0abd46ca"
+    }
+  },
+  "promptSurfaces": {
+    "initialSkillsCatalog": {
+      "role": "developer",
+      "fields": [
+        "name",
+        "description",
+        "path"
+      ],
+      "fullSkillBodyIncluded": false,
+      "computerUseEntry": {
+        "name": "computer-use:computer-use",
+        "description": "Control local Mac apps through Computer Use for tasks that require reading or operating app UI. Prefer purpose-built connectors, APIs, or CLIs when available.",
+        "path": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/skills/computer-use/SKILL.md"
+      },
+      "source": {
+        "session": {
+          "path": "$CODEX_SOURCE/core/src/session/mod.rs",
+          "bytes": 159454,
+          "sha256": "0a1045a7c54655df6743f2bab9275001e772c5b3e695dc8e07d63d1fd9d39a14",
+          "anchors": [
+            {
+              "marker": "let skills_instructions = AvailableSkillsInstructions::from_available_skills",
+              "byteOffset": 128811
+            },
+            {
+              "marker": "developer_sections.push(skills_instructions.render())",
+              "byteOffset": 129411
+            }
+          ]
+        },
+        "render": {
+          "path": "$CODEX_SOURCE/core-skills/src/render.rs",
+          "bytes": 62318,
+          "sha256": "de34f5040eb8a0cb80c577279b85801cb5127c5fc35cbd29989f669338851a37",
+          "anchors": [
+            {
+              "marker": "fn render_with_description(&self, description: &str)",
+              "byteOffset": 22517
+            },
+            {
+              "marker": "format!(\"- {}: {} (file: {})\"",
+              "byteOffset": 22430
+            }
+          ]
+        }
+      }
+    },
+    "explicitSkillMention": {
+      "role": "user",
+      "structuredInputResolvedByPathFirst": true,
+      "textMentionSyntaxSupported": true,
+      "fullSkillBodyIncluded": true,
+      "wrapper": {
+        "opening": "<skill>",
+        "fields": [
+          "name",
+          "path",
+          "contents"
+        ],
+        "closing": "</skill>"
+      },
+      "bodyBytes": 12942,
+      "bodySha256": "8e6a753cb166190a7f573b04dc73ae13a1c991497c77f0ef07e0c3e71d143a08",
+      "productionRequestBodyCaptured": false,
+      "source": {
+        "injection": {
+          "path": "$CODEX_SOURCE/core-skills/src/injection.rs",
+          "bytes": 16290,
+          "sha256": "5ddef9da885d91e8882b9a6e059bd5914f6f9fe42b4ecf4efc1699f912d1fabe",
+          "anchors": [
+            {
+              "marker": "pub async fn build_skill_injections",
+              "byteOffset": 1797
+            },
+            {
+              "marker": "pub fn collect_explicit_skill_mentions",
+              "byteOffset": 4941
+            }
+          ]
+        },
+        "fragment": {
+          "path": "$CODEX_SOURCE/core-skills/src/skill_instructions.rs",
+          "bytes": 941,
+          "sha256": "83d511c0e5663432739e2cce091f012dbca39abce75a5b411f4355058ff61319",
+          "anchors": [
+            {
+              "marker": "(\"<skill>\", \"</skill>\")",
+              "byteOffset": 740
+            },
+            {
+              "marker": "fn body(&self) -> String",
+              "byteOffset": 775
+            }
+          ]
+        }
+      }
+    },
+    "nodeReplInitialize": {
+      "bytes": 1180,
+      "sha256": "4a5fb9fb0998e492da5ddb0600166ef6af0b443e99e7601a4ea64448bcfdf292",
+      "protocolVersion": "2025-06-18",
+      "serverInfo": {
+        "name": "rmcp",
+        "version": "1.5.0"
+      },
+      "containsUseCases": {
+        "browser": true,
+        "chrome": true,
+        "computerUse": true
+      },
+      "bodyCollected": false
+    },
+    "toolSearchNamespace": {
+      "namespace": "mcp__node_repl",
+      "descriptionComesFromMcpInitializeInstructions": true,
+      "searchIndexFields": [
+        "canonical tool name",
+        "callable name",
+        "raw MCP tool name",
+        "server name",
+        "title",
+        "description",
+        "namespace description",
+        "schema property names"
+      ],
+      "source": {
+        "rmcp": {
+          "path": "$CODEX_SOURCE/codex-mcp/src/rmcp_client.rs",
+          "bytes": 41071,
+          "sha256": "5196ec5ea766c777eb8cb77663bf22ad3f2b0e65b1ed90f9bb76d96cfdcb6dbe",
+          "anchors": [
+            {
+              "marker": "namespace_description: server_instructions.map(str::to_string)",
+              "byteOffset": 27153
+            },
+            {
+              "marker": "server_instructions: initialize_result.instructions",
+              "byteOffset": 31355
+            }
+          ]
+        },
+        "toolSearchSpec": {
+          "path": "$CODEX_SOURCE/core/src/tools/handlers/tool_search_spec.rs",
+          "bytes": 4751,
+          "sha256": "de0b94f600211d41566ce129a58e655dab435656d5113fa156ee3baf0fbe342a",
+          "anchors": [
+            {
+              "marker": "Searches over deferred tool metadata with BM25",
+              "byteOffset": 1586
+            },
+            {
+              "marker": "source.description.clone()",
+              "byteOffset": 971
+            }
+          ]
+        },
+        "searchText": {
+          "path": "$CODEX_SOURCE/core/src/tools/handlers/mcp.rs",
+          "bytes": 19912,
+          "sha256": "4f09adb59d617f062f0db40cdfbd8b8aad0794e1716d2f9042dc70bf264c3c97",
+          "anchors": [
+            {
+              "marker": "fn build_mcp_search_text",
+              "byteOffset": 8828
+            },
+            {
+              "marker": "parts.extend(schema_properties)",
+              "byteOffset": 10327
+            }
+          ]
+        }
+      }
+    }
+  },
+  "responses": {
+    "observedAt": "2026-07-13 01:46:52",
+    "toolCount": 15,
+    "topLevelTools": [
+      {
+        "type": "function",
+        "name": "exec_command",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "write_stdin",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "list_mcp_resources",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "list_mcp_resource_templates",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "read_mcp_resource",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "update_plan",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "request_user_input",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "custom",
+        "name": "apply_patch",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "view_image",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "get_goal",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "create_goal",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "function",
+        "name": "update_goal",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "namespace",
+        "name": "codex_app",
+        "deferred": false,
+        "members": [
+          "load_workspace_dependencies",
+          "navigate_to_codex_page",
+          "read_thread_terminal"
+        ]
+      },
+      {
+        "type": "tool_search",
+        "name": "",
+        "deferred": false,
+        "members": []
+      },
+      {
+        "type": "web_search",
+        "name": "",
+        "deferred": false,
+        "members": []
+      }
+    ],
+    "hasToolSearch": true,
+    "hasNativeComputerTool": false,
+    "hasTopLevelNodeRepl": false,
+    "deferredSequence": {
+      "source": "sanitized-event-types-from-local-rollout",
+      "eventCount": 108,
+      "events": [
+        {
+          "timestamp": "2026-07-12T09:40:30.319Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T09:45:07.808Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T09:45:54.438Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T09:46:15.275Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T09:46:31.687Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T09:46:44.938Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T09:47:06.151Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:18:46.594Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:49:00.363Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:49:58.448Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:50:08.498Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:50:25.183Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:54:00.540Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:54:25.778Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:56:38.435Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:56:49.187Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:57:08.592Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:58:17.444Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:58:34.962Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:58:52.782Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T12:59:26.021Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:00:09.931Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:10:36.065Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:10:46.059Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:11:10.602Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:11:57.215Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:12:08.005Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:12:21.424Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:13:13.850Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:13:35.693Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:15:40.997Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T13:16:59.077Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T13:17:38.858Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:17:52.161Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:18:14.145Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:20:52.184Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:27:48.181Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:28:50.625Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:30:54.123Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:31:09.501Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:34:43.797Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:35:11.346Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:39:25.724Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:39:38.447Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:41:51.574Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:42:06.940Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:42:20.428Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:42:26.565Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:43:48.703Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:44:05.462Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:46:11.432Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:49:31.319Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:49:57.804Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:51:10.403Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T13:57:10.672Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:57:33.278Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T13:59:18.747Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T14:00:02.595Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T14:02:07.539Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T14:03:06.168Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T14:03:41.874Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T15:44:59.011Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T15:55:18.516Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T15:55:47.554Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T15:56:35.626Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T15:56:59.493Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T15:58:37.873Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:01:15.730Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:02:30.800Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:05:17.119Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:08:49.974Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:21:17.235Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-12T16:46:45.454Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-12T16:50:02.115Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T04:31:09.732Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T04:33:36.811Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T04:34:01.271Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T04:41:43.630Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T04:42:16.748Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T04:46:34.891Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T04:50:15.098Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T04:55:29.770Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:01:14.614Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T05:03:41.089Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T05:03:53.528Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:08:05.959Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:08:56.768Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:09:39.563Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:11:41.811Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:14:15.088Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:56:27.169Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        },
+        {
+          "timestamp": "2026-07-13T05:57:53.390Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T05:58:19.046Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:01:01.020Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:02:41.510Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:16:29.768Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:25:44.614Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:26:06.893Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:39:54.128Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:40:15.033Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:41:48.003Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:49:21.842Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:52:48.331Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:53:38.882Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:54:14.736Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T06:55:37.682Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T07:10:17.197Z",
+          "type": "function_call",
+          "namespace": "mcp__node_repl",
+          "name": "js"
+        },
+        {
+          "timestamp": "2026-07-13T07:27:18.751Z",
+          "type": "tool_search_call",
+          "namespace": null,
+          "name": null
+        }
+      ],
+      "toolSearchPrecedesNodeRepl": true
+    },
+    "deferredCallShape": {
+      "namespace": "mcp__node_repl",
+      "name": "js"
+    }
+  },
+  "execution": {
+    "wrapperImport": {
+      "usesPluginOwnedWrapper": true,
+      "importsPackagedCreateClientFromNodeModuleDirs": true,
+      "createClientArguments": {
+        "target": "mac"
+      },
+      "wrapper": {
+        "path": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/scripts/computer-use-client.mjs",
+        "bytes": 2461,
+        "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+      }
+    },
+    "computerUseFacadeIsMcpToolSet": false,
+    "computerUseFacadeMethodCount": 10
+  },
+  "resultFlows": {
+    "model": {
+      "usesStructuredContentFirst": true,
+      "fallsBackToContent": true,
+      "includesMeta": false,
+      "source": {
+        "path": "$CODEX_SOURCE/protocol/src/models.rs",
+        "bytes": 126684,
+        "sha256": "882d00aa17a414b417376a86b4c01e5a80d253eeee72b3eecac140433519111d",
+        "anchors": [
+          {
+            "marker": "pub fn as_function_call_output_payload",
+            "byteOffset": 70878
+          },
+          {
+            "marker": "structured_content",
+            "byteOffset": 70694
+          },
+          {
+            "marker": "convert_mcp_content_to_items",
+            "byteOffset": 72111
+          }
+        ]
+      }
+    },
+    "desktop": {
+      "includesMetaBelowSerializedBytes": 1048576,
+      "metaClearedAboveSerializedBytes": 1048576,
+      "lateBindingKey": "codex/toolSurface",
+      "lateBindingValueKind": "computerUse",
+      "source": {
+        "eventTruncation": {
+          "path": "$CODEX_SOURCE/core/src/mcp_tool_call.rs",
+          "bytes": 76927,
+          "sha256": "853361804f7eb4c18aacc0e800d3d9b895ac3c41a0f48d4189914ef2be273246",
+          "anchors": [
+            {
+              "marker": "MCP_TOOL_CALL_EVENT_RESULT_MAX_BYTES",
+              "byteOffset": 5419
+            },
+            {
+              "marker": "meta: None",
+              "byteOffset": 30749
+            }
+          ]
+        },
+        "renderer": {
+          "id": "node-repl-computer-use-env",
+          "role": "main",
+          "file": ".vite/build/main-NFVREb5D.js",
+          "fileOffset": 21581,
+          "anchor": "SKY_CUA_SERVICE_PATH",
+          "nearbySymbols": [
+            "tn",
+            "tee",
+            "nn",
+            "rn"
+          ],
+          "markers": [
+            "NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE",
+            "SKY_CUA_SERVICE_PATH",
+            "serviceAppPath"
+          ],
+          "context": "Map(e=>t.filter(t=>t.name===e))}function rn({marketplaceName:e,marketplaces:t,pluginName:n}){for(let r of nn({marketplaceName:e,marketplaces:t})){let e=r.plugins.find(e=>e.name===n);if(r.path!=null&&e!=null)return{marketplace:{...r,path:r.path},plugin:e}}return null}var an=`mcp_servers.${n.ws}`,on=`NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE`,sn=`SKY_CUA_SERVICE_PATH`,cn=`SKY_CUA_NATIVE_PIPE`,ln=`SKY_CUA_NATIVE_PIPE_DIRECTORY`,un=`Codex Computer Use.app`,dn=`\\\\\\\\.\\\\pipe\\\\codex-computer-use-${(0,f.randomUUID)()}`;function fn({nativePipeDirectory:e,nativePipeEnabled:t=!1,serviceAppPath:n}={}){return{...n==null?{}:{[sn]:n},...t?{[cn]:`1`,[ln]:e??dn}:{}}}function pn({env:e=process.env,installedPluginServiceAppPath:t,pathExists:n=p.existsSync}){let r=e[sn]?.trim();if(r)return r;let i=t?.trim();return i&&n(i)?i:null}function mn({env:e=process.env,installedPluginRoot:t,pathExists:n=p.existsSync}={}){let r=t?.trim()||null;return{serviceAppPath:pn({env:e,installedPluginServiceAppPath:r==null?null:u.default.join(r,un),pathExists:n})}}function hn({codexHome:e,env:t=process.env,marketplaceName:r=n.Ms(i.a.resolve()"
+        },
+        "policy": {
+          "path": "$APP/Contents/Resources/cua_node/lib/node_modules/@oai/sky/dist/project/cua/sky_js/src/targets/mac/computer-use-policy.js",
+          "bytes": 3407,
+          "sha256": "796af1a9d3eaa6ead62f7734a1009492a56a566d20431a58a01ceb2e0abd46ca"
+        }
+      }
+    }
+  },
+  "schemaDrift": {
+    "rawMcpJs": {
+      "timeoutMinimum": 1,
+      "titleMinimumLength": 1,
+      "titleMaximumLength": 80
+    },
+    "toolSearchOutput": {
+      "numericAndStringBoundsPreserved": false,
+      "typeRequiredAndAdditionalPropertiesPreserved": true
+    }
+  },
+  "unknowns": [
+    "A current production Responses request containing the explicit Computer Use SKILL.md body was not captured.",
+    "The server-side mechanism that authorizes a function exposed only through tool_search_output remains private.",
+    "The current app launch was not traced to distinguish a fresh plugin-cache copy from cache reuse."
+  ],
+  "safety": {
+    "promptBodiesCollected": false,
+    "toolArgumentsCollected": false,
+    "screenshotsCollected": false,
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false
+  }
+}

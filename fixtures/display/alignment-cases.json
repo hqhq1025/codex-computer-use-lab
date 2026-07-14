@@ -1,0 +1,96 @@
+{
+  "cases": {
+    "mixedScaleCrossDisplayCrop": {
+      "displayTiles": [
+        {
+          "displayBoundsPoints": {
+            "height": 800,
+            "width": 1000,
+            "x": -1000,
+            "y": 0
+          },
+          "displayPixels": {
+            "height": 800,
+            "width": 1000
+          },
+          "expectedCropPixels": {
+            "height": 51,
+            "width": 81,
+            "x": 919,
+            "y": 100
+          },
+          "expectedIntersectionPoints": {
+            "height": 50.5,
+            "width": 80.25,
+            "x": -80.25,
+            "y": 100.25
+          },
+          "pixelsPerPoint": {
+            "x": 1,
+            "y": 1
+          },
+          "alias": "left-1x"
+        },
+        {
+          "displayBoundsPoints": {
+            "height": 800,
+            "width": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "displayPixels": {
+            "height": 1600,
+            "width": 2000
+          },
+          "expectedCropPixels": {
+            "height": 102,
+            "width": 161,
+            "x": 0,
+            "y": 200
+          },
+          "expectedIntersectionPoints": {
+            "height": 50.5,
+            "width": 80.25,
+            "x": 0,
+            "y": 100.25
+          },
+          "pixelsPerPoint": {
+            "x": 2,
+            "y": 2
+          },
+          "alias": "right-2x"
+        }
+      ],
+      "globalRectPoints": {
+        "height": 50.5,
+        "width": 160.5,
+        "x": -80.25,
+        "y": 100.25
+      },
+      "rounding": "floor minima, ceil maxima, then clamp"
+    },
+    "screenshotPointMapping": {
+      "captureRectPoints": {
+        "height": 50.5,
+        "width": 160.5,
+        "x": -80.25,
+        "y": 100.25
+      },
+      "expectedPixelPoint": {
+        "x": 160.5,
+        "y": 50.5
+      },
+      "globalPoint": {
+        "x": 0,
+        "y": 125.5
+      },
+      "imagePixels": {
+        "height": 101,
+        "width": 321
+      }
+    }
+  },
+  "fixture": "display-coordinate-alignment-cases",
+  "schemaVersion": 1,
+  "synthetic": true
+}

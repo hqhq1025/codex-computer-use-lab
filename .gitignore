@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+.Codex/
+
+# Generated synthetic application and runtime state
+test-app/build/
+test-app/runtime/
+
+# Local scratch output
+*.log
+*.tmp
+coverage/
+
+# Optional locally copied screenshots
+fixtures/real-cua/screenshots/

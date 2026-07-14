@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "experiment": "real-mac-client-timeout-late-native-action",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app",
+    "element": "CUA Lab Primary Button",
+    "elementIndex": 5
+  },
+  "timeout": {
+    "configuredSeconds": 0.001,
+    "call": {
+      "ok": false,
+      "elapsedMilliseconds": 24,
+      "name": "SkyComputerUseTransportError",
+      "message": "Sky Computer Use request timed out"
+    },
+    "sideEffectObservedAfterMilliseconds": 692,
+    "delayAfterClientRejectionMilliseconds": 668
+  },
+  "oracle": {
+    "beforeButtonClickCount": 0,
+    "afterButtonClickCount": 1,
+    "firstChanged": {
+      "millisecondsSinceDispatch": 692,
+      "buttonClickCount": 1,
+      "lastAction": "button-click"
+    },
+    "sampleCount": 60,
+    "tailSamples": [
+      {
+        "millisecondsSinceDispatch": 562,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 574,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 586,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 597,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 608,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 619,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 631,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 644,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 656,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 668,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 680,
+        "buttonClickCount": 0,
+        "lastAction": "launch"
+      },
+      {
+        "millisecondsSinceDispatch": 692,
+        "buttonClickCount": 1,
+        "lastAction": "button-click"
+      }
+    ]
+  },
+  "conclusion": {
+    "clientTimeoutCanceledNativeAction": false,
+    "clientRejectedBeforeSideEffect": true,
+    "lateNativeSideEffectObserved": true
+  },
+  "provenance": {
+    "labAppExecutable": {
+      "path": "<lab-app>/Contents/MacOS/Codex CUA Lab",
+      "bytes": 329456,
+      "sha256": "a4c719b5160d553f53afabf17fd1f7bae232858a50727e33194a0c1bdfa8da46"
+    },
+    "skyServiceExecutable": {
+      "path": "<sky-service>",
+      "bytes": 18739648,
+      "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+    },
+    "wrapper": {
+      "path": "<computer-use-wrapper>",
+      "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+    },
+    "trustedHelper": {
+      "path": "$HOME/.codex/cua-lab-timeout-helper.mjs",
+      "sha256": "05e45fdcf2aa95fe4095519deb844802dcc04a3413ec70acfae1bdfd360fe909"
+    },
+    "internalClient": {
+      "path": "$APP/Contents/Resources/cua_node/lib/node_modules/@oai/sky/.../client.js",
+      "sha256": "ca40f65f155435db1599c19babf617c6a04af3c5fab5390b33b9610f2696ddc7"
+    },
+    "nativePipe": {
+      "path": "$APP/Contents/Resources/cua_node/lib/node_modules/@oai/sky/.../native-pipe.js",
+      "sha256": "3b294dcb269ad65166b184bcca48c7bab0698162ca7a4fc8c7b4978990b82bf2"
+    }
+  },
+  "approvalStore": {
+    "before": {
+      "checked": true,
+      "present": false
+    },
+    "afterTimeout": {
+      "checked": true,
+      "present": false
+    },
+    "final": {
+      "checked": true,
+      "present": false
+    },
+    "checks": [
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click:client-timeout",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ]
+  },
+  "safety": {
+    "targetRestrictedToSyntheticApp": true,
+    "exactlyOneTimedOutUiAction": true,
+    "persistentApprovalAllowed": false,
+    "externalCommunicationAllowed": false,
+    "systemSettingsAllowed": false
+  }
+}

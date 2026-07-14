@@ -1,0 +1,55 @@
+10064a280: b24403bd    	orr	x29, x29, #0x1000000000000000
+10064a284: d10083ff    	sub	sp, sp, #0x20
+10064a288: a9017bfd    	stp	x29, x30, [sp, #0x10]
+10064a28c: f90007f6    	str	x22, [sp, #0x8]
+10064a290: 910043fd    	add	x29, sp, #0x10
+10064a294: a9091ec6    	stp	x6, x7, [x22, #0x90]
+10064a298: a90816c4    	stp	x4, x5, [x22, #0x80]
+10064a29c: 39012ac3    	strb	w3, [x22, #0x4a]
+10064a2a0: fd003ec0    	str	d0, [x22, #0x78]
+10064a2a4: 390126c2    	strb	w2, [x22, #0x49]
+10064a2a8: a90686c0    	stp	x0, x1, [x22, #0x68]
+10064a2ac: d2800000    	mov	x0, #0x0                ; =0
+10064a2b0: 9401d106    	bl	0x1006be6c8 <__sa_release_n+0x10e6f4>
+10064a2b4: f90052c0    	str	x0, [x22, #0xa0]
+10064a2b8: f85f8008    	ldur	x8, [x0, #-0x8]
+10064a2bc: f90056c8    	str	x8, [x22, #0xa8]
+10064a2c0: f9402108    	ldr	x8, [x8, #0x40]
+10064a2c4: 91003d14    	add	x20, x8, #0xf
+10064a2c8: 927cee80    	and	x0, x20, #0xfffffffffffffff0
+10064a2cc: 941a2750    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10064a2d0: f9005ac0    	str	x0, [x22, #0xb0]
+10064a2d4: 927cee80    	and	x0, x20, #0xfffffffffffffff0
+10064a2d8: 941a274d    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10064a2dc: f9005ec0    	str	x0, [x22, #0xb8]
+10064a2e0: d2800000    	mov	x0, #0x0                ; =0
+10064a2e4: 941a1be6    	bl	0x100cd127c <_xpc_pipe_routine_reply+0x100cd127c>
+10064a2e8: f90062c0    	str	x0, [x22, #0xc0]
+10064a2ec: f85f8008    	ldur	x8, [x0, #-0x8]
+10064a2f0: f90066c8    	str	x8, [x22, #0xc8]
+10064a2f4: f9402108    	ldr	x8, [x8, #0x40]
+10064a2f8: 91003d14    	add	x20, x8, #0xf
+10064a2fc: 927cee80    	and	x0, x20, #0xfffffffffffffff0
+10064a300: 941a2743    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10064a304: f9006ac0    	str	x0, [x22, #0xd0]
+10064a308: 927cee80    	and	x0, x20, #0xfffffffffffffff0
+10064a30c: 941a2740    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10064a310: f9006ec0    	str	x0, [x22, #0xd8]
+10064a314: d2800000    	mov	x0, #0x0                ; =0
+10064a318: 941a1bdf    	bl	0x100cd1294 <_xpc_pipe_routine_reply+0x100cd1294>
+10064a31c: f90072c0    	str	x0, [x22, #0xe0]
+10064a320: f85f8008    	ldur	x8, [x0, #-0x8]
+10064a324: f90076c8    	str	x8, [x22, #0xe8]
+10064a328: f9402108    	ldr	x8, [x8, #0x40]
+10064a32c: 91003d08    	add	x8, x8, #0xf
+10064a330: 927ced00    	and	x0, x8, #0xfffffffffffffff0
+10064a334: 941a2736    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10064a338: f9007ac0    	str	x0, [x22, #0xf0]
+10064a33c: 90000000    	adrp	x0, 0x10064a000 <__sa_release_n+0x9a02c>
+10064a340: 910d7000    	add	x0, x0, #0x35c
+10064a344: d2800001    	mov	x1, #0x0                ; =0
+10064a348: d2800002    	mov	x2, #0x0                ; =0
+10064a34c: a9417bfd    	ldp	x29, x30, [sp, #0x10]
+10064a350: 9243fbbd    	and	x29, x29, #0xefffffffffffffff
+10064a354: 910083ff    	add	sp, sp, #0x20
+10064a358: 141a2751    	b	0x100cd409c <_xpc_pipe_routine_reply+0x100cd409c>

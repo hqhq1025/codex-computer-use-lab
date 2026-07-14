@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "label": "before-first-real-observation",
+  "capturedAt": "2026-07-12T12:18:06.410Z",
+  "safety": {
+    "readOnly": true,
+    "screenshotsRead": false,
+    "axContentRead": false,
+    "approvalContentsRead": false,
+    "realCuaRequestSent": false,
+    "realInputSynthesized": false
+  },
+  "expectedTarget": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appRoot": "$LAB/test-app/build/Codex CUA Lab.app",
+    "appMetadata": {
+      "present": true,
+      "type": "directory",
+      "mode": "755",
+      "bytes": 96,
+      "modifiedUnixMilliseconds": 1783858649826
+    }
+  },
+  "processes": {
+    "sky": [
+      {
+        "pid": 94559,
+        "command": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+      }
+    ],
+    "testApp": [
+      {
+        "pid": 81319,
+        "command": "$HOME/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app/Contents/MacOS/Codex CUA Lab"
+      },
+      {
+        "pid": 81337,
+        "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-driver --driver-mode=swiftc -Xfrontend -new-driver-path -Xfrontend /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-driver -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-macosx13.0 -O -framework AppKit $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/AccessibilityMarkers.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/AppDelegate.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/DragTargetView.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/LabControls.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/LabState.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/LabWindowController.swift $HOME/Documents/Learning/codex-computer-use-lab/test-app/Sources/main.swift -o $HOME/Documents/Learning/codex-computer-use-lab/test-app/build/.stage-81326/Codex CUA Lab.app/Contents/MacOS/Codex CUA Lab"
+      }
+    ]
+  },
+  "ipc": {
+    "cuaSocket": {
+      "present": true,
+      "type": "socket",
+      "mode": "600",
+      "bytes": 0,
+      "modifiedUnixMilliseconds": 1783840663458
+    },
+    "approvalStore": {
+      "present": false
+    }
+  },
+  "displays": [
+    {
+      "index": 0,
+      "frame": "{{0, 0}, {1920, 1200}}",
+      "displayID": "2",
+      "visibleFrame": "{{0, 103}, {1920, 1066}}",
+      "scale": "1.0",
+      "pixelsWide": "1920",
+      "pixelsHigh": "1200"
+    },
+    {
+      "visibleFrame": "{{-1920, 244}, {1920, 1200}}",
+      "pixelsHigh": "1200",
+      "displayID": "3",
+      "frame": "{{-1920, 244}, {1920, 1200}}",
+      "scale": "1.0",
+      "pixelsWide": "1920",
+      "index": 1
+    }
+  ],
+  "syntheticOracle": {
+    "present": true,
+    "schemaVersion": 1,
+    "revision": null,
+    "syntheticMarker": "CUA Lab Synthetic Surface",
+    "state": {
+      "ambiguous": {
+        "clickCount": 0,
+        "lastTarget": null
+      },
+      "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app",
+      "bundleIdentifier": "com.openai.codex.cualab",
+      "controls": {
+        "buttonClickCount": 0,
+        "checkboxChecked": false,
+        "dragPosition": {
+          "x": 42,
+          "y": 42
+        },
+        "loading": false,
+        "popupSelection": "Alpha",
+        "scrollOffset": 0,
+        "selectTextValue": "",
+        "setValue": "",
+        "sliderValue": 25,
+        "typeText": ""
+      },
+      "coordinate": {
+        "clickCount": 0
+      },
+      "focus": {
+        "control": null
+      },
+      "hierarchy": {
+        "generation": 0,
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0
+      },
+      "meta": {
+        "lastAction": "launch",
+        "resetCount": 0
+      },
+      "metrics": {
+        "diffProbeCount": 0,
+        "fullStateProbeCount": 0
+      },
+      "modal": {
+        "open": false
+      },
+      "schemaVersion": 1,
+      "selection": {
+        "text": "",
+        "type": ""
+      },
+      "synthetic": true,
+      "syntheticMarker": "CUA Lab Synthetic Surface",
+      "window": {
+        "x": 580,
+        "y": 413
+      }
+    }
+  },
+  "cuaTempAggregates": {
+    "tempRoot": "<system-temp>",
+    "matchingFileCount": 8,
+    "totalBytes": 508525,
+    "newestModifiedUnixSeconds": 1783763001
+  }
+}

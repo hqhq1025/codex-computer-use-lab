@@ -1,0 +1,23 @@
+10012df9c: b24403bd    	orr	x29, x29, #0x1000000000000000
+10012dfa0: d10083ff    	sub	sp, sp, #0x20
+10012dfa4: a9017bfd    	stp	x29, x30, [sp, #0x10]
+10012dfa8: f90007f6    	str	x22, [sp, #0x8]
+10012dfac: 910043fd    	add	x29, sp, #0x10
+10012dfb0: a911d2c1    	stp	x1, x20, [x22, #0x118]
+10012dfb4: f9008ac0    	str	x0, [x22, #0x110]
+10012dfb8: d2800000    	mov	x0, #0x0                ; =0
+10012dfbc: 9402e145    	bl	0x1001e64d0 <_SAIReceiveNSXPCListenerEndpointOverMachPort+0x1a0d0>
+10012dfc0: f85f8008    	ldur	x8, [x0, #-0x8]
+10012dfc4: f9402108    	ldr	x8, [x8, #0x40]
+10012dfc8: 91003d08    	add	x8, x8, #0xf
+10012dfcc: 927ced00    	and	x0, x8, #0xfffffffffffffff0
+10012dfd0: 942e980f    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10012dfd4: f90096c0    	str	x0, [x22, #0x128]
+10012dfd8: 90000000    	adrp	x0, 0x10012d000 <__text+0x12a950>
+10012dfdc: 913fe000    	add	x0, x0, #0xff8
+10012dfe0: d2800001    	mov	x1, #0x0                ; =0
+10012dfe4: d2800002    	mov	x2, #0x0                ; =0
+10012dfe8: a9417bfd    	ldp	x29, x30, [sp, #0x10]
+10012dfec: 9243fbbd    	and	x29, x29, #0xefffffffffffffff
+10012dff0: 910083ff    	add	sp, sp, #0x20
+10012dff4: 142e982a    	b	0x100cd409c <_xpc_pipe_routine_reply+0x100cd409c>

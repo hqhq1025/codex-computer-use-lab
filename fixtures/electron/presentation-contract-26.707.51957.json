@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": {
+    "electronAppVersion": "26.707.51957",
+    "electronAppBuild": "5175",
+    "codexSourceTag": "rust-v0.144.0-alpha.4"
+  },
+  "source": {
+    "asar": {
+      "path": "/Applications/ChatGPT.app/Contents/Resources/app.asar",
+      "bytes": 195064103,
+      "sha256": "26708d5be316b43786ba00ea8581317426e44ff508e0d5cce40f53181582e027"
+    },
+    "selectedFiles": {
+      "core": {
+        "path": "webview/assets/app-initial~app-main~new-thread-panel-page~appgen-library-page~hotkey-window-thread-page~ho~iufn7mg3-k1satKyX.js",
+        "bytes": 8856468,
+        "sha256": "4bd5e9614579174f1d612786cc693a3f1babd3dd1884d8949c6fea59091e19ac",
+        "anchors": [
+          {
+            "anchor": "function ySt",
+            "offset": 2289458
+          },
+          {
+            "anchor": "FSt={",
+            "offset": 2301391
+          },
+          {
+            "anchor": "ySt as p2",
+            "offset": 8824958
+          },
+          {
+            "anchor": "function XSt",
+            "offset": 2305807
+          },
+          {
+            "anchor": "function UCt",
+            "offset": 2313523
+          },
+          {
+            "anchor": "case`item/started`",
+            "offset": 2236469
+          },
+          {
+            "anchor": "case`item/completed`",
+            "offset": 2237607
+          },
+          {
+            "anchor": "case`item/mcpToolCall/progress`",
+            "offset": 2242047
+          },
+          {
+            "anchor": "function bU",
+            "offset": 4133286
+          }
+        ]
+      },
+      "mcpRenderer": {
+        "path": "webview/assets/app-initial~app-main~quick-chat-window-page~chatgpt-conversation-page-B0shAhmV.js",
+        "bytes": 2722576,
+        "sha256": "f4a9bed7b0b85187e2f94dcb6060aa8479987873d89a7070c0d83fd918e9afbe",
+        "anchors": [
+          {
+            "anchor": "p2 as Fp",
+            "offset": 7721
+          },
+          {
+            "anchor": "function mJ",
+            "offset": 711589
+          },
+          {
+            "anchor": "function gJ",
+            "offset": 712570
+          },
+          {
+            "anchor": "function vJ",
+            "offset": 712911
+          },
+          {
+            "anchor": "function LJ",
+            "offset": 715392
+          }
+        ]
+      },
+      "localConversation": {
+        "path": "webview/assets/app-initial~app-main~onboarding-page-3kH05n45.js",
+        "bytes": 1471931,
+        "sha256": "24978ee373c7f651c4b1f8bfac73e3fcd3cfd3e90c145242611e8e25b61bbeac",
+        "anchors": [
+          {
+            "anchor": "function XCe",
+            "offset": 754689
+          },
+          {
+            "anchor": "function bU",
+            "offset": 1143376
+          },
+          {
+            "anchor": "e.completed||!d.has(e.invocation.server)",
+            "offset": 1144830
+          }
+        ]
+      }
+    },
+    "contracts": {
+      "formatterReachable": true,
+      "nodeReplTitleShortCircuits": true,
+      "nodeReplCodeNotParsed": true,
+      "resultMetaRequiresNodeRepl": true,
+      "resultTimeStandalone": true,
+      "completedDoesNotMeanSucceeded": true,
+      "formatterReceivesResultButDirectFormatterIgnoresIt": true,
+      "completedAtomicallyReplacesItem": true,
+      "noMcpResultDelta": true,
+      "rendererIgnoresProgress": true,
+      "rmcpOnlyLogsProgress": true,
+      "elicitationProtocolHasNoItemId": true,
+      "elicitationStateKeyedByServerAndRequestId": true,
+      "pendingSuppressionUsesConnectorOrServerKey": true,
+      "startedBeforeCompleted": true
+    },
+    "rustPaths": {
+      "mcpToolCall": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/core/src/mcp_tool_call.rs",
+      "mcpSession": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/core/src/session/mcp.rs",
+      "loggingClient": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/rmcp-client/src/logging_client_handler.rs",
+      "protocol": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4/codex-rs/app-server-protocol/src/protocol/v2/mcp.rs"
+    }
+  },
+  "behavior": {
+    "titleCases": {
+      "declared": {
+        "label": "Clicking in Finder",
+        "source": "node-repl-title",
+        "resultTypeConsulted": false
+      },
+      "codeOnly": {
+        "label": "Js",
+        "source": "generic-tool-name",
+        "resultTypeConsulted": false
+      },
+      "truncated": {
+        "label": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+        "source": "node-repl-title",
+        "resultTypeConsulted": false
+      }
+    },
+    "resultTimeIdentity": {
+      "started": {
+        "source": null,
+        "grouping": "groupable"
+      },
+      "completed": {
+        "source": {
+          "kind": "computerUse",
+          "app": {
+            "kind": "appId",
+            "appId": "com.openai.codex.cualab"
+          }
+        },
+        "grouping": "standalone"
+      }
+    },
+    "failedDirectComputerUse": {
+      "resultType": "error",
+      "completed": true,
+      "label": "Clicked in Finder",
+      "formatterConsultedResultType": false
+    },
+    "elicitationCorrelation": {
+      "suppressionKey": "computer-use",
+      "visibleCallIds": [
+        "node-repl"
+      ],
+      "hiddenCallIds": [
+        "direct-a",
+        "direct-b"
+      ]
+    }
+  },
+  "safety": {
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false,
+    "appStateMutated": false
+  }
+}

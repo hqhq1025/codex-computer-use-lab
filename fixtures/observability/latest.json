@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-13T08:22:17.300Z",
+  "artifact": {
+    "chatgptVersion": "26.707.62119",
+    "chatgptBuild": "5211",
+    "computerUseVersion": "26.710.1000387",
+    "computerUseBuild": "1000387"
+  },
+  "shippedResources": {
+    "skysightMemoryInstructions": {
+      "path": "$CU_APP/Contents/Resources/Package_ComputerUse.bundle/Contents/Resources/SkysightMemoryInstructions.md",
+      "bytes": 2023,
+      "lines": 20,
+      "words": 271,
+      "purpose": "chronological_10_minute_and_6_hour_memory_consolidation",
+      "bodyIncludedInFixture": false
+    },
+    "skysightSummarizer": {
+      "path": "$CU_APP/Contents/Resources/Package_ComputerUse.bundle/Contents/Resources/SkysightSummarizer.md",
+      "bytes": 16234,
+      "lines": 173,
+      "words": 2363,
+      "observedContentTrust": "highly_untrusted",
+      "taintPropagation": "sticky",
+      "outputExcludes": [
+        "urls",
+        "raw_event_json",
+        "secrets",
+        "pii",
+        "observed_instructions"
+      ],
+      "bodyIncludedInFixture": false
+    }
+  },
+  "safety": {
+    "defaultRedaction": true,
+    "screenshotPixelsRead": false,
+    "eventStreamContentsRead": false,
+    "urlsRead": false,
+    "analyticsBodiesRead": false,
+    "privateLogsRead": false,
+    "realCuaSocketConnected": false,
+    "analyticsDatabaseQueried": false,
+    "networkRequestsCaptured": false
+  },
+  "pathTemplates": {
+    "screenshotTemporaryFile": {
+      "template": "$TMPDIR/<temporary-file-root>/screenshot_<opaque>.<image-extension>",
+      "confidence": "symbol_and_filename_inference",
+      "lifecycle": {
+        "creation": "confirmed",
+        "attachmentHandoff": "confirmed",
+        "cleanupMechanism": "unknown",
+        "cleanupTime": "unknown"
+      }
+    },
+    "appshot": {
+      "persistentStore": null,
+      "captureStore": "in_memory",
+      "finalFrameUsesScreenshotFile": true,
+      "dedicatedOnDiskRootConfirmed": false
+    },
+    "skysightSegments": {
+      "root": "$TMPDIR/skysight/segments/",
+      "segmentEvents": "$TMPDIR/skysight/segments/<segment-id>/events.jsonl",
+      "segmentMetadata": "$TMPDIR/skysight/segments/<segment-id>/metadata.json",
+      "suppressedEvents": "$TMPDIR/skysight/segments/<segment-id>/<suppressed-events-file>",
+      "staticDescription": "ephemeral_not_persisted"
+    },
+    "eventStreamRecording": {
+      "sessionRoot": "$TMPDIR/<event-stream-session-root>/",
+      "events": "$TMPDIR/<event-stream-session-root>/events.jsonl",
+      "metadataOrSession": "$TMPDIR/<event-stream-session-root>/{metadata.json,session.json}",
+      "exactRootName": "unknown"
+    },
+    "analytics": {
+      "queueDatabase": "$CUA_GROUP/Library/Application Support/Software/Analytics.db",
+      "cacheDatabase": "$HOME/Library/Caches/com.openai.sky.CUAService/Cache.db{,-wal,-shm}",
+      "httpStorage": "$HOME/Library/HTTPStorages/com.openai.sky.CUAService/httpstorages.sqlite{,-wal,-shm}"
+    }
+  },
+  "requestTypes": [
+    "ComputerUseClient.ComputerUseIPCEventStreamStartRequest",
+    "ComputerUseClient.ComputerUseIPCEventStreamStatusRequest",
+    "ComputerUseClient.ComputerUseIPCEventStreamStopRequest",
+    "ComputerUseClient.ComputerUseIPCSkysightStartRequest",
+    "ComputerUseClient.ComputerUseIPCSkysightStatusRequest",
+    "ComputerUseClient.ComputerUseIPCSkysightStopRequest",
+    "ComputerUseClient.ComputerUseIPCSkysightUpdateExclusionRequest",
+    "ComputerUseClient.ComputerUseIPCSkysightListExclusionsRequest"
+  ],
+  "gates": {
+    "screenshot": {
+      "skipScreenshotRequestFlag": "present",
+      "screenRecordingPermission": "required",
+      "currentCaptureActive": "unknown"
+    },
+    "appshot": {
+      "featureGate": "appshotsEnabled",
+      "managedServiceEnableCondition": "appshotsEnabled || nodeReplEnabled",
+      "currentEnabled": "unknown"
+    },
+    "pip": {
+      "featureGate": "cuaPIP",
+      "userOptOut": "alwaysHidePictureInPicture == true",
+      "effectiveCondition": "cuaPIP && alwaysHidePictureInPicture != true",
+      "currentEnabled": "unknown"
+    },
+    "skysight": {
+      "featureEligibility": "ComputerUseIPCRequestRequiringSkysightFeature",
+      "explicitStartStop": true,
+      "approvalElicitation": true,
+      "exclusions": [
+        "application",
+        "url_domain",
+        "private_browsing"
+      ],
+      "currentEnabled": "unknown",
+      "currentRecording": "unknown"
+    },
+    "eventStream": {
+      "featureGate": "recordAndReplay",
+      "explicitStartStatusStop": true,
+      "userStopOrCancel": true,
+      "urlPolicyFilter": true,
+      "currentEnabled": "unknown",
+      "currentRecording": "unknown"
+    },
+    "analytics": {
+      "statsigEventLoggingOption": "eventLoggingEnabled",
+      "statsigMetadataOptOut": "optOutNonSdkMetadata",
+      "exposureLoggingDisabledApis": true,
+      "productWideAnalyticsOptOut": "not_confirmed_in_selected_static_surfaces",
+      "currentStatsigInitialized": "unknown",
+      "currentNetworkSending": "unknown"
+    }
+  },
+  "staticBoundaries": {
+    "screenshotFileIsNotAppshotStore": true,
+    "appshotIsCaptureUxWithInMemoryStore": true,
+    "skysightSubscribesToEventStreamCapture": true,
+    "eventStreamHasIndependentStartStatusStopRequests": true,
+    "pipUsesIndependentXpcPresentationChannel": true,
+    "analyticsUsesLocalQueueAndTransportTypes": true,
+    "compiledCodeDoesNotProveCurrentEnablement": true
+  },
+  "runtime": {
+    "processes": {
+      "electronMainObserved": true,
+      "skyServiceCount": 1,
+      "identification": "exact_ps_comm_executable_path"
+    },
+    "fileDescriptorCountsByRoleAndCategory": {
+      "electron-main": {
+        "other": 385,
+        "chatgpt-app": 24,
+        "system": 45,
+        "system-analytics-policy": 1,
+        "device": 5
+      },
+      "sky-service": {
+        "other": 94,
+        "canonical-cu-app": 2,
+        "system": 22,
+        "cua-cache": 6,
+        "cua-http-storage": 4,
+        "system-analytics-policy": 1,
+        "device": 3,
+        "chatgpt-app": 7,
+        "analytics-db": 1,
+        "cua-ipc": 2,
+        "cua-tmp-socket": 1
+      }
+    },
+    "metadataAggregates": {
+      "analytics-db": {
+        "count": 1,
+        "types": [
+          "file"
+        ],
+        "owners": [
+          "current_user"
+        ],
+        "modes": [
+          "644"
+        ],
+        "mtimeUnixSeconds": {
+          "minimum": 1783930302,
+          "maximum": 1783930302
+        },
+        "sizeBytes": {
+          "total": 598016,
+          "minimum": 598016,
+          "maximum": 598016
+        }
+      },
+      "cua-cache": {
+        "count": 3,
+        "types": [
+          "file"
+        ],
+        "owners": [
+          "current_user"
+        ],
+        "modes": [
+          "644"
+        ],
+        "mtimeUnixSeconds": {
+          "minimum": 1778682382,
+          "maximum": 1783928042
+        },
+        "sizeBytes": {
+          "total": 745272,
+          "minimum": 32768,
+          "maximum": 663352
+        }
+      },
+      "cua-http-storage": {
+        "count": 3,
+        "types": [
+          "file"
+        ],
+        "owners": [
+          "current_user"
+        ],
+        "modes": [
+          "644"
+        ],
+        "mtimeUnixSeconds": {
+          "minimum": 1778682382,
+          "maximum": 1783928012
+        },
+        "sizeBytes": {
+          "total": 617816,
+          "minimum": 4096,
+          "maximum": 580952
+        }
+      },
+      "cua-ipc": {
+        "count": 2,
+        "types": [
+          "file",
+          "socket"
+        ],
+        "owners": [
+          "current_user"
+        ],
+        "modes": [
+          "600"
+        ],
+        "mtimeUnixSeconds": {
+          "minimum": 1783672991,
+          "maximum": 1783928007
+        },
+        "sizeBytes": {
+          "total": 0,
+          "minimum": 0,
+          "maximum": 0
+        }
+      },
+      "screenshot-temporary-file": {
+        "count": 0,
+        "types": [],
+        "owners": [],
+        "modes": [],
+        "mtimeUnixSeconds": null,
+        "sizeBytes": {
+          "total": 0,
+          "minimum": null,
+          "maximum": null
+        }
+      },
+      "skysight-segment": {
+        "count": 0,
+        "types": [],
+        "owners": [],
+        "modes": [],
+        "mtimeUnixSeconds": null,
+        "sizeBytes": {
+          "total": 0,
+          "minimum": null,
+          "maximum": null
+        }
+      }
+    },
+    "analyticsDatabaseOpenByObservedSkyService": true,
+    "activePipPresentation": "unknown",
+    "activeSkysightRecording": "unknown",
+    "activeEventStreamRecording": "unknown",
+    "activeScreenshotTemporaryFiles": 0
+  }
+}

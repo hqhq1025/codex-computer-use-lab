@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-get-app-state-unlocked",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "resolvedAppKind": "canonical-app-path",
+    "syntheticMarker": "CUA Lab Synthetic Surface"
+  },
+  "request": {
+    "method": "get_app_state",
+    "disableDiff": true
+  },
+  "result": {
+    "status": "completed",
+    "elapsedMilliseconds": 1303,
+    "markerPresent": true,
+    "accessibilityCharacterCount": 1551,
+    "accessibilitySha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1",
+    "primaryButtonMatchCount": 1,
+    "screenshot": {
+      "scheme": "file",
+      "byteLength": 73792,
+      "sha256": "aeb7963dc95c16cd494519f9125288ff2fcc5228f062a762f98b406b2d5d01d9",
+      "pngSignature": false
+    }
+  },
+  "observedSafetyEffects": {
+    "uiActionExecuted": false,
+    "syntheticOracleChanged": false,
+    "persistentApprovalStoreCreated": false,
+    "screenshotPixelsPersistedByLab": false
+  }
+}

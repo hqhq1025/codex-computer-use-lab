@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-07-13T08:22:21Z",
+  "host": {
+    "osVersion": "26.5.2",
+    "architecture": "arm64",
+    "hostnameCollected": false,
+    "usernameCollected": false
+  },
+  "safety": {
+    "defaultRedaction": true,
+    "configurationContentsCollected": false,
+    "environmentDumped": false,
+    "approvalContentsCollected": false,
+    "logsCollected": false,
+    "tccModified": false,
+    "authorizationDbModified": false,
+    "installerExecuted": false,
+    "realCuaSocket": {
+      "metadataRead": true,
+      "connected": false,
+      "written": false
+    }
+  },
+  "codeSignature": {
+    "bundle": "<CODEX_HOME>/computer-use/Codex Computer Use.app",
+    "version": "26.710.1000387",
+    "bundleVersion": "1000387",
+    "identifier": "com.openai.sky.CUAService",
+    "teamIdentifier": "2DC432GLL2",
+    "authority": "Developer ID Application: OpenAI OpCo, LLC (2DC432GLL2)",
+    "validOnDisk": true,
+    "notarizedDeveloperId": true,
+    "hardenedRuntime": true,
+    "lsUiElement": true,
+    "mainExecutableSha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+  },
+  "entitlements": {
+    "applicationIdentifier": "2DC432GLL2.com.openai.sky.CUAService",
+    "teamIdentifier": "2DC432GLL2",
+    "appSandbox": false,
+    "appGroupPresent": true,
+    "keychainAccessGroupPresent": true
+  },
+  "provisionProfile": {
+    "present": true,
+    "name": "CUA Service",
+    "teamIdentifier": "2DC432GLL2",
+    "sha256": "df32d812011ff70edb1ddb008170d39fe9ded56026f5e1cf2bfa1beaaa4071e4"
+  },
+  "tcc": {
+    "source": "system_tcc_db_readonly_exact_client_query",
+    "accessibility": {
+      "state": "allowed"
+    },
+    "screenCapture": {
+      "state": "allowed"
+    },
+    "inputMonitoring": {
+      "state": "not_observed"
+    },
+    "postEvent": {
+      "state": "not_observed"
+    },
+    "absenceMeaning": "not_observed_is_not_proof_of_unused_code"
+  },
+  "ipc": {
+    "groupContainer": {
+      "path": "<GROUP_CONTAINER>",
+      "present": true,
+      "type": "Directory",
+      "mode": "700",
+      "owner": "current_user"
+    },
+    "directory": {
+      "path": "<GROUP_CONTAINER>/IPC",
+      "present": true,
+      "type": "Directory",
+      "mode": "700",
+      "owner": "current_user"
+    },
+    "lockFile": {
+      "path": "<GROUP_CONTAINER>/IPC/computeruse.sock.lock",
+      "present": true,
+      "type": "Regular File",
+      "mode": "600",
+      "owner": "current_user"
+    },
+    "cuaSocket": {
+      "path": "<GROUP_CONTAINER>/IPC/computeruse.sock",
+      "present": true,
+      "type": "Socket",
+      "mode": "600",
+      "owner": "current_user",
+      "heldByServiceProcess": true,
+      "connectedByCollector": false
+    },
+    "expectedSecureModes": {
+      "groupContainer": "700",
+      "directory": "700",
+      "lockFile": "600",
+      "cuaSocket": "600"
+    },
+    "secureModeCheck": true
+  },
+  "peerIdentity": {
+    "evidenceClass": "binary_static_strings_and_parent_requirements",
+    "cuaSocketServerUsesLocalPeerToken": true,
+    "cuaSocketServerRejectsInvalidPeerToken": true,
+    "lockScreenPluginReadsAuditToken": true,
+    "lockScreenPluginChecksSigningIdentifier": true,
+    "lockScreenPluginChecksTeamIdentifier": true,
+    "lockScreenPluginRejectsIdentityMismatch": true,
+    "expectedSigningIdentifier": "com.openai.sky.CUAService",
+    "expectedTeamIdentifier": "2DC432GLL2",
+    "clientParentTeamIdentifier": "2DC432GLL2",
+    "guardianParentTeamIdentifier": "2DC432GLL2",
+    "runtimePeerHandshakeExercised": false
+  },
+  "lockScreen": {
+    "embeddedAuthorizationPlugin": {
+      "present": true,
+      "signatureValid": true
+    },
+    "installedAuthorizationPlugin": {
+      "path": "/Library/Security/SecurityAgentPlugins/CodexComputerUseAuthorizationPlugin.bundle",
+      "present": false
+    },
+    "authorizationDbReferencesPlugin": false,
+    "brokerDirectory": {
+      "path": "/tmp/com.openai.sky.CUAService",
+      "present": true,
+      "type": "Directory",
+      "mode": "755",
+      "owner": "current_user"
+    },
+    "brokerSocket": {
+      "path": "/tmp/com.openai.sky.CUAService/LockScreenLoginAuthorization.sock",
+      "present": true,
+      "type": "Socket",
+      "mode": "666",
+      "owner": "current_user"
+    },
+    "brokerSocketWorldWritable": true,
+    "worldWritableSocketReliesOnPeerIdentity": true,
+    "guardianFailClosedStringPresent": true,
+    "physicalInputRelockStringPresent": true,
+    "readyForLockedComputerUse": false,
+    "collectorDecision": "fail_closed"
+  },
+  "requirements": {
+    "schemaFieldObservedInInstalledCodex": true,
+    "systemRequirements": {
+      "path": "/etc/codex/requirements.toml",
+      "present": false,
+      "allowLockedComputerUse": "unset"
+    },
+    "legacyManagedConfig": {
+      "path": "/etc/codex/managed_config.toml",
+      "present": false,
+      "allowLockedComputerUse": "unset"
+    },
+    "effectiveAllowLockedComputerUse": "unset",
+    "effectiveRequirementsRpcQueried": true,
+    "collectorDecision": "fail_closed"
+  },
+  "appApproval": {
+    "persistentStoreImplementationStringPresent": true,
+    "persistenceFailureStringPresent": true,
+    "approvalContentsCollected": false,
+    "securityInterpretation": "persistent_app_approval_is_not_content_trust_or_action_freshness"
+  },
+  "freshness": {
+    "staleElementRefetchStringPresent": true,
+    "ambiguousRefetchRejectedStringPresent": true,
+    "userInterventionRequiresReobserveStringPresent": true,
+    "coordinateRevisionBindingObserved": false,
+    "coordinateDecision": "fail_closed_without_fresh_observation"
+  },
+  "trustedRoot": {
+    "codexHome": {
+      "path": "<CODEX_HOME>",
+      "present": true,
+      "type": "Directory",
+      "mode": "755",
+      "owner": "current_user"
+    },
+    "plugins": {
+      "path": "<CODEX_HOME>/plugins",
+      "present": true,
+      "type": "Directory",
+      "mode": "755",
+      "owner": "current_user"
+    },
+    "pluginCache": {
+      "path": "<CODEX_HOME>/plugins/cache",
+      "present": true,
+      "type": "Directory",
+      "mode": "755",
+      "owner": "current_user"
+    },
+    "skills": {
+      "path": "<CODEX_HOME>/skills",
+      "present": true,
+      "type": "Directory",
+      "mode": "755",
+      "owner": "current_user"
+    },
+    "sameUserWriteRisk": true,
+    "contentsCollected": false
+  },
+  "mockVsReal": {
+    "realBundleMetadataInspected": true,
+    "realTccMetadataInspected": true,
+    "realSocketMetadataInspected": true,
+    "realCuaRequestSent": false,
+    "realAxActionSent": false,
+    "realInputSynthesized": false,
+    "provesActionPathWorks": false
+  },
+  "privacy": {
+    "rawUnifiedLogsCollected": false,
+    "promptBodiesCollected": false,
+    "toolArgumentsCollected": false,
+    "screenshotsCollected": false,
+    "appApprovalListCollected": false,
+    "configValuesCollectedApartFromExactBooleanRequirement": false
+  }
+}

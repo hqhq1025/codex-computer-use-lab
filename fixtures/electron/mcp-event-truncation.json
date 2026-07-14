@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "codexTag": "rust-v0.144.0-alpha.4",
+    "eventCapBytes": 1048576,
+    "defaultCapMarkerPresent": true,
+    "eventUsesDefaultCap": true,
+    "oversizedClearsMeta": true,
+    "structuredContentPrecedesContent": true,
+    "textOnlySerializesContent": true,
+    "remoteResumeClearsMeta": true,
+    "remoteResumeRemovesImageGeneration": true
+  },
+  "uiContract": {
+    "serverMustEqual": "node_repl",
+    "metaKey": "codex/toolSurface",
+    "computerUseKind": "computerUse",
+    "bindingPhase": "item/completed"
+  },
+  "modelContract": {
+    "structured": {
+      "bodyType": "text",
+      "body": "{\"answer\":42}",
+      "success": true
+    },
+    "imageCapable": {
+      "bodyType": "contentItems",
+      "body": [
+        {
+          "type": "text",
+          "text": "visible text"
+        },
+        {
+          "type": "image",
+          "data": "AA==",
+          "mimeType": "image/png"
+        }
+      ],
+      "success": true
+    },
+    "textOnlyModel": {
+      "bodyType": "text",
+      "body": "[{\"type\":\"text\",\"text\":\"visible text\"},{\"type\":\"text\",\"text\":\"<image content omitted because you do not support image input>\"}]",
+      "success": false
+    },
+    "topLevelMetaIncludedInBody": false,
+    "topLevelIsErrorIncludedInBody": false
+  },
+  "remoteResumeContract": {
+    "arguments": "[redacted]",
+    "resultContent": [
+      {
+        "type": "text",
+        "text": "[redacted]"
+      }
+    ],
+    "structuredContent": null,
+    "meta": null,
+    "errorMessage": "[redacted]",
+    "imageGenerationItemRetained": false
+  },
+  "cases": [
+    {
+      "id": "cap",
+      "serializedBytes": 1048576,
+      "originalTextCharacters": 1048427,
+      "eventMetaPresent": true,
+      "eventStructuredContent": "omitted",
+      "eventContentBlockCount": 1,
+      "desktopSource": {
+        "kind": "computerUse",
+        "app": {
+          "kind": "appId",
+          "appId": "com.openai.codex.cualab"
+        }
+      },
+      "nonNodeReplSource": null
+    },
+    {
+      "id": "cap-plus-one",
+      "serializedBytes": 1048577,
+      "originalTextCharacters": 1048428,
+      "eventMetaPresent": false,
+      "eventStructuredContent": null,
+      "eventContentBlockCount": 1,
+      "desktopSource": null,
+      "nonNodeReplSource": null
+    }
+  ]
+}

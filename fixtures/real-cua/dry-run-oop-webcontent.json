@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "<lab-app>",
+    "stateOraclePath": "<lab-state>"
+  },
+  "safety": {
+    "executeFlagRequired": true,
+    "productionCuaRequestSent": false,
+    "uiActionsExecuted": false,
+    "externalCommunicationAllowed": false,
+    "deleteAllowed": false,
+    "systemSettingsAllowed": false,
+    "persistentApprovalAllowed": false,
+    "persistentApprovalStoreBefore": {
+      "checked": false,
+      "present": null
+    },
+    "persistentApprovalStoreAfter": {
+      "checked": false,
+      "present": null
+    },
+    "screenshotsCopied": false
+  },
+  "wrapper": {
+    "path": "<computer-use-wrapper>",
+    "directSkyImportAllowed": false
+  },
+  "stepPattern": [
+    "fresh-full-get_app_state",
+    "read-state-json-before",
+    "one-allowlisted-action",
+    "fresh-get_app_state-after",
+    "read-state-json-after",
+    "compare-oracle"
+  ],
+  "scenarios": [
+    {
+      "id": "oop-webcontent-coordinate-click",
+      "title": "OOP WebContent coordinate click",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postActionSettleMilliseconds": 1300,
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "oop-webcontent-coordinate-click",
+          "description": "Click the in-memory WKWebView button through a fresh screenshot coordinate.",
+          "preObservation": "full",
+          "preconditions": [
+            {
+              "operator": "greater-than",
+              "path": "oop.target.x",
+              "value": 0
+            },
+            {
+              "operator": "greater-than",
+              "path": "oop.target.y",
+              "value": 0
+            },
+            {
+              "operator": "greater-than",
+              "path": "oop.hostPID",
+              "value": 0
+            },
+            {
+              "operator": "greater-than",
+              "path": "oop.webContentPID",
+              "value": 0
+            },
+            {
+              "operator": "not-equals-path",
+              "path": "oop.webContentPID",
+              "otherPath": "oop.hostPID"
+            }
+          ],
+          "action": {
+            "method": "click",
+            "coordinateFromOracle": {
+              "xPath": "oop.target.x",
+              "yPath": "oop.target.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "oop.clickCount"
+            },
+            {
+              "operator": "greater-than",
+              "path": "oop.webContentPID",
+              "value": 0
+            },
+            {
+              "operator": "not-equals-path",
+              "path": "oop.webContentPID",
+              "otherPath": "oop.hostPID"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

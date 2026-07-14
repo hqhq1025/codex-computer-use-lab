@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "probe": "private-app-server-stdio-readonly",
+  "capturedAt": "2026-07-13T08:20:38.418Z",
+  "binary": "/Applications/ChatGPT.app/Contents/Resources/codex",
+  "source": {
+    "root": "/private/tmp/openai-codex-rust-v0.144.0-alpha.4",
+    "tag": "rust-v0.144.0-alpha.4",
+    "commit": "049586f41571e74b44c841868bca3a2233214a71"
+  },
+  "transport": {
+    "kind": "stdio",
+    "framing": "newline-delimited JSON without jsonrpc field"
+  },
+  "safety": {
+    "privateProcess": true,
+    "isolatedCodexHome": true,
+    "remoteControlDisabled": true,
+    "modelTaskStarted": false,
+    "computerUseInvoked": false,
+    "writeRpcInvoked": false,
+    "allowedClientMethods": [
+      "initialize",
+      "initialized",
+      "thread/list"
+    ]
+  },
+  "process": {
+    "exitCode": 0,
+    "signal": null,
+    "stderrLineCount": 0
+  },
+  "messages": [
+    {
+      "direction": "client->server",
+      "message": {
+        "id": "probe-initialize",
+        "method": "initialize",
+        "params": {
+          "clientInfo": {
+            "name": "codex_computer_use_lab_probe",
+            "title": "Codex Computer Use Lab Probe",
+            "version": "0.1.0"
+          },
+          "capabilities": {
+            "experimentalApi": false,
+            "requestAttestation": false,
+            "mcpServerOpenaiFormElicitation": false
+          }
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "message": {
+        "id": "probe-initialize",
+        "result": {
+          "userAgent": "codex_computer_use_lab_probe/0.144.2 (Mac OS 26.5.2; arm64) unknown (codex_computer_use_lab_probe; 0.1.0)",
+          "codexHome": "<temporary-codex-home>",
+          "platformFamily": "unix",
+          "platformOs": "macos"
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "message": {
+        "method": "remoteControl/status/changed",
+        "params": {
+          "status": "disabled",
+          "serverName": "<redacted-host>",
+          "installationId": "<redacted-installation-id>",
+          "environmentId": null
+        }
+      }
+    },
+    {
+      "direction": "client->server",
+      "message": {
+        "method": "initialized"
+      }
+    },
+    {
+      "direction": "client->server",
+      "message": {
+        "id": "probe-thread-list",
+        "method": "thread/list",
+        "params": {
+          "limit": 1,
+          "useStateDbOnly": true
+        }
+      }
+    },
+    {
+      "direction": "server->client",
+      "message": {
+        "id": "probe-thread-list",
+        "result": {
+          "data": [],
+          "nextCursor": null,
+          "backwardsCursor": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "experiment": "expired-request-server-admission-deadline",
+  "request": {
+    "requestType": "ComputerUseIPCAppPolicyRequest",
+    "deadlineRelation": "1000ms before helper dispatch",
+    "targetBundleIdentifier": "com.openai.codex.cualab"
+  },
+  "response": {
+    "errorCode": -32001,
+    "message": "Request deadline exceeded"
+  },
+  "conclusion": {
+    "serverHasAdmissionDeadlineGate": true,
+    "expiredRequestReachedActionDispatch": false,
+    "acceptedWorkCancellationEstablished": false
+  },
+  "provenance": {
+    "helper": {
+      "path": "$HOME/.codex/cua-lab-expired-deadline-helper.mjs",
+      "sha256": "91373c21332d37c0969179e2bed4882b9f621483ce579c0782420bd97dd0d8aa"
+    }
+  },
+  "approvalStore": {
+    "before": {
+      "checked": true,
+      "present": false
+    },
+    "after": {
+      "checked": true,
+      "present": false
+    }
+  },
+  "safety": {
+    "policyRequestOnly": true,
+    "uiActionsExecuted": false,
+    "targetRestrictedToSyntheticBundle": true,
+    "persistentApprovalAllowed": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-screenshot-format-and-lifecycle",
+  "format": {
+    "extension": "jpeg",
+    "magic": "ffd8ffe0",
+    "container": "JFIF",
+    "mimeTypeFieldReturnedBySky": null,
+    "observedDimensions": {
+      "width": 760,
+      "height": 652
+    }
+  },
+  "singleFileLifetime": {
+    "at0Seconds": {
+      "exists": true,
+      "bytes": 77224,
+      "mode": "644"
+    },
+    "at2Seconds": {
+      "exists": true,
+      "bytes": 77224,
+      "mode": "644"
+    },
+    "at10Seconds": {
+      "exists": true,
+      "bytes": 77224,
+      "mode": "644"
+    }
+  },
+  "successiveCapture": {
+    "samePath": false,
+    "oldFileStillExists": true,
+    "newFileExists": true
+  },
+  "afterTargetAppStopAnd10Seconds": {
+    "oldFileExists": false,
+    "newFileExists": false
+  },
+  "pixelsPersistedByLab": false,
+  "conclusion": "Screenshots are separate JPEG files retained across captures during the app session and cleaned after the target app session ends."
+}

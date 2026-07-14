@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-12T17:44:24.223Z",
+  "source": {
+    "appPath": "$APP",
+    "appVersion": "26.707.51957",
+    "appBuild": "5175",
+    "asarPath": "$APP/Contents/Resources/app.asar",
+    "asarBytes": 195064103,
+    "asarHeaderBytes": 1636472,
+    "asarEntryCount": 6002,
+    "selectedFiles": {
+      "main": {
+        "path": ".vite/build/main-BHxSB3aK.js",
+        "bytes": 1744673,
+        "candidateCount": 1,
+        "scannedBytes": 1744673
+      },
+      "settings": {
+        "path": "webview/assets/computer-use-settings-CDg_JYdq.js",
+        "bytes": 36974,
+        "candidateCount": 1,
+        "scannedBytes": 36974
+      },
+      "approval-ui": {
+        "path": "webview/assets/app-initial~app-main~new-thread-panel-page~appgen-library-page~hotkey-window-thread-page~ho~iufn7mg3-k1satKyX.js",
+        "bytes": 8856468,
+        "candidateCount": 76,
+        "scannedBytes": 8856468
+      }
+    }
+  },
+  "staticEvidence": [
+    {
+      "id": "bundled-cache-materialization",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 121886,
+      "anchor": "copy_plugins",
+      "nearbySymbols": [
+        "Ac"
+      ],
+      "markers": [
+        "copy_plugins",
+        "replace_target",
+        "rename_staging",
+        "Eo({"
+      ],
+      "context": ",directoryKind:`staging_marketplace`,marketplaceName:e.marketplaceName,marketplaceWriteCounts:i,removePhase:`cleanup_staging_before_write`}),o=`create_staging`,await m.default.mkdir((0,u.join)(a,...sc.slice(0,-1)),{recursive:!0}),o=`write_manifest`;try{await m.default.writeFile((0,u.join)(a,...sc),`${JSON.stringify(r,null,2)}\\n`,`utf8`)}catch(t){throw gc.warning(`plugin_marketplace_manifest_write_failed`,{safe:{marketplaceName:e.marketplaceName,...i},sensitive:{error:t,marketplaceRoot:a}}),t}o=`copy_plugins`,await Promise.all(r.plugins.map(async t=>{let n=(0,u.resolve)(e.sourceMarketplaceRoot,t.source.path),r=(0,u.resolve)(a,t.source.path);gl({label:`bundled plugin target`,path:r,root:a}),await m.default.mkdir((0,u.dirname)(r),{recursive:!0}),await dl(n,r),await Eo({browserSkillVariant:e.browserSkillVariant,computerUseSkillVariant:e.computerUseSkillVariant,pluginName:t.name,pluginRoot:r})})),o=`stop_chrome_native_host`,await n.yn({force:!0,repointManifestsToPluginCache:{codexHome:e.codexHome,marketplaceName:e.marketplaceName},root:e.targetMarketplaceRoot}),o=`replace_target`,await Rc({directory:e.targetMarketplaceRoot,directoryKind:`runtime_marketplace`,marketplaceName:e.marketplaceName,marketplaceWriteCounts:i,removePhase:`replace_target`}),o=`create_target_parent`,await m.default.mkdir((0,u.resolve)(e.targetMarketplaceRoot,`..`),{recursive:!0}),o=`rename_staging`,await m.default.rename(a,e.targetMarketplaceRoot)}catch(t){throw gc.warning(`plugin_marketplace_folder_write_failed`,{safe:{folderWritePhase:o,marketplaceName:e.marketplaceName,...i},sensitive:{error:t,sourceMarketplaceRoot:e.sourceMarketplaceRoot,targetMarketplaceRoot:e.targetMarketplaceRoot}}),t}finally{await Rc({directory:a,directoryKind:`staging_marketplace`,marketplaceName:e.marketplaceName,marketplaceWriteCounts:i,removePhase:`cleanup_staging_after_write`})}return gc.info(`plugin_marketplace_folder_write_succeeded`,{safe:{marketplaceName:e.marketplaceName,...i},sensitive:{sourceMarketplaceRoot:e.sourceMarketplaceRoot,targetMarketplaceRoot:e.targetMarketplaceRoot}}),gc.info(`bundled_plugins_runtime_marketplace_written`,{safe:{pluginCount:r.plugins.length,pluginNames:r.plugins.map(e=>e.name)},sensitive:{targetMarketplaceRoot:e.targetMarketplaceRoot}}),{localMarketplaceRoot:e.targetMarketplaceRoot,marketplac"
+    },
+    {
+      "id": "node-repl-content-variant",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 89707,
+      "anchor": "computer-use-node-repl.md",
+      "nearbySymbols": [
+        "_o",
+        "vo"
+      ],
+      "markers": [
+        "computer-use-node-repl.md",
+        "bundledContentVariant",
+        "node-repl"
+      ],
+      "context": "hs:n.ui(e.hostConfig)});await e.sendAppServerRequest(`config/batchWrite`,{edits:vo(f),expectedVersion:null,filePath:null,reloadUserConfig:!0})}function vo(e){return go.map(t=>({keyPath:t,mergeStrategy:`replace`,value:e?.[t]??null}))}var yo=[`.codex-plugin`,`unified-skill.md`],bo=[`skills`,`control-in-app-browser`,`SKILL.md`],xo=[`skills`,`control-chrome`,`SKILL.md`],So=new Map([[n.Ss,bo],[o.s,xo],[n.Cs,xo],[o.c,xo]]),Co=[{destination:[`skills`,`computer-use`,`SKILL.md`],source:[`.codex-plugin`,`computer-use-node-repl.md`]}],wo=n.yl({});function To(e){return So.has(e)}async function Eo(e){let t,n=[],r=So.get(e.pluginName);if(r==null?e.pluginName===`computer-use`&&(t=e.computerUseSkillVariant,t===`node-repl`&&(n=Co)):(t=e.browserSkillVariant,t===`unified`&&(n=[{destination:r,source:yo}])),t==null)return;await Promise.all(n.map(({destination:t,source:n})=>m.default.copyFile((0,u.join)(e.pluginRoot,...n),(0,u.join)(e.pluginRoot,...t))));let i=(0,u.join)(e.pluginRoot,`.codex-plugin`,`plugin.json`),a=await wo.parseAsync(JSON.parse(await m.default.readFile(i,`utf8`)));await m.default.writeFile(i,`${JSON.stringify({...a,bundledContentVariant:t},null,2)}\\n`,`utf8`)}var Do=r.i(`BrowserUseLocalToBundledMigration`),Oo=n.yl({name:n.wl(),source:n.yl({path:n.wl().trim().min(1),source:n.wl()}).optional()}),ko=n.yl({plugins:n.pl(Oo)});async function Ao(e){try{await jo(e)}catch(e){Do.warning(`browser_use_local_to_bundled_migration_failed`,{safe:{},sensitive:{error:e}})}}async function jo(e){let t=e.marketplaceName??`openai-bundled`,{marketplaces:r}=await e.appServerConnection.listPlugins(o.l),i=rn({marketplaces:r,marketplaceName:t,pluginName:n.Ps});if(i==null){Do.debug(`bundled_browser_use_plugin_missing_for_migration`,{safe:{}});return}let a=Mo({codexHome:e.codexHome,marketplaces:r});if(a==null){Do.debug(`local"
+    },
+    {
+      "id": "local-to-bundled-migration",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 94478,
+      "anchor": "computer_use_local_to_bundled_migration_uninstalled_local",
+      "nearbySymbols": [
+        "Go",
+        "Ko"
+      ],
+      "markers": [
+        "uninstallPlugin",
+        "trashItem",
+        "computer_use_local_to_bundled_migration_removed_config",
+        "computer_use_local_to_bundled_migration_installed_bundled"
+      ],
+      "context": "function Go(e){try{await Ko(e)}catch(e){Vo.warning(`computer_use_local_to_bundled_migration_failed`,{safe:{},sensitive:{error:e}})}}async function Ko(e){let t=e.marketplaceName??`openai-bundled`,{marketplaces:r}=await e.appServerConnection.listPlugins(o.l),i=rn({marketplaces:r,marketplaceName:t,pluginName:n.ws});if(i==null){Vo.debug(`bundled_computer_use_plugin_missing_for_migration`,{safe:{}});return}let a=qo({codexHome:e.codexHome,marketplaces:r});if(a==null){Vo.debug(`local_computer_use_plugin_missing_for_migration`,{safe:{}});return}let s=await fs(a.plugin.source.path),c=s!=null&&s>0,l=c?!1:await(e.isMacAppNotarized??hs)((0,u.join)(a.plugin.source.path,zo));if(!l&&!c){Vo.info(`local_computer_use_plugin_kept_for_development`,{safe:{localBuildNumber:s},sensitive:{localPluginPath:a.plugin.source.path}});return}await e.appServerConnection.uninstallPlugin({pluginId:a.plugin.id}),Vo.info(`computer_use_local_to_bundled_migration_uninstalled_local`,{safe:{localBuildNumber:s,reason:l?`gatekeeper_accepted`:`versioned_build`}}),await e.trashItem(a.plugin.source.path),Vo.info(`computer_use_local_to_bundled_migration_moved_local_to_trash`,{safe:{localBuildNumber:s,reason:l?`gatekeeper_accepted`:`versioned_build`},sensitive:{localPluginPath:a.plugin.source.path}}),await Jo({codexHome:e.codexHome,localPluginPath:a.plugin.source.path,marketplacePath:a.marketplace.path}),await Xo({codexHome:e.codexHome,localPluginPath:a.plugin.source.path}),!i.plugin.installed&&(await e.appServerConnection.installPlugin({marketplacePath:i.marketplace.path,pluginName:n.ws}),Vo.info(`computer_use_local_to_bundled_migration_installed_bundled`,{safe:{},sensitive:{marketplacePath:i.marketplace.path}}))}function qo(e){let t=(0,u.join)(e.codexHome,`plugins`,n.ws);for(let n of e.marketplaces)for(let e of n.plugins)if(e.name===`computer-use`&&e.installed&&n.path!=null&&e.source.type===`local`&&gs(e.source.path,t))return{marketplace:{...n,path:n.path},plugin:{...e,source:e.source}};return null}async function Jo(e){try{let t=await Yo(e.marketplacePath),n=t.plugins.filter(t=>!us({codexHome:e.codexHome,localPluginPath:e.localPluginPath,plugin:t}));if(n.length===t.plugins.length){Vo.debug(`computer_use_local_to_bundled_migration_marketplace_entry_missing`,{safe:{},sensitive:{marketplacePath:e.marketplacePath}});return}await m.default.writeFile(e.marketplacePath,JSON.stringify({...t,plugins:n},null,2)+` `,`utf8`),Vo.info(`computer_use_local_to_bundled_migration_removed_marketplace_entry`,{safe:{},sensitive:{marketplacePath:e.marketplacePath}})}catch(t){Vo.warning(`computer_use_local_to_bundled_migration_marketplace_cleanup_failed`,{safe:{},sensitive:{error:t,marketplacePath:e.marketplacePath}})}}async function Yo(e){return Wo.parseAsync(JSON.parse(await m.default.readFile(e,`utf8`)))}async function Xo(e){let t=(0,u.join)(e.codexHome,`config.toml`);try{let n=await m.default.readFile(t,`utf8`).catch(e=>{if(vs(e,`ENOENT`))return null;throw e});if(n==null)return;let r=Zo({content:n,localPluginPath:e.localPluginPath});if(r===n)return;await m.default.writeFile(t,r,`utf8`),Vo.info(`computer_use_local_to_bundled_migration_removed_config`,{safe:{},sensitive:{configPath:t}})}catch(e){Vo.warning(`computer_use_local_to_bundled_migration_config_cleanup_fa"
+    },
+    {
+      "id": "variant-selection",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 150799,
+      "anchor": "legacy-mcp",
+      "nearbySymbols": [
+        "Al",
+        "jl"
+      ],
+      "markers": [
+        "computerUseNodeRepl",
+        "node-repl",
+        "legacy-mcp"
+      ],
+      "context": "lity:(e,t)=>{if(t!=null&&(m=t),p==null){if(!qe(e))return v;p=e}else p={...p,...e};return E({force:!1,reason:`startup`})},waitForPendingReconcile:()=>v}}function Al(e){if(e.marketplacePluginNames.some(To))return e.desktopFeatureAvailability.multiBrowserTabs&&e.desktopFeatureAvailability.unifiedBrowserSkill?`unified`:`backend-specific`}function jl(e){if(!(e.platform!==`darwin`||!e.marketplacePluginNames.includes(`computer-use`)))return e.desktopFeatureAvailability.computerUseNodeRepl?`node-repl`:`legacy-mcp`}async function Ml(e){let{marketplaces:t}=await e.appServerConnection.listPlugins(o.l);return new Map([...Ol].flatMap(n=>{let r=rn({marketplaceName:e.marketplaceName,marketplaces:t,pluginName:n})?.plugin;return r==null?[]:[[n,r]]}))}var Nl=r.a(`codex-app-config`),Pl=`codex-app`,oee=`config.json`,Fl=1,see=n.xl({version:n.bl().int().optional()}),cee"
+    },
+    {
+      "id": "config-batch-write",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 89261,
+      "anchor": "config/batchWrite",
+      "nearbySymbols": [
+        "_o"
+      ],
+      "markers": [
+        "features.js_repl",
+        "config/batchWrite",
+        "reloadUserConfig"
+      ],
+      "context": "t?.tabId,threadID:e.params.threadId}}),{surface:t.data[`codex/toolSurface`],threadID:e.params.threadId}):null}var go=[`features.js_repl`,`mcp_servers.${n.ko}`,an];async function _o({appServerConnection:e,appVersion:t,desktopFeatureAvailability:r,isPackaged:i,platform:a,repoRoot:o,resolveCodexPath:s,resolveNodePath:c,resolveNodeReplPath:l,resolvePrimaryRuntimeNodePath:u,resourcesPath:d}){Sr(e);let f=await xr({appServerConnection:e,appVersion:t,desktopFeatureAvailability:r,cwd:null,hostServicesPipePath:null,includePrivateProcessEnv:!1,isPackaged:i,platform:a,repoRoot:o,resolveCodexPath:s,resolveNodePath:c,resolveNodeReplPath:l,resolvePrimaryRuntimeNodePath:u,resourcesPath:d,shouldUseWslPaths:n.ui(e.hostConfig)});await e.sendAppServerRequest(`config/batchWrite`,{edits:vo(f),expectedVersion:null,filePath:null,reloadUserConfig:!0})}function vo(e){return go.map(t=>({keyPath:t,mergeStrategy:`replace`,value:e?.[t]??null}))}var yo=[`.codex-plugin`,`unified-skill.md`],bo=[`skills`,`control-in-app-browser`,`SKILL.md`],xo=[`skills`,`control-chrome`,`SKILL.md`],So=new Map([[n.Ss,bo],[o.s,xo],[n.Cs,xo],[o.c,xo]]),Co=[{destination:[`skills`,`computer-use`,`SKILL.md`],source:[`.codex-plugin`,`computer-use-node-rep"
+    },
+    {
+      "id": "legacy-mcp-disabled",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 36653,
+      "anchor": "SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
+      "nearbySymbols": [
+        "or",
+        "sr",
+        "cr",
+        "lr"
+      ],
+      "markers": [
+        "args:[`mcp`]",
+        "cwd:`.`",
+        "enabled:!1"
+      ],
+      "context": "ocess.platform===`win32`||(0,p.accessSync)(e,p.constants.X_OK),!0):!1}catch{return!1}}function lr(e){return e.replaceAll(`/`,`\\\\`).toLowerCase().includes(`\\\\program files\\\\windowsapps\\\\`)}var ur=r.i(`BrowserUseThreadConfig`),dr=(0,d.promisify)(h.execFile),fr={\"features.js_repl\":!1},pr={[an]:{command:`./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient`,args:[`mcp`],cwd:`.`,enabled:!1}},mr={serviceAppPath:null},hr=[Bt,At,jt,Mt,Nt],gr=[Pt,Vt],_r=new WeakMap,vr=`Control the in-app browser in conjunction with the Browser Plugin.`,yr=`Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative.`,br=`Control desktop apps on macOS through Computer Use.`;async function xr({appServerConnection:e,appVersion:t,deskt"
+    },
+    {
+      "id": "node-repl-computer-use-env",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 21581,
+      "anchor": "SKY_CUA_SERVICE_PATH",
+      "nearbySymbols": [
+        "tn",
+        "tee",
+        "nn",
+        "rn"
+      ],
+      "markers": [
+        "NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE",
+        "SKY_CUA_SERVICE_PATH",
+        "serviceAppPath"
+      ],
+      "context": "Map(e=>t.filter(t=>t.name===e))}function rn({marketplaceName:e,marketplaces:t,pluginName:n}){for(let r of nn({marketplaceName:e,marketplaces:t})){let e=r.plugins.find(e=>e.name===n);if(r.path!=null&&e!=null)return{marketplace:{...r,path:r.path},plugin:e}}return null}var an=`mcp_servers.${n.ws}`,on=`NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE`,sn=`SKY_CUA_SERVICE_PATH`,cn=`SKY_CUA_NATIVE_PIPE`,ln=`SKY_CUA_NATIVE_PIPE_DIRECTORY`,un=`Codex Computer Use.app`,dn=`\\\\\\\\.\\\\pipe\\\\codex-computer-use-${(0,f.randomUUID)()}`;function fn({nativePipeDirectory:e,nativePipeEnabled:t=!1,serviceAppPath:n}={}){return{...n==null?{}:{[sn]:n},...t?{[cn]:`1`,[ln]:e??dn}:{}}}function pn({env:e=process.env,installedPluginServiceAppPath:t,pathExists:n=p.existsSync}){let r=e[sn]?.trim();if(r)return r;let i=t?.trim();return i&&n(i)?i:null}function mn({env:e=process.env,installedPluginRoot:t,pathExists:n=p.existsSync}={}){let r=t?.trim()||null;return{serviceAppPath:pn({env:e,installedPluginServiceAppPath:r==null?null:u.default.join(r,un),pathExists:n})}}function hn({codexHome:e,env:t=process.env,marketplaceName:r=n.Ms(i.a.resolve()"
+    },
+    {
+      "id": "canonical-service-sync",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 156184,
+      "anchor": "CODEX_ELECTRON_SKIP_COMPUTER_USE_CANONICAL_REFRESH",
+      "nearbySymbols": [
+        "hee",
+        "gee",
+        "_ee",
+        "zl"
+      ],
+      "markers": [
+        "Codex Computer Use.app",
+        "ditto",
+        "--noqtn"
+      ],
+      "context": ";function mee(){return hee()??gee(_ee())}function hee(){let e=process.env[pee]?.trim();return e?zl(e):null}function gee(e){for(let t of e)if((0,p.existsSync)(t))return zl(t);return null}function _ee(){return[n.Ms(i.a.resolve()),n.As].filter((e,t,n)=>n.indexOf(e)===t).flatMap(e=>[u.default.join(Cl(),`plugins`,e,`plugins`,n.ws,Rl),u.default.join(c.app.getAppPath(),`.generated`,`dev-resources`,`plugins`,e,`plugins`,n.ws,Rl)])}function zl(e){try{return p.realpathSync.native(e)}catch{return e}}var vee=`computer-use`,yee=`Codex Computer Use.app`,Bl=`CODEX_ELECTRON_SKIP_COMPUTER_USE_CANONICAL_REFRESH`,Vl=(0,d.promisify)(h.execFile);function Hl(e){return u.default.join(e,vee,yee)}async function Ul({sourceServiceAppPath:e,codexHome:t}){if(process.platform!==`darwin`||process.env[Bl]?.trim()===`1`||e==null)return;let n=Hl(t);await m.default.mkdir(u.default.dirname(n),{recursive:!0}),await m.default.rm(n,{force:!0,recursive:!0}),await Vl(`ditto`,[`--noqtn`,e,n])}var Wl=class{appshotsEnabled=!1;nodeReplEnabled=!1;disposed=!1;servicePid=null;pendingOperation=Promise.resolve();isExpectedServiceProcess;isProcessRunning;serviceExecutablePath;spawnService;constructor(e,{isExpectedServiceProcess:t=Wa,isProcessRunning:n=Gl,spawnService:r=Ua}={}){this.isExpectedServiceProcess=t,this.isProcessRunning=n,this.serviceExecutablePath=u.default.join(e,`Contents`,`MacOS`,`SkyComputerUseService`),this.spawnService=r}setAppshotsEnabled(e){return this.setEnabledFeatures({appshotsEnabled:e,nodeReplEnabled:this.nodeReplEnabled})}setEnabledFeatures({appshotsEnabled:e,nodeReplEnabled:t}){return this.appshotsEnabled===e&&this.nodeReplEnabled===t?Promise.resolve():(this.appshotsEnabled=e,this.nodeReplEnabled=t,this.runSerialized(async()=>{this.disposed||thi"
+    },
+    {
+      "id": "managed-service-spawn",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 158430,
+      "anchor": "Failed to spawn managed Computer Use service",
+      "nearbySymbols": [],
+      "markers": [
+        "SkyComputerUseService",
+        "spawnService",
+        "Failed to spawn managed Computer Use service"
+      ],
+      "context": "1;nodeReplEnabled=!1;disposed=!1;servicePid=null;pendingOperation=Promise.resolve();isExpectedServiceProcess;isProcessRunning;serviceExecutablePath;spawnService;constructor(e,{isExpectedServiceProcess:t=Wa,isProcessRunning:n=Gl,spawnService:r=Ua}={}){this.isExpectedServiceProcess=t,this.isProcessRunning=n,this.serviceExecutablePath=u.default.join(e,`Contents`,`MacOS`,`SkyComputerUseService`),this.spawnService=r}setAppshotsEnabled(e){return this.setEnabledFeatures({appshotsEnabled:e,nodeReplEnabled:this.nodeReplEnabled})}setEnabledFeatures({appshotsEnabled:e,nodeReplEnabled:t}){return this.appshotsEnabled===e&&this.nodeReplEnabled===t?Promise.resolve():(this.appshotsEnabled=e,this.nodeReplEnabled=t,this.runSerialized(async()=>{this.disposed||this.enabled&&await this.ensureServicePidForEnabledFeatures()}))}ensureServicePid(){return this.runSerialized(async()=>{if(this.disposed||!this.enabled)throw Error(`Managed Computer Use service is not enabled`);return this.ensureServicePidForEnabledFeatures()})}invalidateServicePid(e){return this.runSerialized(async()=>{this.disposed||!this.appshotsEnabled||this.servicePid===e&&(this.isProcessRunning(e)&&this.isExpectedServiceProcess(e,this.serviceExecutablePath)||(this.servicePid=null))})}dispose(){this.disposed=!0,this.appshotsEnabled=!1,this.nodeReplEnabled=!1}runSerialized(e){let t=this.pendingOperation.then(e,e);return this.pendingOperation=t.then(()=>{},()=>{}),t}get enabled(){return this.appshotsEnabled||this.nodeReplEnabled}async ensureServicePidForEnabledFeatures(){let e=this.servicePid;if(e!=null&&this.isProcessRunning(e)&&this.isExpectedServiceProcess(e,this.serviceExecutablePath))return e;this.servicePid=null;let t=await this.spawnService(this.serviceExecutablePath);if(t==null||!Number.isSafeInteger(t)||t<=0)throw Error(`Failed to spawn managed Computer Use service`);return this.servicePid=t,t}};function Gl(e,t=process.platform){try{process.kill(e,0)}catch(e){return!(typeof e==`object`&&e&&`code`in e&&e.code===`ESRCH`)}if(t!==`darwin`)return!0;try{let t=(0,h.execFileSync)(`ps`,[`-o`,`state=`,`-p`,String(e)],{encoding:`utf8`,stdio:[`ignore`,`pipe`,`ignore`]})."
+    },
+    {
+      "id": "approval-result-persistence",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 20543,
+      "anchor": "approvalPersistence",
+      "nearbySymbols": [
+        "Yt",
+        "Xt",
+        "Zt",
+        "Qt"
+      ],
+      "markers": [
+        "persist",
+        "always",
+        "session",
+        "_meta?.persist"
+      ],
+      "context": "().trim().min(1).optional(),itemId:n.wl().trim().min(1).optional(),model:n.wl().trim().min(1).optional(),model_reasoning_effort:n.wl().trim().min(1).optional(),reasoningEffort:n.wl().trim().min(1).optional(),reasoning_effort:n.wl().trim().min(1).optional(),session_id:n.wl().trim().min(1).optional(),thread_id:n.wl().trim().min(1).optional(),threadId:n.wl().trim().min(1).optional(),turn_id:n.wl().trim().min(1).optional()}).passthrough(),eee=n.xl({app:n.Tl([n.wl().trim().min(1),n.xl({bundleIdentifier:n.wl().trim().min(1).optional(),bundle_identifier:n.wl().trim().min(1).optional()}).passthrough()]).optional(),bundleIdentifier:n.wl().trim().min(1).optional(),bundle_identifier:n.wl().trim().min(1).optional(),window:n.xl({app:n.wl().trim().min(1).optional()}).passthrough().optional()}).passthrough(),qt=n.xl({meta:n.xl({method:n.wl().trim().min(1).optional(),params:n.El().optional(),tool_params:n.El().optional()}).passthrough().optional()}).passthrough(),Jt=n.xl({action:n.dl([`accept`,`decline`,`cancel`]),_meta:n.xl({persist:n.dl([`always`,`session`]).optional()}).passthrough().optional()}).passthrough();function Yt(e,t,n){let r=eee.safeParse(t),i=r.success?en(r.data):void 0,a=Kt.safeParse(n);return{toolName:e,transport:Gt,bundleIdentifier:i,model:a.success?a.data.model:void 0,reasoningEffort:a.success?tn(a.data):void 0}}function Xt(e){let t=Kt.safeParse(e),n=t.success?t.data:{},r=n.thread_id??n.threadId??n.session_id,i=n.item_id??n.itemId??n.call_id;return{pluginId:`computer-use@openai-bundled`,mcpServerName:`computer-use`,invocationSource:`model`,threadId:r,turnId:n.turn_id,itemId:i}}function Zt(e){let t=qt.safeParse(e);return t.success?Yt(t.data.meta?.method??`unknown`,t.data.meta?.params??t.data.meta?.tool_params):{toolName:`unknown`,transport:Gt}}function Qt(e,t){let n=Jt.safeParse(t);return n.success?{type:`app-approval-resolved`,...e,approvalResult:tee(n.data.action),approvalPersistence:n.data._meta?.persist}:{type:`app-approval-resolved`,...e,approvalResult:`unknown`}}function $t(e){let t={transport:e.transport};return e.bundleIdentifier!=null&&(t.bundleIdentifier=e.bundleIdentifier),t}function en(e){return e.bundleIdentifier??e.bundle_identifier??(typeof e.app==`string`?e.app:e.app?.bundleIdentifier??e.app?.bundle_identifier)??e.window?.app}function tn(e){return e.reasoning_effort??e.reasoningEffort??e.model_reasoning_effort}function tee(e){switch(e){case`accept`:return`acce"
+    },
+    {
+      "id": "approval-store",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 477335,
+      "anchor": "ComputerUseAppApprovals.json",
+      "nearbySymbols": [
+        "yD",
+        "bD",
+        "xD",
+        "SD"
+      ],
+      "markers": [
+        "approvedBundleIdentifiers",
+        "Group Containers",
+        "ComputerUseAppApprovals.json",
+        "JSON.stringify"
+      ],
+      "context": "cess?xD(Object.entries(n.data.computer_use.windows.always_allowed_app_ids).filter(([,e])=>e===!0).map(([e])=>e)):null}async function hD(e,t){let r=(0,p.existsSync)(e)?await(0,m.readFile)(e,`utf8`):``;n.Qr(r),await vD(e,yD(r,t))}async function gD(e){if(!(0,p.existsSync)(e))return{};let t=n.Qr(await(0,m.readFile)(e,`utf8`));return SD(t)?t:{}}async function _D(e,t){let n=L(t);await vD(e,n.endsWith(` `)?n:`${n}\\n`)}async function vD(e,t){await(0,m.mkdir)(u.default.dirname(e),{recursive:!0}),await(0,m.writeFile)(e,t,`utf8`)}function yD(e,t){let n=bD(t),r=uD.exec(e);return r==null?e.trim()===``?n:`${e}${e.endsWith(` `)?` `:` `}${n}`:[e.slice(0,r.index),r[1],n,e.slice(r.index+r[0].length)].join(``)}function bD(e){let t=L({computer_use:{windows:{always_allowed_app_ids:Object.fromEntries(e.map(e=>[e,!0]))}}});return t.endsWith(` `)?t:`${t}\\n`}function xD(e){return Array.from(new Set(e.map(e=>e.trim()).filter(e=>e!==``)))}function SD(e){return typeof e==`object`&&!!e&&!Array.isArray(e)}var CD=`ComputerUseAppApprovals.json`,wD=`config.toml`,TD=u.default.join(`Library`,`Application Support`,`Software`),ED=u.default.join(`Library`,`Group Containers`),DD=`2DC432GLL2.com.openai.sky.CUAService`,OD=n.xl({approvedBundleIdentifiers:n.pl(n.wl())}),kD=new Map;async function AD(e={}){let t=await FD(PD(e));if(t==null)return null;let n=RD(t);return{approvedApps:await zD(n,e),approvedBundleIdentifiers:n}}async function jD(e={}){let t=PD(e);return t.format===`json`?(0,p.existsSync)(t.filePath):await fD(t.filePath)!=null}async function MD(e,t={}){let n=PD(t),r=RD(e);return n.format===`toml`?await pD(n.filePath,r):await LD(n.filePath,r),{approvedApps:await zD(r,t),approvedBundleIdentifiers:r}}async function ND(e,t={}){let n=await AD(t);return n==null?null:MD(n.approvedBundleIdentifiers.filter(t=>t!==e),t)}function PD(e={}){let{codexHome:t,homeDirectory:r=(0,l.homedir)(),platform:i=process.platform}=e;if(i===`win32`)return{filePath:u.default.join(t??n.ni(),wD),format:`toml`};let a=u.default.join(r,ED,DD,TD);return{filePath:u.default.join(a,CD),format:`json`}}async function FD(e){return e.format===`toml`?fD(e.filePath):(0,p.existsSync)(e.filePath)?ID(e.filePath):null}async function ID(e){let t={};if((0,p.existsSync)(e))try{t=JSON.parse(await(0,m.readFile)(e,`utf8`))}catch{t={}}let n=OD.safeParse(t);return n.success?n.data.approvedBundleIdentifiers:[]}async function LD(e,t){await(0,m.mkdir)(u.default.dirname(e),{recursive:!0}),await(0,m.writeFile)(e,JSON.stringify({approvedBundleIdentifiers:t},null,2),`utf8`)}function RD(e){return Array.from(new Set(e.map(e=>e.trim()).filter(e=>e!==``)))}async function zD(e,t={}){let n=UD(t.platform);return Promise.all(e.map(e=>BD(e,n)))}async function BD(e,t){let n=HD(e,t),r=kD.get(n);if(r!=null)return r;let i=await VD(e)??WD(e);return t!==`win32`||i.iconDataURL!=null?kD.set(n,i):kD.delete(n),i}async function VD(e){try{let t=await n.vt(e);return t==null?null:{bundleIdentifier:e,displayName:t.displayName,iconDataURL:await Fa(t.appPath)}}catch{return null}}function HD(e,t){return`${t}:${e}`}function UD(e){return e===`darwin`||e===`win32`?e:`other`}function WD(e){return"
+    },
+    {
+      "id": "locked-use-installer",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 480536,
+      "anchor": "Codex Computer Use Installer.app",
+      "nearbySymbols": [
+        "KD",
+        "qD",
+        "JD",
+        "YD"
+      ],
+      "markers": [
+        "install",
+        "uninstall",
+        "status",
+        "OK: installed"
+      ],
+      "context": "ce:!0,recursive:!0})}}async function JD(e){let t=u.default.join(e,`Contents`,`Info.plist`),r=u.default.join(e,`Contents`,`Resources`),i=await n.St(t,`CFBundleIconFile`)??await n.St(t,`CFBundleIconName`),a=i==null?[]:[i,YD(i)];for(let e of[...a,`AppIcon.icns`]){let t=u.default.join(r,e);if((0,p.existsSync)(t))return t}return null}function YD(e){return u.default.extname(e)===``?`${e}.icns`:e}var XD=(0,d.promisify)(h.execFile),ZD=[`computer-use`,`Codex Computer Use.app`,`Contents`,`SharedSupport`,`Codex Computer Use Installer.app`,`Contents`,`MacOS`,`Codex Computer Use Installer`],QD=u.default.join(`/System`,`Library`,`CoreServices`,`CoreTypes.bundle`,`Contents`,`Resources`),$D=u.default.join(QD,`LockedIcon.icns`),eO=`NSComputer`;async function tO(){if(process.platform!==`darwin`)return null;try{return await iO()}catch{return!1}}async function nO(){if(process.platform!==`darwin`)return{computerIconDataURL:null,lockIconDataURL:null};let e=c.nativeImage.createFromNamedImage(eO);return{computerIconDataURL:e.isEmpty()?null:e.toDataURL(),lockIconDataURL:await qD($D)}}async function rO(e){return process.platform===`darwin`?(await aO(e?`install`:`uninstall`),iO()):null}async function iO(){return(await aO(`status`)).trim()===`OK: installed`}async function aO(e){let{stdout:t}=await XD(oO(),[e],{env:r.t(process.env),timeout:12e4});return t}function oO(){return u.default.join(n.ni(),...ZD)}var sO=(0,d.promisify)(h.execFile),cO=`com.openai.sky.CUAService`,lO=`computerUseSoundMode`;async function uO(){if(process.platform!==`darwin`)return null;try{let{stdout:e}=await sO(`/usr/bin/defaults`,[`read`,cO,lO]),t=e.trim();return t===``?null:t}catch{return null}}async function dO(e){return process.platform===`darwin`&&await sO(`/usr/bin/defaults`,[`write`,cO,lO,e]),e}var fO=new Map,pO=r.a(`computer-use-capture-handler`),mO=12e4,hO=`-10014`,gO=/^Codex Computer Use Apple Event error (-?\\d+):/,_O=/^AE.+ failed with (-?\\d+)(?:\\s|$)/;async function vO({animationTarget:e,bundleIdentifier:t,origin:n,requestComputerUseCaptureWorker:r,requestId:i,subscribeComputerUseCaptureWorkerEvent:a}){if(t.trim().length===0||i.trim().length===0)return null;if(fO.has(i))return pO().warning(`Rejected duplicate Codex Computer Use capture request`,{safe:{requestId:i},sensitive:{}}),null;let o=Date.now(),s=new AbortController,c=fO.values().next().value?.permissionRequestId??i,l=CO(i),u=a(`update`,e=>{e.requestId===i&&yO(e.requestId,e.upda"
+    },
+    {
+      "id": "sound-defaults-persistence",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 481505,
+      "anchor": "computerUseSoundMode",
+      "nearbySymbols": [
+        "rO",
+        "iO",
+        "aO",
+        "oO"
+      ],
+      "markers": [
+        "/usr/bin/defaults",
+        "read",
+        "write",
+        "computerUseSoundMode"
+      ],
+      "context": "()):null}async function iO(){return(await aO(`status`)).trim()===`OK: installed`}async function aO(e){let{stdout:t}=await XD(oO(),[e],{env:r.t(process.env),timeout:12e4});return t}function oO(){return u.default.join(n.ni(),...ZD)}var sO=(0,d.promisify)(h.execFile),cO=`com.openai.sky.CUAService`,lO=`computerUseSoundMode`;async function uO(){if(process.platform!==`darwin`)return null;try{let{stdout:e}=await sO(`/usr/bin/defaults`,[`read`,cO,lO]),t=e.trim();return t===``?null:t}catch{return null}}async function dO(e){return process.platform===`darwin`&&await sO(`/usr/bin/defaults`,[`write`,cO,lO,e]),e}var fO=new Map,pO=r.a(`computer-use-capture-handler`),mO=12e4,hO=`-10014`,gO=/^Codex Computer Use Apple Event error (-?\\d+):/,_O=/^AE.+ failed with (-?\\d+)(?:\\s|$)/;async function vO({animationTarget:e,bundleIdentifier:t,origin:n,requestComputerUseCaptureWorker:r,requestId:i,subscribeComputerUseCaptureWorkerEvent:a}){if(t.trim().length===0||i.trim().length===0)r"
+    },
+    {
+      "id": "pip-host-setting",
+      "role": "main",
+      "file": ".vite/build/main-BHxSB3aK.js",
+      "fileOffset": 1725960,
+      "anchor": "Remote hosted PiP availability changed",
+      "nearbySymbols": [],
+      "markers": [
+        "cuaPIP",
+        "alwaysHidePictureInPicture",
+        "settingsStore.getEffective"
+      ],
+      "context": "ed`)??He.openAIMcpFormElicitations},{buildFlavor:o})),await a.V(I.repoRoot);let ee=()=>Ke().cuaPIP&&I.settingsStore.getEffective(n.Hi.alwaysHidePictureInPicture.key)!==!0,L=mp({isEnabled:ee,isMacOS:A,preferenceStore:I.globalState});P.add(L.dispose);let R=Gne({appBrand:a.U(),buildFlavor:o,allowDevtools:g,allowDebugMenu:v,allowInspectElement:_,errorReporter:y,globalState:I.globalState,settingsStore:I.settingsStore,desktopRoot:I.desktopRoot,preloadPath:I.preloadPath,repoRoot:I.repoRoot,isMacOS:A,isWindows:j,isDevMode:M,canHideLastWindowToTray:()=>N,isRemoteHostedPIPEnabled:ee,onWindowRegistered:L.registerWindow,disposables:P});L.setWindowMessageSender(e=>{R.windowManager.sendMessageToAllWindows(e)}),L.setPetWakeRequestHandler(()=>{R.avatarOverlayManager.wake().catch(e=>{r.r().warning(`Failed to wake pet for PiP placement request`,{safe:{},sensitive:{error:e}})})});let z=ee(),te=()=>{let e=ee();L.reconcileEnabledState(),z!==e&&(r.r().info(`Remote hosted PiP availability changed`,{safe:{enabled:e}}),R.avatarOverlayManager.reconcileRemoteHostedPIPContentHost()),z=e};P.add(I.settingsStore.onDidChange(n.Hi.alwaysHidePictureInPicture.key,te));let ne=!1,re=()=>ne?R.ensureWindow():Promise.resolve(null),ie=e=>ne?R.createFreshWindow(e):Promise.resolve(null),ae=e=>R.isTrustedIpcSender(e.sender,e.senderFrame??null);W6({buildFlavor:"
+    },
+    {
+      "id": "settings-install-surface",
+      "role": "settings",
+      "file": "webview/assets/computer-use-settings-CDg_JYdq.js",
+      "fileOffset": 15387,
+      "anchor": "settings.computerUse.install.button",
+      "nearbySymbols": [],
+      "markers": [
+        "Computer Use plugins unavailable",
+        "Button label for installing a computer use plugin",
+        "Install"
+      ],
+      "context": "F,onToggleEnabled:t=>{m({appId:_n,appName:i.formatMessage(e.title),enabled:t}).catch(Kt)},toggleAriaLabel:i.formatMessage(e.toggleAriaLabel),toggleTooltip:P?(0,Q.jsx)(U,{...e.disableTooltip}):(0,Q.jsx)(U,{...e.enableTooltip})}:{displayName:i.formatMessage(e.title),plugin:t},icon:(0,Q.jsx)(`img`,{alt:``,className:`h-full w-full object-contain`,src:e.icon}),title:(0,Q.jsx)(U,{...e.title}),description:(0,Q.jsx)(U,{...e.description})})}let B,V;return t[33]===Symbol.for(`react.memo_cache_sentinel`)?(B=(0,Q.jsx)(U,{id:`settings.computerUse.install.empty`,defaultMessage:`Computer Use plugins unavailable`,description:`Empty state shown when computer use plugins cannot be found`}),V=(0,Q.jsx)(U,{id:`settings.computerUse.install.button`,defaultMessage:`Install`,description:`Button label for installing a computer use plugin`}),t[33]=B,t[34]=V):(B=t[33],V=t[34]),(0,Q.jsx)(wt,{emptyStateTitle:B,installButtonLabel:V,items:R,pluginsQuery:y,selectedHostId:o,unavailableItems:ee})}function Kt(){}function qt(e){return e.id===_n}function Jt(e){let t=(0,Z.c)(10),{hostId:n,plugin:r,shouldReadBrowserExtension:i}=e,a;t[0]!==n||t[1]!==r||t[2]!==i?(a={enabled:i,hostId:n,plugin:r},t[0]=n,t[1]=r,t[2]=i,t[3]=a):a=t[3];let o=ie(a),s=o?.[0]??null,c=i&&o===void 0,l=s?.id??null,u;t[4]===l?u=t[5]:(u={browserExtensionId:l},t[4]=l,t[5]=u);let d=re(u),f=c||d.isLoading,p;return t[6]!==s||t[7]!==d.isConnected||t[8]!==f?(p={browserExtension:s,isConnected:d.isConnected,isInstalled:d.isConnected,isLoading:f},t[6]=s,t[7]=d.isConnected,t[8]=f,t[9]=p):p="
+    },
+    {
+      "id": "settings-sound-modes",
+      "role": "settings",
+      "file": "webview/assets/computer-use-settings-CDg_JYdq.js",
+      "fileOffset": 7792,
+      "anchor": "settings.computerUse.sounds.foregroundClicks",
+      "nearbySymbols": [],
+      "markers": [
+        "foregroundClicks",
+        "foregroundAndBackgroundClicks",
+        "Don’t play sounds"
+      ],
+      "context": "control`},alwaysAllowedApps:{id:`settings.computerUse.allowedApps.title`,defaultMessage:`Always-allowed apps`,description:`Title for computer use always allowed apps list`},foregroundClickSounds:{id:`settings.computerUse.sounds.foregroundClicks`,defaultMessage:`Play sounds for foreground clicks`,description:`Computer use sound setting option for foreground click sounds`},foregroundAndBackgroundClickSounds:{id:`settings.computerUse.sounds.foregroundAndBackgroundClicks`,defaultMessage:`Play sounds for foreground and background clicks`,description:`Computer use sound setting option for foreground and background click sounds`},noClickSounds:{id:`settings.computerUse.sounds.off`,defaultMessage:`Don’t play sounds`,description:`Computer use sound setting option for no sounds`}})})),Vt,Ht=e((()=>{Vt=``+new URL(`chrome-production-large-BLPyHeGg.png`,import.meta.url).href}));function Ut(){let e=(0,Z.c)(24),{selectedHostId:t}=at(),n=f(ee,t),r;e[0]===t?r=e[1]:(r={hostId:t},e[0]=t,e[1]=r);let i=le(r),{platform:a}=y(),o=w(t).kind===`local`,s=ue(`188145323`);if(de(vn)!=null){let t;return e[2]===Symbol.for(`react.memo_cache_sentinel`)?(t=(0,Q"
+    },
+    {
+      "id": "settings-pip",
+      "role": "settings",
+      "file": "webview/assets/computer-use-settings-CDg_JYdq.js",
+      "fileOffset": 10547,
+      "anchor": "settings.computerUse.pictureInPicture.alwaysHide.label",
+      "nearbySymbols": [
+        "Wt"
+      ],
+      "markers": [
+        "Always hide picture in picture",
+        "alwaysHidePictureInPicture"
+      ],
+      "context": "tureInPicture),i;e[0]===Symbol.for(`react.memo_cache_sentinel`)?(i=(0,Q.jsx)(q.Header,{title:(0,Q.jsx)(U,{id:`settings.computerUse.pictureInPicture.title`,defaultMessage:`Picture in picture`,description:`Title for Computer Use picture in picture settings`})}),e[0]=i):i=e[0];let a,o;e[1]===Symbol.for(`react.memo_cache_sentinel`)?(a=(0,Q.jsx)(U,{id:`settings.computerUse.pictureInPicture.alwaysHide.label`,defaultMessage:`Always hide picture in picture`,description:`Label for always hiding Computer Use picture in picture`}),o=(0,Q.jsx)(U,{id:`settings.computerUse.pictureInPicture.alwaysHide.description`,defaultMessage:`Prevent ChatGPT from showing computer use activity in picture in picture`,description:`Description for always hiding Computer Use picture in picture`}),e[1]=a,e[2]=o):(a=e[1],o=e[2]);let c;e[3]===n?c=e[4]:(c=n.formatMessage({id:`settings.computerUse.pictureInPicture.alwaysHide.ariaLabel`,defaultMessage:`Always hide picture in picture`,description:`Accessible label for always hiding Computer Use picture in picture`}),e[3]=n,e[4]=c);let l;e[5]===t?l=e[6]:(l=e=>{Fe(t,s.alwaysHidePictureInPicture,e)},e[5]=t,e[6]=l);let u;return e[7]!==r||e[8]!==c||e[9]!==l?(u=(0,Q.jsxs)(q,{children:[i,(0,Q.jsx)(q.Content,{children:(0,Q.jsx)(G,{children:(0,Q.jsx)(K,{label:a,description:o,control:(0,Q.jsx)(I,{ariaLabel:c,checked:r,onChange:l})})})})]}),e[7]=r,e[8]=c,e[9]=l,e[10]=u):u=e[10],u}function Gt(e){let t=(0,Z.c)(35),{computerUseAvaila"
+    },
+    {
+      "id": "settings-locked-use",
+      "role": "settings",
+      "file": "webview/assets/computer-use-settings-CDg_JYdq.js",
+      "fileOffset": 28836,
+      "anchor": "settings.computerUse.backgroundAuth.label",
+      "nearbySymbols": [],
+      "markers": [
+        "Locked use",
+        "Let ChatGPT use your Mac when it's locked",
+        "l.mutate"
+      ],
+      "context": "onSuccess:a,onError:o},e[5]=a,e[6]=o,e[7]=s):s=e[7];let l=se(s);if(i.data?.enabled==null)return null;let u;e[8]!==i.data.computerIconDataURL||e[9]!==i.data.lockIconDataURL?(u=i.data.computerIconDataURL!=null&&i.data.lockIconDataURL!=null?(0,Q.jsx)(`span`,{className:`flex h-10 w-10 items-center justify-center`,children:(0,Q.jsx)(`span`,{className:`origin-center scale-[0.65]`,children:(0,Q.jsx)(Mt,{computerImageDataUrl:i.data.computerIconDataURL,lockImageDataUrl:i.data.lockIconDataURL})})}):null,e[8]=i.data.computerIconDataURL,e[9]=i.data.lockIconDataURL,e[10]=u):u=e[10];let f;e[11]===Symbol.for(`react.memo_cache_sentinel`)?(f=(0,Q.jsx)(U,{id:`settings.computerUse.backgroundAuth.label`,defaultMessage:`Locked use`,description:`Label for the Locked use toggle`}),e[11]=f):f=e[11];let m;e[12]===Symbol.for(`react.memo_cache_sentinel`)?(m=(0,Q.jsx)(U,{id:`settings.computerUse.backgroundAuth.description`,defaultMessage:`Let ChatGPT use your Mac when it's locked. <a>Learn more</a>`,description:`Description for the Locked use toggle`,values:{a:nn}}),e[12]=m):m=e[12];let h;e[13]===n?h=e[14]:(h=n.formatMessage({id:`settings.computerUse.backgroundAuth.ariaLabel`,defaultMessage:`Enable Locked use`,description:`Accessible label for the Locked use toggle`}),e[13]=n,e[14]=h);let g=i.isLoading||l.isPending,_;e[15]===l?_=e[16]:(_=e=>{l.mutate(e)},e[15]=l,e[16]=_);let v;e[17]!==i.data.enabled||e[18]!==h||e[19]!==g||e[20]!==_?(v=(0,Q.jsx)(I,{ariaLabel:h,checked:i.data.enabled,disabled:g,onChange:_}),e[17]=i.data.enabled,e[18]=h,e[19]=g,e[20]=_,e[21]=v):v=e[21];let y;return e[22]!==u||e[23]!==v?(y=(0,Q.jsx)(G,{children:(0,Q.jsx)(K,{icon:u,label:f,description:m,control:v})}),e[22]=u,e[23]=v,e[24]=y):y=e[24],y}function nn(e){return(0,Q.jsx)(`a`,{className:`inline-flex text-token-text-link-foreground`,href:T,target:`_blank`,rel:`norefe"
+    },
+    {
+      "id": "settings-always-allowed-apps",
+      "role": "settings",
+      "file": "webview/assets/computer-use-settings-CDg_JYdq.js",
+      "fileOffset": 32115,
+      "anchor": "settings.computerUse.allowedApps.removeDialogTitle",
+      "nearbySymbols": [
+        "on"
+      ],
+      "markers": [
+        "always allowed apps",
+        "next computer use session",
+        "settings.computerUse.allowedApps.removeDialogConfirm"
+      ],
+      "context": "Toast shown after removing a computer use allowed app`}))},onError:()=>{r.get(H).danger((0,Q.jsx)(U,{id:`settings.computerUse.allowedApps.saveError`,defaultMessage:`Unable to save allowed apps`,description:`Toast shown when saving computer use allowed apps fails`}))}},t[0]=r,t[1]=s);let c=se(s),l;t[2]!==a||t[3]!==c?(l=async()=>{a!=null&&(await c.mutateAsync(a.bundleIdentifier),o(null))},t[2]=a,t[3]=c,t[4]=l):l=t[4];let u=l,f;t[5]===n?.approvedApps?f=t[6]:(f=n?.approvedApps??[],t[5]=n?.approvedApps,t[6]=f);let h;t[7]!==i||t[8]!==c.isPending||t[9]!==f?(h=(0,Q.jsx)(ln,{approvedApps:f,intl:i,isSaving:c.isPending,onRequestRemoval:o}),t[7]=i,t[8]=c.isPending,t[9]=f,t[10]=h):h=t[10];let g=a!=null,_;t[11]===Symbol.for(`react.memo_cache_sentinel`)?(_=e=>{e||o(null)},t[11]=_):_=t[11];let v=a?.displayName??``,y;t[12]===v?y=t[13]:(y=(0,Q.jsx)(U,{id:`settings.computerUse.allowedApps.removeDialogTitle`,defaultMessage:`Remove “{displayName}” from always allowed apps?`,description:`Title for dialog confirming removal of a computer use allowed app`,values:{displayName:v}}),t[12]=v,t[13]=y);let b=a?.displayName??``,x;t[14]===b?x=t[15]:(x=(0,Q.jsx)(U,{id:`settings.computerUse.allowedApps.removeDialogSubtitle`,defaultMessage:`ChatGPT will ask to use “{displayName}” in the next computer use session.`,description:`Subtitle for dialog confirming removal of a computer use allowed app`,values:{displayName:b}}),t[14]=b,t[15]=x);let C;t[16]!==x||t[17]!==y?(C=(0,Q.jsx)(Oe,{children:(0,Q.jsx)(ze,{title:y,subtitle:x})}),t[16]=x,t[17]=y,t[18]=C):C=t[18];let w,T;t[19]===Symbol.for(`react.memo_cache_sentinel`)?(w=()=>{o(null)},T=(0,Q.jsx)(U,{id:`settings.computerUse.allowedApps.removeDialogCancel`,defaultMessage:`Cancel`,description:`Cancel button label for remove allowed app dialog`}),t[19]=w,t[20]=T):(w=t[19],T=t[20]);let E;t[21]===c.isPending?E=t[22]:(E=(0,Q.jsx)(S,{color:`ghost`,disabled:c.isPending,onClick:w,children:T}),t[21]=c.isPending,t[22]=E);let D;t[23]===u?D=t[24]:(D=()=>{u()},t[23]=u,t[24]=D);let O;t[25]===Symbol.for(`react.memo_cache_sentinel`)?(O=(0,Q.jsx)(U,{id:`settings.computerUse.allowedApps.removeDialogConfirm`,defaultMessage:`Remove`,description:`Confirm button label for remove allowed app dialog`}),t[25]=O):O=t[25];let k;t[26]!==c.isPending||t[27]!==D?(k=(0,Q.jsx)(S,{color:`danger`,loading:c.isPending,onClick:D,children"
+    },
+    {
+      "id": "app-approval-ui",
+      "role": "approval-ui",
+      "file": "webview/assets/app-initial~app-main~new-thread-panel-page~appgen-library-page~hotkey-window-thread-page~ho~iufn7mg3-k1satKyX.js",
+      "fileOffset": 8514225,
+      "anchor": "composer.computerUseAppApproval.action.alwaysApprove",
+      "nearbySymbols": [],
+      "markers": [
+        "Allow ChatGPT to use {appDisplayName}?",
+        "Always allow",
+        "Allow this conversation",
+        "persistModes.includes(`session`)",
+        "l(`accept`,`always`)"
+      ],
+      "context": "d 0?null:t;S_(`reply-with-mcp-server-elicitation-response`,{conversationId:r,requestId:o,response:vv(e,e===`accept`&&n!=null?{persist:n}:null)}),i()},t[0]=r,t[1]=i,t[2]=o,t[3]=c):c=t[3];let l=c,u;t[4]!==s||t[5]!==a.connectorName?(u=s?(0,S9.jsxs)(S9.Fragment,{children:[(0,S9.jsx)(g7,{className:`icon-xs shrink-0 text-token-editor-warning-foreground`}),(0,S9.jsx)(`span`,{className:`font-medium text-token-editor-warning-foreground`,children:(0,S9.jsx)(X,{id:`composer.mcpToolCallApproval.elevatedRiskLabel`,defaultMessage:`Elevated Risk`,description:`Header label for elevated-risk MCP approval requests`})})]}):(0,S9.jsxs)(S9.Fragment,{children:[(0,S9.jsx)(`img`,{alt:``,className:`icon-sm rounded-[3px] object-contain`,draggable:!1,src:LRa}),(0,S9.jsx)(`span`,{children:a.connectorName})]}),t[4]=s,t[5]=a.connectorName,t[6]=u):u=t[6];let d;t[7]===a.appDisplayName?d=t[8]:(d=(0,S9.jsx)(X,{id:`composer.computerUseAppApproval.title.chatgpt`,defaultMessage:`Allow ChatGPT to use {appDisplayName}?`,description:`Title asking whether ChatGPT may use an app through Computer Use`,values:{appDisplayName:a.appDisplayName}}),t[7]=a.appDisplayName,t[8]=d);let f;t[9]!==l||t[10]!==a.persistModes?(f=a.persistModes.includes(`always`)?{label:(0,S9.jsx)(X,{id:`composer.computerUseAppApproval.action.alwaysApprove`,defaultMessage:`Always allow`,description:`Button label for always approving Computer Use access to an app`}),onClick:()=>l(`accept`,`always`)}:void 0,t[9]=l,t[10]=a.persistModes,t[11]=f):f=t[11];let p;t[12]===Symbol.for(`react.memo_cache_sentinel`)?(p=(0,S9.jsx)(X,{id:`composer.computerUseAppApproval.action.approve`,defaultMessage:`Allow this conversation`,description:`Primary action label for approving Computer Use access to an app`}),t[12]=p):p=t[12];let m;t[13]!==l||t[14]!==a.persistModes?(m=()=>{l(`accept`,a.persistModes.includes(`session`)?`session`:null)},t[13]=l,t[14]=a.persistModes,t[15]=m):m=t[15];let h;t[16]===l?h=t[17]:(h=()=>{l(`decline`)},t[16]=l,t[17]=h);let g;t[18]!==f||t[19]!==m||t[20]!==h?(g={leadingAction:f,approveLabel:p,onApprove:m,onDeny:h},t[18]=f,t[19]=m,t[20]=h,t[21]=g):g=t[21];let _;return t[22]!==n||t[23]!==a.subtitle||t[24]!==u||t[25]!==d||t[26]!==g?(_=(0,S9.jsx)(n,{headerContent:u,title:d,subtitle:a.subtitle,actions:g}),t[22]=n,t[23]=a.subtitle,t[24]=u,t[25]=d,t[26]=g,t[27]=_):_=t[27],_}var BRa,S9,VRa=e((()=>{BRa=E(),oa(),C_(),yv(),RRa(),cka(),S9=o()}));function HRa(e){let t=(0,URa.c)(4),{conversationId:n,request:r,requestId:i}=e,a;return t[0]!==n||t[1]!==r||t[2]!==i?(a=(0,WRa.jsx)(zRa,{ApprovalCard:Z7,conversationId:n,onRequestSettled:YI,request:r,requestId:i}),t[0]=n,t[1]=r,t[2]=i,t[3]=a):a=t[3],a}var URa,WRa,GRa=e((()=>{URa=E(),VRa(),$7(),tL(),WRa=o()}));function KRa(e){let t,n,r;switch(e.kind){case`generic`:t=JRa(e),n=e.persist,r=YRa([e.serv"
+    }
+  ],
+  "runtime": {
+    "bundledPlugin": {
+      "sourceRoot": "$APP/Contents/Resources/plugins/openai-bundled/plugins/computer-use",
+      "sourceVersion": "1.0.1000387",
+      "sourceBundledContentVariant": null,
+      "cacheRoot": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387",
+      "cachedVersion": "1.0.1000387",
+      "cachedBundledContentVariant": "node-repl",
+      "cachedNodeReplSkillExists": true
+    },
+    "config": {
+      "path": "$HOME/.codex/config.toml",
+      "nodeRepl": {
+        "command": "$APP/Contents/Resources/cua_node/bin/node_repl",
+        "args": [],
+        "startup_timeout_sec": 120
+      },
+      "nodeReplEnv": {
+        "NODE_REPL_NODE_MODULE_DIRS": "$APP/Contents/Resources/cua_node/lib/node_modules",
+        "NODE_REPL_NODE_PATH": "$APP/Contents/Resources/cua_node/bin/node",
+        "NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE": "Control desktop apps on macOS through Computer Use.",
+        "SKY_CUA_SERVICE_PATH": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/Codex Computer Use.app"
+      },
+      "legacyComputerUse": {
+        "command": "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
+        "args": [
+          "mcp"
+        ],
+        "cwd": ".",
+        "enabled": false
+      },
+      "plugin": {
+        "enabled": true
+      },
+      "desktop": {
+        "computerUseAlwaysHidePictureInPicture": false
+      }
+    },
+    "service": {
+      "sourcePath": "$APP/Contents/Resources/plugins/openai-bundled/plugins/computer-use/Codex Computer Use.app",
+      "cachePath": "$HOME/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/Codex Computer Use.app",
+      "canonicalPath": "$HOME/.codex/computer-use/Codex Computer Use.app",
+      "sourceFingerprint": {
+        "bytes": 18739648,
+        "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+      },
+      "cacheFingerprint": {
+        "bytes": 18739648,
+        "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+      },
+      "canonicalFingerprint": {
+        "bytes": 18739648,
+        "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+      },
+      "sourceEqualsCache": true,
+      "cacheEqualsCanonical": true,
+      "nativeVersion": "26.710.1000387",
+      "processes": {
+        "electronMain": {
+          "running": true,
+          "command": "$APP/Contents/MacOS/ChatGPT"
+        },
+        "appServer": {
+          "running": true,
+          "parentIsElectronMain": true,
+          "command": "$APP/Contents/Resources/codex -c features.code_mode_host=true app-server --analytics-default-enabled"
+        },
+        "skyService": {
+          "running": true,
+          "parentIsElectronMain": true,
+          "executableMatchesCanonicalPath": true,
+          "command": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+        }
+      }
+    },
+    "approvals": {
+      "storePath": "$HOME/Library/Group Containers/2DC432GLL2.com.openai.sky.CUAService/Library/Application Support/Software/ComputerUseAppApprovals.json",
+      "storeExists": false,
+      "storeBytes": null,
+      "contentsCollected": false
+    },
+    "lockedUse": {
+      "installerPath": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/Codex Computer Use Installer.app/Contents/MacOS/Codex Computer Use Installer",
+      "installerExists": true,
+      "installerStatus": "OK: not-installed"
+    },
+    "settings": {
+      "soundDefaultsDomain": "com.openai.sky.CUAService",
+      "soundDefaultsKey": "computerUseSoundMode",
+      "soundMode": null,
+      "pipConfigKey": "desktop.computerUseAlwaysHidePictureInPicture"
+    }
+  }
+}

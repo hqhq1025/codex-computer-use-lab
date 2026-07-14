@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "experiment": "production-element-index-click-unlocked",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "label": "CUA Lab Primary Button",
+    "elementIndex": 5,
+    "observedRole": "unknown",
+    "accessibilityIdentifier": "cua.lab.primary-button"
+  },
+  "result": {
+    "status": "completed",
+    "actionElapsedMilliseconds": 707,
+    "postObservationElapsedMilliseconds": 536,
+    "postMarkerPresent": true,
+    "postAccessibilityCharacterCount": 1551,
+    "postAccessibilitySha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+  },
+  "oracle": {
+    "before": {
+      "buttonClickCount": 0,
+      "lastAction": "launch"
+    },
+    "after": {
+      "buttonClickCount": 1,
+      "lastAction": "button-click"
+    },
+    "passed": true
+  },
+  "observedProperties": {
+    "dispatchCompleted": true,
+    "oracleEffectObserved": true,
+    "accessibilityTextChanged": false,
+    "persistentApprovalStoreCreated": false,
+    "coordinateUsed": false
+  }
+}

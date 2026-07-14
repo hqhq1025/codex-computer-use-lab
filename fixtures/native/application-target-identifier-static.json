@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "service": {
+    "path": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+    "bytes": 18739648,
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "uuid": "9E40FA2F-FC6C-3EE2-824A-E4975CA022AD",
+    "version": "26.710.1000387"
+  },
+  "addresses": {
+    "applicationTargetInitializer": "0x1001e6544",
+    "exportedEntry": "0x1001e6624",
+    "implementationBody": "0x1001e9128",
+    "resolveApplicationTarget": "0x1001e6940",
+    "applicationTargets": "0x1001e6dbc",
+    "resolvePreferringRunningApplication": "0x1001e7324",
+    "runningApplicationTargets": "0x1001e7548",
+    "runningApplicationMatcher": "0x1001e7608",
+    "ambiguityBuilder": "0x1001e7048",
+    "candidateResolver": "0x1001e9324",
+    "runningTargetsBody": "0x1001e956c",
+    "resolvingSymlinksCall": "0x1001e919c",
+    "standardizedFileUrlCall": "0x1001e91a8",
+    "decodedPathCall": "0x1001e91c4",
+    "countCall": "0x1001e91e8",
+    "indexBeforeCall": "0x1001e9228",
+    "removeCall": "0x1001e9230",
+    "slashLiteral": "0x1001e9254",
+    "hasSuffixCall": "0x1001e9264"
+  },
+  "callsites": [
+    {
+      "address": "0x1000547e8",
+      "callTarget": "0x1001e6624",
+      "owner": "AppUsageCatalog running/installed application catalog",
+      "evidence": "recovered static callsite"
+    },
+    {
+      "address": "0x100056b98",
+      "callTarget": "0x1001e6624",
+      "owner": "AppUsageCatalog Spotlight kMDItemPath catalog",
+      "evidence": "recovered static callsite"
+    },
+    {
+      "address": "0x100057edc",
+      "callTarget": "0x1001e6624",
+      "owner": "AppUsageCatalog .app fallback",
+      "evidence": "recovered static callsite"
+    },
+    {
+      "address": "0x1000a99f0",
+      "callTarget": "0x1001e6624",
+      "owner": "ComputerUseUserInteractionMonitor target resolution",
+      "evidence": "recovered static callsite"
+    },
+    {
+      "address": "0x1001e65e4",
+      "callTarget": "0x1001e9128",
+      "owner": "ApplicationTarget.init cached identifier",
+      "evidence": "direct symbol control flow"
+    },
+    {
+      "address": "0x1001e6d1c",
+      "callTarget": "0x1001e9128",
+      "owner": "NSBundle(path:) to ApplicationTarget helper",
+      "evidence": "direct selector and control flow"
+    },
+    {
+      "address": "0x1001e76c8",
+      "callTarget": "0x1001e9128",
+      "owner": "running application bundle URL identity comparison",
+      "evidence": "direct selector and control flow"
+    },
+    {
+      "address": "0x1001e7870",
+      "callTarget": "0x1001e9128",
+      "owner": "running application to ApplicationTarget construction",
+      "evidence": "direct selector and control flow"
+    }
+  ],
+  "imports": [
+    {
+      "callTarget": "0x100ccdaf0",
+      "got": "0x100EFE760",
+      "symbol": "_$s10Foundation3URLV23resolvingSymlinksInPathACyF",
+      "api": "Foundation.URL.resolvingSymlinksInPath()",
+      "fixupEvidence": "__DATA_CONST __got 0x100EFE760 bind Foundation/_$s10Foundation3URLV23resolvingSymlinksInPathACyF"
+    },
+    {
+      "callTarget": "0x100ccda48",
+      "got": "0x100EFE6D0",
+      "symbol": "_$s10Foundation3URLV016standardizedFileB0ACvg",
+      "api": "Foundation.URL.standardizedFileURL",
+      "fixupEvidence": "__DATA_CONST __got 0x100EFE6D0 bind Foundation/_$s10Foundation3URLV016standardizedFileB0ACvg"
+    },
+    {
+      "callTarget": "0x100ccdb44",
+      "got": "0x100EFE798",
+      "symbol": "_$s10Foundation3URLV4path14percentEncodedSSSb_tF",
+      "api": "Foundation.URL.path(percentEncoded:)",
+      "fixupEvidence": "__DATA_CONST __got 0x100EFE798 bind Foundation/_$s10Foundation3URLV4path14percentEncodedSSSb_tF"
+    },
+    {
+      "callTarget": "0x100ccf884",
+      "got": "0x100F01478",
+      "symbol": "_$sSS5countSivg",
+      "api": "Swift.String.count",
+      "fixupEvidence": "__DATA_CONST __got 0x100F01478 bind libswiftCore/_$sSS5countSivg"
+    },
+    {
+      "callTarget": "0x100ccf89c",
+      "got": "0x100F01488",
+      "symbol": "_$sSS5index6beforeSS5IndexVAD_tF",
+      "api": "Swift.String.index(before:)",
+      "fixupEvidence": "__DATA_CONST __got 0x100F01488 bind libswiftCore/_$sSS5index6beforeSS5IndexVAD_tF"
+    },
+    {
+      "callTarget": "0x100ccf914",
+      "got": "0x100F014D8",
+      "symbol": "_$sSS6remove2atSJSS5IndexV_tF",
+      "api": "Swift.String.remove(at:)",
+      "fixupEvidence": "__DATA_CONST __got 0x100F014D8 bind libswiftCore/_$sSS6remove2atSJSS5IndexV_tF"
+    },
+    {
+      "callTarget": "0x100ccfa10",
+      "got": "0x100F01598",
+      "symbol": "_$sSS9hasSuffixySbSSF",
+      "api": "Swift.String.hasSuffix(_:)",
+      "fixupEvidence": "__DATA_CONST __got 0x100F01598 bind libswiftCore/_$sSS9hasSuffixySbSSF"
+    }
+  ],
+  "recoveredSource": [
+    "static func identifier(for bundleURL: URL) -> String {",
+    "  var value = bundleURL.resolvingSymlinksInPath()",
+    "    .standardizedFileURL",
+    "    .path(percentEncoded: false)",
+    "  while value.count > 1 && value.hasSuffix(\"/\") {",
+    "    value.remove(at: value.index(before: value.endIndex))",
+    "  }",
+    "  return value",
+    "}"
+  ],
+  "targetConstruction": {
+    "initializer": "ApplicationTarget.init stores bundleIdentifier, canonicalizes bundleURL, then caches identifier",
+    "pathInput": "NSBundle(path:) -> bundleIdentifier -> ApplicationTarget",
+    "installedLookup": "NSWorkspace.URLsForApplications(withBundleIdentifier:)",
+    "runningLookup": "NSRunningApplication.runningApplications(withBundleIdentifier:)",
+    "candidateDeduplication": "canonical ApplicationTarget.identifier",
+    "noCandidate": "BundleIDLookupError.appNotFound",
+    "multipleCandidates": "BundleIDLookupError.ambiguousBundleIdentifier",
+    "preferredResolution": "running candidates first; installed candidates only when no running candidate exists"
+  },
+  "contracts": {
+    "sourceRepresentation": "decoded standardized filesystem path",
+    "resolvesSymlinks": true,
+    "standardizesFileUrl": true,
+    "percentEncodedPath": false,
+    "stripsTrailingSlashExceptRoot": true,
+    "hashesPath": false,
+    "usesBundleIdentifier": false,
+    "includesUrlScheme": false,
+    "lowercasesExplicitly": false
+  },
+  "resolutionContracts": {
+    "identifierCachedAtTargetInitialization": true,
+    "symlinkAliasesDeduplicate": true,
+    "separateInstallPathsRemainDistinct": true,
+    "installedAndRunningCandidateSetsAreMergedByCanonicalIdentifier": true,
+    "singleCandidateReturned": true,
+    "zeroCandidatesFailClosed": true,
+    "multipleCandidatesFailClosed": true,
+    "ambiguousBundleIdDoesNotSelectArbitraryFirstCandidate": true,
+    "preferRunningFallsBackOnlyWhenNoRunningCandidateExists": true,
+    "ambiguityGuidance": "Use an app name or full app path instead."
+  },
+  "safety": {
+    "staticBinaryReadOnly": true,
+    "serviceStartedOrAttached": false,
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false
+  }
+}

@@ -1,0 +1,51 @@
+10013f9e4: b24403bd    	orr	x29, x29, #0x1000000000000000
+10013f9e8: d10103ff    	sub	sp, sp, #0x40
+10013f9ec: a900dff8    	stp	x24, x23, [sp, #0x8]
+10013f9f0: a901cff5    	stp	x21, x19, [sp, #0x18]
+10013f9f4: a9037bfd    	stp	x29, x30, [sp, #0x30]
+10013f9f8: f90017f6    	str	x22, [sp, #0x28]
+10013f9fc: 9100c3fd    	add	x29, sp, #0x30
+10013fa00: aa0203f3    	mov	x19, x2
+10013fa04: aa0103f5    	mov	x21, x1
+10013fa08: aa0003f8    	mov	x24, x0
+10013fa0c: 9102e2d7    	add	x23, x22, #0xb8
+10013fa10: 910042c0    	add	x0, x22, #0x10
+10013fa14: 97fb3c21    	bl	0x10000ea98 <__text+0xc3e8>
+10013fa18: ad4282c1    	ldp	q1, q0, [x22, #0x50]
+10013fa1c: ad438ec2    	ldp	q2, q3, [x22, #0x70]
+10013fa20: ad028ae0    	stp	q0, q2, [x23, #0x50]
+10013fa24: 3c8f82c1    	stur	q1, [x22, #0xf8]
+10013fa28: ad4182c1    	ldp	q1, q0, [x22, #0x30]
+10013fa2c: 3c8e82c0    	stur	q0, [x22, #0xe8]
+10013fa30: ad4482c2    	ldp	q2, q0, [x22, #0x90]
+10013fa34: ad0402e2    	stp	q2, q0, [x23, #0x80]
+10013fa38: 3d801ee3    	str	q3, [x23, #0x70]
+10013fa3c: ad408ac0    	ldp	q0, q2, [x22, #0x10]
+10013fa40: 3c8b82c0    	stur	q0, [x22, #0xb8]
+10013fa44: 3c8c82c2    	stur	q2, [x22, #0xc8]
+10013fa48: 3942c2c8    	ldrb	w8, [x22, #0xb0]
+10013fa4c: 390562c8    	strb	w8, [x22, #0x158]
+10013fa50: 3c8d82c1    	stur	q1, [x22, #0xd8]
+10013fa54: f9400a68    	ldr	x8, [x19, #0x10]
+10013fa58: 29400109    	ldp	w9, w0, [x8]
+10013fa5c: 93407d29    	sxtw	x9, w9
+10013fa60: 8b080121    	add	x1, x9, x8
+10013fa64: f90003e1    	str	x1, [sp]
+10013fa68: 942e5169    	bl	0x100cd400c <_xpc_pipe_routine_reply+0x100cd400c>
+10013fa6c: aa0003e8    	mov	x8, x0
+10013fa70: f900b2c0    	str	x0, [x22, #0x160]
+10013fa74: 90000009    	adrp	x9, 0x10013f000 <__text+0x13c950>
+10013fa78: 912ac129    	add	x9, x9, #0xab0
+10013fa7c: a9002416    	stp	x22, x9, [x0]
+10013fa80: aa1803e0    	mov	x0, x24
+10013fa84: aa0803f6    	mov	x22, x8
+10013fa88: aa1703e1    	mov	x1, x23
+10013fa8c: aa1503e2    	mov	x2, x21
+10013fa90: aa1303e3    	mov	x3, x19
+10013fa94: f94003e4    	ldr	x4, [sp]
+10013fa98: a9437bfd    	ldp	x29, x30, [sp, #0x30]
+10013fa9c: a941cff5    	ldp	x21, x19, [sp, #0x18]
+10013faa0: a940dff8    	ldp	x24, x23, [sp, #0x8]
+10013faa4: 9243fbbd    	and	x29, x29, #0xefffffffffffffff
+10013faa8: 910103ff    	add	sp, sp, #0x40
+10013faac: d61f0080    	br	x4

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "artifact": {
+    "name": "SkyComputerUseService",
+    "version": "26.710.1000387",
+    "build": "1000387",
+    "uuid": "9E40FA2F-FC6C-3EE2-824A-E4975CA022AD",
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+  },
+  "connectionClass": {
+    "typeDescriptor": "0x100dabefc",
+    "metadataAccessor": "0x1001477fc",
+    "classMetadata": "0x100fa9dd0",
+    "instanceSizeBytes": 80,
+    "ordinaryInitializerDeleted": true,
+    "inlineConstructionRange": [
+      "0x100151f78",
+      "0x100151ffc"
+    ],
+    "layout": {
+      "0x10": "ComputerUseIPCSocket",
+      "0x18": "maximumFrameSize",
+      "0x20-0x28": "processFrame_function_and_context",
+      "0x30-0x38": "ioTimeout_Duration",
+      "0x40-0x48": "onClose_function_and_context"
+    }
+  },
+  "limits": {
+    "maximumFrameBytes": 8388608,
+    "exactlyMaximumIsAllowed": true,
+    "ioTimeoutSeconds": 30,
+    "ioTimeoutCovers": [
+      "frame_read",
+      "response_write"
+    ],
+    "processFrameCoveredByIoTimeout": false,
+    "maximumConcurrentConnections": 16
+  },
+  "addresses": {
+    "connectionTaskEntry": "0x100149540",
+    "readProcessWriteLoop": "0x100146178",
+    "readTimeout": "0x1001462f4",
+    "processFrameAwaitRange": [
+      "0x1001463c4",
+      "0x100146418"
+    ],
+    "writeTimeoutRange": [
+      "0x1001464fc",
+      "0x1001465d8"
+    ],
+    "frameReader": "0x100160300",
+    "inboundSizeCompareRange": [
+      "0x1001604c0",
+      "0x100160508"
+    ],
+    "frameWriter": "0x1001606e4",
+    "outboundSizeCompareRange": [
+      "0x1001607c0",
+      "0x10016089c"
+    ],
+    "handlerOversizeResponseReplacement": "0x10014f56c",
+    "terminalClose": "0x1001474c0",
+    "socketClose": "0x10015e5fc",
+    "onCloseThunk": "0x10015de18",
+    "activeMapRemoval": "0x100152b64",
+    "connectionLimitCheckRange": [
+      "0x1001519c0",
+      "0x1001519d4"
+    ]
+  },
+  "concurrency": {
+    "singleConnection": "strict_read_process_write_serial_loop",
+    "multipleConnections": "independent_unstructured_swift_tasks",
+    "pipelinedRequestsOnOneConnection": false
+  },
+  "oversize": {
+    "inbound": {
+      "condition": "payload_length_greater_than_8_mib",
+      "bodyReadOrAllocated": false,
+      "processFrameCalled": false,
+      "jsonRpcErrorWritten": false,
+      "effect": "connection_closed"
+    },
+    "handlerResponse": {
+      "condition": "encoded_response_greater_than_8_mib",
+      "replacementErrorCode": -32002,
+      "replacementMessage": "Response exceeds maximum frame size"
+    },
+    "transportWriter": {
+      "rechecksMaximum": true,
+      "customOversizeDataEffect": "close_before_frame_write"
+    }
+  },
+  "retention": {
+    "serverStronglyOwnsSocketServer": true,
+    "activeMapStronglyOwnsTasks": true,
+    "taskStronglyOwnsConnection": true,
+    "onCloseWeaklyCapturesOwner": true,
+    "stopShutsDownActiveFileDescriptors": true
+  },
+  "safety": {
+    "staticOnly": true,
+    "serviceStarted": false,
+    "socketConnected": false,
+    "requestSent": false
+  }
+}

@@ -1,0 +1,7 @@
+id	entry	lldb_instruction_observed
+ipc_request_dispatch	0x000000010013f9e4	true
+perform_action_request	0x000000010012df9c	true
+get_skyshot_request	0x0000000100136904	true
+skyshot_capture_ax_tree	0x00000001001b6bfc	true
+skyshot_capture_screenshot	0x00000001001b7cec	true
+wait_for_ui_to_settle	0x000000010064a280	true

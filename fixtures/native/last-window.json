@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "artifact": {
+    "name": "SkyComputerUseService",
+    "version": "26.710.1000387",
+    "build": "1000387",
+    "uuid": "9E40FA2F-FC6C-3EE2-824A-E4975CA022AD",
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+  },
+  "addresses": {
+    "getter": "0x10006bc64",
+    "assignmentHelper": "0x10006bdc0",
+    "orderedWindowsStart": "0x100080e9c",
+    "orderedWindowsEnd": "0x100081194",
+    "cgWindowListCreateCall": "0x100080ed4",
+    "coordinateRawRead": "0x10007fe20"
+  },
+  "directCalls": {
+    "getter": [
+      "0x100026f10",
+      "0x100027360"
+    ],
+    "assignmentHelper": [
+      "0x100070b68",
+      "0x10007130c",
+      "0x100088d34"
+    ],
+    "businessAssignmentSites": [
+      "0x100070b68",
+      "0x10007130c"
+    ],
+    "compilerSetterThunkSites": [
+      "0x100088d34"
+    ]
+  },
+  "coordinateClickRawRead": {
+    "site": "0x10007fe20",
+    "instruction": "10007fe20: f9400e94 ldr x20, [x20, #0x18]",
+    "readsControllerOffset": "0x18"
+  },
+  "orderedWindows": {
+    "range": [
+      "0x100080e9c",
+      "0x100081194"
+    ],
+    "directlyCallsLastWindowGetter": false,
+    "directlyCallsLastWindowAssignment": false,
+    "cgWindowListCreateCall": {
+      "site": "0x100080ed4",
+      "instruction": "100080ed4: 94314726 bl 0x100cd2b6c <_xpc_pipe_routine_reply+0x100cd2b6c>",
+      "arguments": {
+        "option": "0x11",
+        "relativeToWindow": 0
+      }
+    }
+  },
+  "inferredStateMachine": {
+    "initialValue": null,
+    "writeSource": "latest completed Skyshot SystemSelection.applicationWindow",
+    "writeOrdering": "completion-order-last-writer-wins-if-concurrent",
+    "clearedOnFocusOrWindowNotification": false,
+    "staleWindowPossible": true,
+    "roles": {
+      "orderedWindows": "current onscreen z-order intersected with the AX window cache",
+      "lastWindow": "historical single-window capture anchor for PiP and coordinate-click assistance"
+    }
+  },
+  "safety": {
+    "processStarted": false,
+    "processAttached": false,
+    "uiActionsExecuted": false
+  }
+}

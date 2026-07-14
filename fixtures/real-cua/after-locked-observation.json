@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "label": "after-locked-observation",
+  "capturedAt": "2026-07-12T12:19:33.304Z",
+  "safety": {
+    "readOnly": true,
+    "screenshotsRead": false,
+    "axContentRead": false,
+    "approvalContentsRead": false,
+    "realCuaRequestSent": false,
+    "realInputSynthesized": false
+  },
+  "expectedTarget": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appRoot": "$LAB/test-app/build/Codex CUA Lab.app",
+    "appMetadata": {
+      "present": true,
+      "type": "directory",
+      "mode": "755",
+      "bytes": 96,
+      "modifiedUnixMilliseconds": 1783858684198
+    }
+  },
+  "processes": {
+    "sky": [
+      {
+        "pid": 94559,
+        "command": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+      }
+    ],
+    "testApp": [
+      {
+        "pid": 81319,
+        "command": "$HOME/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app/Contents/MacOS/Codex CUA Lab"
+      },
+      {
+        "pid": 82261,
+        "command": "/bin/zsh -lc ioreg -n Root -d1 | rg 'CGSSessionScreenIsLocked|IOConsoleLocked|ScreenIsLocked' || true; pgrep -af 'Codex CUA Lab' || true; test -e test-app/runtime/state.json && jq '{meta,metrics,controls,synthetic,syntheticMarker}' test-app/runtime/state.json"
+      }
+    ]
+  },
+  "ipc": {
+    "cuaSocket": {
+      "present": true,
+      "type": "socket",
+      "mode": "600",
+      "bytes": 0,
+      "modifiedUnixMilliseconds": 1783840663458
+    },
+    "approvalStore": {
+      "present": false
+    }
+  },
+  "displays": [
+    {
+      "scale": "1.0",
+      "frame": "{{0, 0}, {1920, 1200}}",
+      "pixelsHigh": "1200",
+      "index": 0,
+      "displayID": "2",
+      "pixelsWide": "1920",
+      "visibleFrame": "{{0, 103}, {1920, 1066}}"
+    },
+    {
+      "displayID": "3",
+      "pixelsHigh": "1200",
+      "frame": "{{-1920, 244}, {1920, 1200}}",
+      "visibleFrame": "{{-1920, 244}, {1920, 1200}}",
+      "index": 1,
+      "scale": "1.0",
+      "pixelsWide": "1920"
+    }
+  ],
+  "syntheticOracle": {
+    "present": true,
+    "schemaVersion": 1,
+    "revision": null,
+    "syntheticMarker": "CUA Lab Synthetic Surface",
+    "state": {
+      "ambiguous": {
+        "clickCount": 0,
+        "lastTarget": null
+      },
+      "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app",
+      "bundleIdentifier": "com.openai.codex.cualab",
+      "controls": {
+        "buttonClickCount": 0,
+        "checkboxChecked": false,
+        "dragPosition": {
+          "x": 42,
+          "y": 42
+        },
+        "loading": false,
+        "popupSelection": "Alpha",
+        "scrollOffset": 0,
+        "selectTextValue": "",
+        "setValue": "",
+        "sliderValue": 25,
+        "typeText": ""
+      },
+      "coordinate": {
+        "clickCount": 0
+      },
+      "focus": {
+        "control": null
+      },
+      "hierarchy": {
+        "generation": 0,
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0
+      },
+      "meta": {
+        "lastAction": "launch",
+        "resetCount": 0
+      },
+      "metrics": {
+        "diffProbeCount": 0,
+        "fullStateProbeCount": 0
+      },
+      "modal": {
+        "open": false
+      },
+      "schemaVersion": 1,
+      "selection": {
+        "text": "",
+        "type": ""
+      },
+      "synthetic": true,
+      "syntheticMarker": "CUA Lab Synthetic Surface",
+      "window": {
+        "x": 580,
+        "y": 413
+      }
+    }
+  },
+  "cuaTempAggregates": {
+    "tempRoot": "<system-temp>",
+    "matchingFileCount": 0,
+    "totalBytes": 0,
+    "newestModifiedUnixSeconds": null
+  }
+}

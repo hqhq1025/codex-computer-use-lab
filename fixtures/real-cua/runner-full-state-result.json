@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "mode": "execute",
+  "runId": "2026-07-12T12-57-08-656Z",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "<lab-app>",
+    "stateOraclePath": "<lab-state>"
+  },
+  "safety": {
+    "productionCuaRequestSent": true,
+    "uiActionsExecuted": true,
+    "externalCommunicationAllowed": false,
+    "deleteAllowed": false,
+    "systemSettingsAllowed": false,
+    "persistentApprovalAllowed": false,
+    "persistentApprovalStoreBefore": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalStoreAfter": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalChecks": [
+      {
+        "label": "list_apps",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ],
+    "screenshotsCopied": false
+  },
+  "scenarios": [
+    {
+      "id": "full-state",
+      "passed": true,
+      "steps": [
+        {
+          "id": "reset",
+          "observations": {
+            "before": {
+              "app": "<unexpected>",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1551,
+                "sha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 8.57.08 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 77224,
+                "width": 760,
+                "height": 652,
+                "sha256": "8612ff103fa4300a962916c43209054fa055ffe03760a2a1f952da30d441c20e"
+              }
+            },
+            "after": {
+              "app": "<unexpected>",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1551,
+                "sha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 8.57.09 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 77237,
+                "width": 760,
+                "height": 652,
+                "sha256": "1503ca4ba876b06be86f9e8deb4b9b1cb46fe19b21c4517d2008d9d1f692f1f6"
+              }
+            },
+            "diff": null
+          },
+          "action": {
+            "method": "click",
+            "input": {
+              "app": "com.openai.codex.cualab",
+              "element_index": 3
+            },
+            "executed": true,
+            "error": null
+          },
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount",
+              "expected": "greater-than-before",
+              "actual": 2,
+              "passed": true
+            },
+            {
+              "operator": "equals",
+              "path": "meta.lastAction",
+              "expected": "reset",
+              "actual": "reset",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "id": "full-state-probe",
+          "observations": {
+            "before": {
+              "app": "<unexpected>",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1551,
+                "sha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 8.57.09 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 77237,
+                "width": 760,
+                "height": 652,
+                "sha256": "1503ca4ba876b06be86f9e8deb4b9b1cb46fe19b21c4517d2008d9d1f692f1f6"
+              }
+            },
+            "after": {
+              "app": "<unexpected>",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1551,
+                "sha256": "f0e4c7ec67a96ce97221d12b6ef233815e95e2b920d515a20b27ac39670fd5a1"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 8.57.10 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 77237,
+                "width": 760,
+                "height": 652,
+                "sha256": "1503ca4ba876b06be86f9e8deb4b9b1cb46fe19b21c4517d2008d9d1f692f1f6"
+              }
+            },
+            "diff": null
+          },
+          "action": {
+            "method": "click",
+            "input": {
+              "app": "com.openai.codex.cualab",
+              "element_index": 4
+            },
+            "executed": true,
+            "error": null
+          },
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "metrics.fullStateProbeCount",
+              "expected": "greater-than-before",
+              "actual": 1,
+              "passed": true
+            },
+            {
+              "operator": "equals",
+              "path": "meta.lastAction",
+              "expected": "full-state-probe",
+              "actual": "full-state-probe",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "copiedScreenshots": []
+}

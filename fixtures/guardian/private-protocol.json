@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "artifact": {
+    "computerUseVersion": "26.710.1000387",
+    "serviceSha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "guardianSha256": "d99b3d927b06677444a9b5de237e5470cb2289aa30676a21976ad8e32320c6bb",
+    "parentConstraintSha256": "2be77c819c90048a61809348247598773dee2bce005bc246cdd99b2c0274235b",
+    "authorizationPluginSha256": "8abcf8373e6f3b734f905ce0e351df6291aa289252b2409761b2edc9881093d9"
+  },
+  "guardian": {
+    "transport": "mach_bootstrap_rendezvous_then_anonymous_nsxpc",
+    "commands": [
+      {
+        "name": "beginUnlockGuardForThreadID:withReply:",
+        "threadId": true,
+        "reply": "error_optional"
+      },
+      {
+        "name": "completeUnlockGuardForThreadID:didUnlock:",
+        "threadId": true,
+        "reply": null
+      },
+      {
+        "name": "retainAutoUnlockedLeaseForThreadID:",
+        "threadId": true,
+        "reply": null
+      },
+      {
+        "name": "releaseAutoUnlockedLeaseForThreadID:",
+        "threadId": true,
+        "reply": null
+      }
+    ],
+    "events": [
+      "lockScreenGuardianDetectedPhysicalInput"
+    ],
+    "turnIdPresent": false,
+    "heartbeatPresent": false,
+    "explicitBidirectionalCodeSigningAuthProven": false,
+    "acceptPathAuthenticatesPeer": false,
+    "acceptPolicy": "first_connection_wins",
+    "launchMechanism": "service_nstask_exec_with_rendezvous_argument",
+    "appleEventBootstrapUsed": false,
+    "parentCodeRequirement": {
+      "format": "codesign_launch_constraint_parent_plist",
+      "teamIdentifier": "2DC432GLL2",
+      "validatedByCodesign": true,
+      "embeddedInGuardianSignature": false,
+      "runtimeLoaderObserved": false,
+      "xpcPeerAuthRole": false,
+      "intendedStage": "parent_process_constraint_at_exec_if_embedded"
+    },
+    "physicalInputPredicate": "event_source_pid_not_equal_guardian_pid",
+    "physicalInputMeansHardwareProven": false,
+    "lastLeaseReleaseRelocks": true,
+    "connectionLossRelocks": true,
+    "overlay": {
+      "windowPerDisplay": true,
+      "level": "CGShieldingWindowLevel()+1",
+      "observesDisplayTopology": true
+    }
+  },
+  "authorizationBroker": {
+    "socketPath": "/tmp/com.openai.sky.CUAService/LockScreenLoginAuthorization.sock",
+    "transport": "unix_stream",
+    "requestBody": null,
+    "replies": [
+      "ALLOW\n",
+      "DENY\n"
+    ],
+    "pluginAllowPredicate": "read_length_at_least_5_and_first_five_bytes_equal_ALLOW",
+    "pluginAuthenticatesService": {
+      "localPeerToken": true,
+      "signingIdentifier": "com.openai.sky.CUAService",
+      "teamIdentifier": "2DC432GLL2"
+    },
+    "serviceAuthenticatesClientProven": false,
+    "pendingAttemptCardinality": 1,
+    "attemptIsOneShot": true,
+    "possibleUnauthenticatedClientRace": "denial_of_service_attempt_consumption"
+  },
+  "safety": {
+    "readOnly": true,
+    "installerExecuted": false,
+    "authorizationDbModified": false,
+    "tccModified": false,
+    "privateEndpointConnected": false,
+    "screenLockedOrUnlockedByCollector": false,
+    "processAttached": false
+  }
+}

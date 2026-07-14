@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "mode": "execute",
+  "runId": "2026-07-12T13-34-46-424Z",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "<lab-app>",
+    "stateOraclePath": "<lab-state>"
+  },
+  "provenance": {
+    "labAppExecutable": {
+      "path": "<lab-app>/Contents/MacOS/Codex CUA Lab",
+      "bytes": 214432,
+      "modifiedUnixMilliseconds": 1783863268059,
+      "sha256": "c21ed3e45a5eb936c39ace5a0a5db81563f39dfed64d2bc85d504e225c43d113"
+    },
+    "skyServiceExecutable": {
+      "path": "<sky-service>",
+      "bytes": 18739648,
+      "modifiedUnixMilliseconds": 1783840636593,
+      "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+    },
+    "wrapper": {
+      "path": "<computer-use-wrapper>",
+      "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+    }
+  },
+  "safety": {
+    "productionCuaRequestSent": true,
+    "uiActionsExecuted": true,
+    "externalCommunicationAllowed": false,
+    "deleteAllowed": false,
+    "systemSettingsAllowed": false,
+    "persistentApprovalAllowed": false,
+    "persistentApprovalStoreBefore": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalStoreAfter": {
+      "checked": true,
+      "present": false
+    },
+    "persistentApprovalChecks": [
+      {
+        "label": "list_apps",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "action:click",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:diff",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ],
+    "screenshotsCopied": false
+  },
+  "scenarios": [
+    {
+      "id": "diff",
+      "passed": true,
+      "steps": [
+        {
+          "id": "reset",
+          "observations": {
+            "before": {
+              "app": "com.openai.codex.cualab",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1739,
+                "sha256": "526caffcaf07fd054ce474f076376fba8085eb6b1ff0788e71990f11254cfb70"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 9.34.51 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 79204,
+                "width": 760,
+                "height": 673,
+                "sha256": "c817b078337b71c86be87bc33782f7fa47938896c519d1e95b2c7a1423763adf"
+              }
+            },
+            "after": {
+              "app": "com.openai.codex.cualab",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1739,
+                "sha256": "526caffcaf07fd054ce474f076376fba8085eb6b1ff0788e71990f11254cfb70"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 9.34.53 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 79204,
+                "width": 760,
+                "height": 673,
+                "sha256": "c817b078337b71c86be87bc33782f7fa47938896c519d1e95b2c7a1423763adf"
+              }
+            },
+            "diff": null
+          },
+          "action": {
+            "method": "click",
+            "input": {
+              "app": "com.openai.codex.cualab",
+              "element_index": 3
+            },
+            "executed": true,
+            "error": null
+          },
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount",
+              "expected": "greater-than-before",
+              "actual": 1,
+              "passed": true
+            },
+            {
+              "operator": "equals",
+              "path": "meta.lastAction",
+              "expected": "reset",
+              "actual": "reset",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "id": "diff-probe",
+          "observations": {
+            "before": {
+              "app": "com.openai.codex.cualab",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1739,
+                "sha256": "526caffcaf07fd054ce474f076376fba8085eb6b1ff0788e71990f11254cfb70"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 9.34.53 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 79204,
+                "width": 760,
+                "height": 673,
+                "sha256": "c817b078337b71c86be87bc33782f7fa47938896c519d1e95b2c7a1423763adf"
+              }
+            },
+            "after": {
+              "app": "com.openai.codex.cualab",
+              "accessibility": {
+                "markerPresent": true,
+                "characterCount": 1739,
+                "sha256": "05bc8e24409c3d63593f54f31f6dc7ccf4ca0989e6da2ed3155bbc9e1f00f21f"
+              },
+              "screenshot": {
+                "url": "file://<computer-use-screenshot>/Codex CUA Lab Screenshot 2026-07-12 at 9.34.55 PM.jpeg",
+                "format": "jpeg",
+                "mimeType": "image/jpeg",
+                "byteLength": 79202,
+                "width": 760,
+                "height": 673,
+                "sha256": "490494d8bfe0c04f2d96c713afff3e62f90abdd5fc3ddb925b0e1bc74a5e414b"
+              }
+            },
+            "diff": {
+              "markerPresent": false,
+              "characterCount": 396,
+              "sha256": "642520a1b87b92e1745ceafe38c8b31d46edd8792f62adee049fb5a9d36a9394"
+            }
+          },
+          "action": {
+            "method": "click",
+            "input": {
+              "app": "com.openai.codex.cualab",
+              "element_index": 5
+            },
+            "executed": true,
+            "error": null
+          },
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "metrics.diffProbeCount",
+              "expected": "greater-than-before",
+              "actual": 1,
+              "passed": true
+            },
+            {
+              "operator": "equals",
+              "path": "meta.lastAction",
+              "expected": "diff-probe",
+              "actual": "diff-probe",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "copiedScreenshots": []
+}

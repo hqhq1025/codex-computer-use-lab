@@ -1,0 +1,10 @@
+key	value
+artifact	SkyComputerUseService
+bundle_id	com.openai.sky.CUAService
+version	26.710.1000387
+build	1000387
+architecture	arm64
+uuid	9E40FA2F-FC6C-3EE2-824A-E4975CA022AD
+sha256	27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58
+cdhash	c83bba0fe37e7e0ff5227ad36d41d5615235437b
+minimum_macos	14.4

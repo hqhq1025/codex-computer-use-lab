@@ -1,0 +1,5 @@
+source	address	symbol
+otool-indirect	0x0000000100cd400c	_swift_task_alloc
+otool-indirect	0x0000000100cd409c	_swift_task_switch
+dyld-import	import-index:0x0DBE	_swift_task_alloc
+dyld-import	import-index:0x0DCA	_swift_task_switch

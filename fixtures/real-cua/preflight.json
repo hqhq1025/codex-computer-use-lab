@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "label": "preflight-fixed",
+  "capturedAt": "2026-07-12T11:46:46.078Z",
+  "safety": {
+    "readOnly": true,
+    "screenshotsRead": false,
+    "axContentRead": false,
+    "approvalContentsRead": false,
+    "realCuaRequestSent": false,
+    "realInputSynthesized": false
+  },
+  "expectedTarget": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appRoot": "$LAB/test-app/build/Codex CUA Lab.app",
+    "appMetadata": {
+      "present": false
+    }
+  },
+  "processes": {
+    "sky": [
+      {
+        "pid": 94559,
+        "command": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+      }
+    ],
+    "testApp": []
+  },
+  "ipc": {
+    "cuaSocket": {
+      "present": true,
+      "type": "socket",
+      "mode": "600",
+      "bytes": 0,
+      "modifiedUnixMilliseconds": 1783840663458
+    },
+    "approvalStore": {
+      "present": false
+    }
+  },
+  "displays": [
+    {
+      "pixelsWide": "1920",
+      "scale": "1.0",
+      "pixelsHigh": "1200",
+      "index": 0,
+      "frame": "{{0, 0}, {1920, 1200}}",
+      "visibleFrame": "{{0, 103}, {1920, 1066}}",
+      "displayID": "2"
+    },
+    {
+      "pixelsHigh": "1200",
+      "index": 1,
+      "visibleFrame": "{{-1920, 244}, {1920, 1200}}",
+      "frame": "{{-1920, 244}, {1920, 1200}}",
+      "displayID": "3",
+      "pixelsWide": "1920",
+      "scale": "1.0"
+    }
+  ],
+  "syntheticOracle": {
+    "present": false
+  },
+  "cuaTempAggregates": {
+    "tempRoot": "<system-temp>",
+    "matchingFileCount": 8,
+    "totalBytes": 508525,
+    "newestModifiedUnixSeconds": 1783763001
+  }
+}

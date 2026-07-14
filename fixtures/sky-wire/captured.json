@@ -1,0 +1,642 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "package": "@oai/sky",
+    "packageVersion": "0.4.20",
+    "clientPath": "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules/@oai/sky/dist/project/cua/sky_js/src/targets/mac/client.js"
+  },
+  "safety": {
+    "socketPath": "<temporary-/tmp-unix-socket>",
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false
+  },
+  "transport": {
+    "framing": "4-byte little-endian unsigned payload length followed by UTF-8 JSON",
+    "maxFrameBytes": 8388608,
+    "responseFramesFragmented": true
+  },
+  "client": {
+    "apiVersion": "CodexComputerUseIPC-2",
+    "requestTimeoutSeconds": 3,
+    "turnMetadata": {
+      "session_id": "fixture-session",
+      "turn_id": "fixture-turn",
+      "source": "sky-wire-probe"
+    }
+  },
+  "operationOrder": [
+    "listApps",
+    "getAppPolicy",
+    "getAppState",
+    "click(element)",
+    "click(coordinate)",
+    "setValue",
+    "selectText",
+    "scroll",
+    "drag",
+    "pressKey",
+    "typeText"
+  ],
+  "operationResults": [
+    [
+      {
+        "appPath": "/Applications/Sky Wire Fixture.app",
+        "bundleIdentifier": "com.example.sky-wire-fixture",
+        "displayName": "Sky Wire Fixture",
+        "isFrontmost": true,
+        "isRunning": true,
+        "lastUsedDate": "2026-01-02T03:04:05.000Z",
+        "useCount": 7
+      }
+    ],
+    {
+      "allowPersistentApproval": true,
+      "decision": "allowed",
+      "target": {
+        "appPath": "/Applications/Sky Wire Fixture.app",
+        "bundleIdentifier": "com.example.sky-wire-fixture",
+        "displayName": "Sky Wire Fixture",
+        "risk": "low",
+        "warningSubtitle": null
+      }
+    },
+    {
+      "app": {
+        "bundleIdentifier": "com.example.sky-wire-fixture",
+        "pid": 4242
+      },
+      "appSpecificInstructions": "Fixture-only state. No application or UI was opened.",
+      "skyshot": {
+        "text": "[1] button 'Continue'\n[2] textField 'Name'\n[3] scrollArea 'Results'",
+        "screenshot": null
+      }
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "serialization": {
+    "connectionCount": 1,
+    "maxInFlight": 1
+  },
+  "exchanges": [
+    {
+      "sequence": 1,
+      "requestFrameLengthBytes": 98,
+      "requestPayloadLengthBytes": 94,
+      "request": {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "method": "ping",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2"
+        }
+      },
+      "responseFrameLengthBytes": 82,
+      "responsePayloadLengthBytes": 78,
+      "response": {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "result": {
+          "serverApiVersion": "CodexComputerUseIPC-2"
+        }
+      }
+    },
+    {
+      "sequence": 2,
+      "requestFrameLengthBytes": 305,
+      "requestPayloadLengthBytes": 301,
+      "request": {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {},
+          "requestType": "ComputerUseIPCListAppsRequest"
+        }
+      },
+      "responseFrameLengthBytes": 262,
+      "responsePayloadLengthBytes": 258,
+      "response": {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "appPath": "/Applications/Sky Wire Fixture.app",
+            "bundleIdentifier": "com.example.sky-wire-fixture",
+            "displayName": "Sky Wire Fixture",
+            "isFrontmost": true,
+            "isRunning": true,
+            "lastUsedDate": "2026-01-02T03:04:05.000Z",
+            "useCount": 7
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "requestFrameLengthBytes": 342,
+      "requestPayloadLengthBytes": 338,
+      "request": {
+        "id": 3,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture"
+          },
+          "requestType": "ComputerUseIPCAppPolicyRequest"
+        }
+      },
+      "responseFrameLengthBytes": 268,
+      "responsePayloadLengthBytes": 264,
+      "response": {
+        "id": 3,
+        "jsonrpc": "2.0",
+        "result": {
+          "allowPersistentApproval": true,
+          "decision": "allowed",
+          "target": {
+            "appPath": "/Applications/Sky Wire Fixture.app",
+            "bundleIdentifier": "com.example.sky-wire-fixture",
+            "displayName": "Sky Wire Fixture",
+            "risk": "low",
+            "warningSubtitle": null
+          }
+        }
+      }
+    },
+    {
+      "sequence": 4,
+      "requestFrameLengthBytes": 365,
+      "requestPayloadLengthBytes": 361,
+      "request": {
+        "id": 4,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "disableDiff": true
+          },
+          "requestType": "ComputerUseIPCAppGetSkyshotRequest"
+        }
+      },
+      "responseFrameLengthBytes": 298,
+      "responsePayloadLengthBytes": 294,
+      "response": {
+        "id": 4,
+        "jsonrpc": "2.0",
+        "result": {
+          "app": {
+            "bundleIdentifier": "com.example.sky-wire-fixture",
+            "pid": 4242
+          },
+          "appSpecificInstructions": "Fixture-only state. No application or UI was opened.",
+          "skyshot": {
+            "text": "[1] button 'Continue'\n[2] textField 'Name'\n[3] scrollArea 'Results'",
+            "screenshot": null
+          }
+        }
+      }
+    },
+    {
+      "sequence": 5,
+      "requestFrameLengthBytes": 431,
+      "requestPayloadLengthBytes": 427,
+      "request": {
+        "id": 5,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "click": {
+                "at": {
+                  "elementID": {
+                    "_0": "1"
+                  }
+                },
+                "clickCount": 2,
+                "mouseButton": 1
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 42,
+      "responsePayloadLengthBytes": 38,
+      "response": {
+        "id": 5,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 6,
+      "requestFrameLengthBytes": 439,
+      "requestPayloadLengthBytes": 435,
+      "request": {
+        "id": 6,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "click": {
+                "at": {
+                  "coordinate": {
+                    "_0": [
+                      120.5,
+                      64
+                    ]
+                  }
+                },
+                "clickCount": 1,
+                "mouseButton": 0
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 42,
+      "responsePayloadLengthBytes": 38,
+      "response": {
+        "id": 6,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 7,
+      "requestFrameLengthBytes": 412,
+      "requestPayloadLengthBytes": 408,
+      "request": {
+        "id": 7,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "setValue": {
+                "elementID": "2",
+                "value": "Ada Lovelace"
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 42,
+      "responsePayloadLengthBytes": 38,
+      "response": {
+        "id": 7,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 8,
+      "requestFrameLengthBytes": 470,
+      "requestPayloadLengthBytes": 466,
+      "request": {
+        "id": 8,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "selectText": {
+                "elementID": "2",
+                "text": "Lovelace",
+                "prefix": "Ada ",
+                "suffix": " wrote",
+                "selection": "cursor_after"
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 42,
+      "responsePayloadLengthBytes": 38,
+      "response": {
+        "id": 8,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 9,
+      "requestFrameLengthBytes": 432,
+      "requestPayloadLengthBytes": 428,
+      "request": {
+        "id": 9,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "scroll": {
+                "at": {
+                  "elementID": {
+                    "_0": "3"
+                  }
+                },
+                "direction": "down",
+                "pages": 2.5
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 42,
+      "responsePayloadLengthBytes": 38,
+      "response": {
+        "id": 9,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 10,
+      "requestFrameLengthBytes": 405,
+      "requestPayloadLengthBytes": 401,
+      "request": {
+        "id": 10,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "drag": {
+                "from": [
+                  10,
+                  20
+                ],
+                "to": [
+                  310.25,
+                  420.5
+                ]
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 43,
+      "responsePayloadLengthBytes": 39,
+      "response": {
+        "id": 10,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 11,
+      "requestFrameLengthBytes": 401,
+      "requestPayloadLengthBytes": 397,
+      "request": {
+        "id": 11,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "pressKey": {
+                "_0": "Control_L+Shift_L+p"
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 43,
+      "responsePayloadLengthBytes": 39,
+      "response": {
+        "id": 11,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    },
+    {
+      "sequence": 12,
+      "requestFrameLengthBytes": 396,
+      "requestPayloadLengthBytes": 392,
+      "request": {
+        "id": 12,
+        "jsonrpc": "2.0",
+        "method": "request",
+        "params": {
+          "clientApiVersion": "CodexComputerUseIPC-2",
+          "codexTurnMetadata": {
+            "session_id": "fixture-session",
+            "turn_id": "fixture-turn",
+            "source": "sky-wire-probe"
+          },
+          "deadlineUnixMilliseconds": "<dynamic-unix-milliseconds>",
+          "request": {
+            "app": "com.example.sky-wire-fixture",
+            "action": {
+              "type": {
+                "_0": "hello from fixture"
+              }
+            }
+          },
+          "requestType": "ComputerUseIPCAppPerformActionRequest"
+        }
+      },
+      "responseFrameLengthBytes": 43,
+      "responsePayloadLengthBytes": 39,
+      "response": {
+        "id": 12,
+        "jsonrpc": "2.0",
+        "result": null
+      }
+    }
+  ],
+  "actionEncodings": [
+    {
+      "operation": "click(element)",
+      "action": {
+        "click": {
+          "at": {
+            "elementID": {
+              "_0": "1"
+            }
+          },
+          "clickCount": 2,
+          "mouseButton": 1
+        }
+      }
+    },
+    {
+      "operation": "click(coordinate)",
+      "action": {
+        "click": {
+          "at": {
+            "coordinate": {
+              "_0": [
+                120.5,
+                64
+              ]
+            }
+          },
+          "clickCount": 1,
+          "mouseButton": 0
+        }
+      }
+    },
+    {
+      "operation": "setValue",
+      "action": {
+        "setValue": {
+          "elementID": "2",
+          "value": "Ada Lovelace"
+        }
+      }
+    },
+    {
+      "operation": "selectText",
+      "action": {
+        "selectText": {
+          "elementID": "2",
+          "text": "Lovelace",
+          "prefix": "Ada ",
+          "suffix": " wrote",
+          "selection": "cursor_after"
+        }
+      }
+    },
+    {
+      "operation": "scroll",
+      "action": {
+        "scroll": {
+          "at": {
+            "elementID": {
+              "_0": "3"
+            }
+          },
+          "direction": "down",
+          "pages": 2.5
+        }
+      }
+    },
+    {
+      "operation": "drag",
+      "action": {
+        "drag": {
+          "from": [
+            10,
+            20
+          ],
+          "to": [
+            310.25,
+            420.5
+          ]
+        }
+      }
+    },
+    {
+      "operation": "pressKey",
+      "action": {
+        "pressKey": {
+          "_0": "Control_L+Shift_L+p"
+        }
+      }
+    },
+    {
+      "operation": "typeText",
+      "action": {
+        "type": {
+          "_0": "hello from fixture"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "experiment": "cross-node-repl-client-native-diff-baseline",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
+  },
+  "phaseA": {
+    "kernelMarkerSha256": "b6ef69f3c03ac1a7f2ffc6c4d56e54c845f1c7875817a3c038a6f4de4956e74b",
+    "markerPresentAtEnd": true,
+    "observation": {
+      "kind": "full",
+      "characterCount": 2891,
+      "sha256": "c71b851400f6a8e700d7507065d9becea3d478eaf2a0e6d59658da78fb9f599e",
+      "syntheticMarkerPresent": true,
+      "screenshotPresent": true
+    },
+    "approvalStoreBefore": {
+      "checked": true,
+      "present": false
+    },
+    "approvalStoreAfter": {
+      "checked": true,
+      "present": false
+    },
+    "approvalChecks": [
+      {
+        "label": "list_apps",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:full",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ]
+  },
+  "requiredBoundary": {
+    "tool": "mcp__node_repl.js_reset",
+    "purpose": "Terminate the Phase A Node kernel before importing this module for Phase B."
+  },
+  "provenance": {
+    "labAppExecutable": {
+      "path": "<lab-app>/Contents/MacOS/Codex CUA Lab",
+      "bytes": 291072,
+      "sha256": "a7a052ab3141a61008fcb744a948f30e9bf8d9621f35ada31b5db43dcfad4eed"
+    },
+    "skyServiceExecutable": {
+      "path": "<sky-service>",
+      "bytes": 18739648,
+      "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58"
+    },
+    "wrapper": {
+      "path": "<computer-use-wrapper>",
+      "sha256": "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+    }
+  },
+  "safety": {
+    "targetRestrictedToSyntheticApp": true,
+    "observationsOnly": true,
+    "uiActionsExecuted": false,
+    "persistentApprovalAllowed": false,
+    "externalCommunicationAllowed": false
+  },
+  "phaseB": {
+    "phaseAMarkerPresentAtStart": false,
+    "observation": {
+      "kind": "no-change-diff",
+      "characterCount": 147,
+      "sha256": "1c5b3ee34b378f643298b2d463a6ae88698375aefb2884e89f340c6ae7470a64",
+      "syntheticMarkerPresent": true,
+      "screenshotPresent": true
+    },
+    "approvalStoreBefore": {
+      "checked": true,
+      "present": false
+    },
+    "approvalStoreAfter": {
+      "checked": true,
+      "present": false
+    },
+    "approvalChecks": [
+      {
+        "label": "list_apps",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      },
+      {
+        "label": "get_app_state:default-diff",
+        "store": {
+          "checked": true,
+          "present": false
+        }
+      }
+    ]
+  },
+  "conclusion": {
+    "clientBoundaryCrossed": true,
+    "phaseBHadNoClientLocalFullObservation": true,
+    "phaseBFirstObservationWasNativeNoChangeDiff": true,
+    "nativeLastAXTreeSharedAcrossNodeReplKernels": true
+  }
+}

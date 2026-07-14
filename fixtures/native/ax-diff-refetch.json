@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "service": {
+    "path": "$HOME/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+    "bytes": 18739648,
+    "sha256": "27b547d17a11f6f697ee62bfc20e5da6fab3f39848d40191c132b09ae8f68f58",
+    "uuid": "9E40FA2F-FC6C-3EE2-824A-E4975CA022AD",
+    "version": "26.710.1000387"
+  },
+  "evidence": {
+    "symbols": {
+      "setElementIDs": {
+        "address": "0x0000000100693920",
+        "pattern": "UIElementRenderTreeV13setElementIDsyyF"
+      },
+      "nextAvailableElementIDIterator": {
+        "address": "0x0000000100693bac",
+        "pattern": "UIElementRenderTreeV30nextAvailableElementIDIterator"
+      },
+      "inheritElementID": {
+        "address": "0x000000010069515c",
+        "pattern": "UIElementRenderDifferenceV6ChangeO16inheritElementID"
+      },
+      "eventStreamDescription": {
+        "address": "0x00000001001baee4",
+        "pattern": "SystemSelectionV22eventStreamDescription_11lineOptions26ignoreDifferenceLineBudget"
+      },
+      "refetchElementById": {
+        "address": "0x00000001001b1eb0",
+        "pattern": "RefetchableSkyshotAXTreeC22refetchElementIfNeeded_08validateG0AA0C9UIElementCSi_SbtKF"
+      },
+      "refetchElement": {
+        "address": "0x00000001001b210c",
+        "pattern": "RefetchableSkyshotAXTreeC22refetchElementIfNeeded_08validateG017ignoreValueChange"
+      },
+      "refetchIfNeeded": {
+        "address": "0x00000001001b4e04",
+        "pattern": "RefetchableUIElementC15refetchIfNeeded15validateElement17ignoreValueChange"
+      }
+    },
+    "strings": {
+      "removedElementIds": {
+        "fileOffset": "0xce6090",
+        "value": "Removed element IDs: "
+      },
+      "ambiguousBefore": {
+        "fileOffset": "0xe49080",
+        "value": "[RefetchableSkyshotAXTree] Multiple existing equivalent elements; cannot guarantee uniqueness"
+      },
+      "missingAfter": {
+        "fileOffset": "0xe490e0",
+        "value": "[RefetchableSkyshotAXTree] Element was invalidated and could not be found after refetching"
+      },
+      "ambiguousAfter": {
+        "fileOffset": "0xe49140",
+        "value": "[RefetchableSkyshotAXTree] Multiple new equivalent elements; cannot guarantee uniqueness"
+      },
+      "refetchSuccess": {
+        "fileOffset": "0xe491a0",
+        "value": "[RefetchableSkyshotAXTree] Successfully found new element: %s"
+      },
+      "invalidated": {
+        "fileOffset": "0xe491e0",
+        "value": "[RefetchableSkyshotAXTree] Element is invalidated, looking up equivalent"
+      },
+      "stillValid": {
+        "fileOffset": "0xe49230",
+        "value": "[RefetchableSkyshotAXTree] Element is still valid"
+      }
+    },
+    "recoveredAddresses": {
+      "setElementIDs": "0x100693920",
+      "nextAvailableElementIDIterator": "0x100693bac",
+      "nextElementID": "0x1006948d8",
+      "inheritElementID": "0x10069515c",
+      "rootRevision": "0x1006b9afc",
+      "appendingRevision": "0x1006b9270",
+      "siblingIdComparison": "0x10069678c-0x10069682c",
+      "matchedTextComparison": "0x1006974cc-0x100697590",
+      "changeIteratorNext": "0x1006961d4",
+      "changeRank": "0x100694ecc-0x100695140",
+      "changeComparator": "0x100695e88",
+      "removedRangeFormatting": "0x1001c06b8",
+      "removedRangeFeatureFlag": "0x1001c0848",
+      "differenceLineBudget": "0x1001c0a6c",
+      "differenceLineBudgetFallback": "0x1001c0ee4-0x1001c0f6c",
+      "noChangeRendering": "0x1001bbd8c-0x1001bc370",
+      "ignoreDifferenceLineBudget": "0x1001baee4",
+      "revisionGetters": "0x1006b7e68-0x1006b8000",
+      "refetchById": "0x1001b1eb0",
+      "revisionItemLookup": "0x1006b89d4",
+      "refetchTree": "0x1001b3e38",
+      "refetchIfNeeded": "0x1001b4e04"
+    }
+  },
+  "contracts": {
+    "rootIdsAreZeroBasedDepthFirst": true,
+    "appendPreservesMatchedIds": true,
+    "newIdsStartAfterCurrentMaximum": true,
+    "siblingMatchingUsesRenderId": true,
+    "matchedNoneUpdateUsesPrimaryTextOnly": true,
+    "changedParentsStillRecurseIntoChildren": true,
+    "changeTags": {
+      "none": 0,
+      "insert": 1,
+      "update": 2,
+      "remove": 3
+    },
+    "samePathOrder": [
+      "none",
+      "remove",
+      "insert",
+      "update"
+    ],
+    "removedIdsUseMaximalConsecutiveRanges": true,
+    "fullTreeLineCountIsDiffBudget": true,
+    "emptyEffectiveDiffUsesNoChangeText": true,
+    "refetchFailsClosedOnMissingOrAmbiguousIdentity": true,
+    "ignoreValueChangeOnlyRelaxesValueComparison": true
+  },
+  "revisionFields": [
+    "lineageID",
+    "tree",
+    "renderTree",
+    "focusTree",
+    "focusRenderTree",
+    "ids",
+    "changes",
+    "previousRevision"
+  ],
+  "refetchIdentityFields": [
+    "role",
+    "subrole",
+    "roleDescription",
+    "title",
+    "description",
+    "value",
+    "valueDescription",
+    "placeholderValue",
+    "help",
+    "identifier",
+    "url"
+  ],
+  "unknowns": [
+    "The exact punctuation used by every native removed-range rendering branch is not asserted.",
+    "The behavior model mirrors recovered contracts but is not original service source code."
+  ],
+  "safety": {
+    "staticBinaryReadOnly": true,
+    "serviceStartedOrAttached": false,
+    "realComputerUseSocketContacted": false,
+    "uiActionsExecuted": false
+  }
+}

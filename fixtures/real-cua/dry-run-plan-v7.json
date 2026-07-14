@@ -1,0 +1,1839 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "<lab-app>",
+    "stateOraclePath": "<lab-state>"
+  },
+  "safety": {
+    "executeFlagRequired": true,
+    "productionCuaRequestSent": false,
+    "uiActionsExecuted": false,
+    "externalCommunicationAllowed": false,
+    "deleteAllowed": false,
+    "systemSettingsAllowed": false,
+    "persistentApprovalAllowed": false,
+    "persistentApprovalStoreBefore": {
+      "checked": false,
+      "present": null
+    },
+    "persistentApprovalStoreAfter": {
+      "checked": false,
+      "present": null
+    },
+    "screenshotsCopied": false
+  },
+  "wrapper": {
+    "path": "<computer-use-wrapper>",
+    "directSkyImportAllowed": false
+  },
+  "stepPattern": [
+    "fresh-full-get_app_state",
+    "read-state-json-before",
+    "one-allowlisted-action",
+    "fresh-get_app_state-after",
+    "read-state-json-after",
+    "compare-oracle"
+  ],
+  "scenarios": [
+    {
+      "id": "full-state",
+      "title": "Full state",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "full-state-probe",
+          "description": "Capture and validate a complete accessibility tree.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Full State Probe",
+                "ID: cua.lab.full-state-probe"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "metrics.fullStateProbeCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diff",
+      "title": "Diff state",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "diff-probe",
+          "description": "Request a diff after one isolated synthetic mutation.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Diff Probe",
+                "ID: cua.lab.diff-probe"
+              ]
+            }
+          },
+          "postObservation": "diff-then-full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "metrics.diffProbeCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "button-click",
+      "title": "Button click",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "button-click",
+          "description": "Click one indexed synthetic button.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Primary Button",
+                "ID: cua.lab.primary-button"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "controls.buttonClickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set-value",
+      "title": "Set value",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "set-value",
+          "description": "Replace the value of one indexed text field.",
+          "preObservation": "full",
+          "action": {
+            "method": "set_value",
+            "selector": {
+              "roleHint": "text",
+              "lineIncludes": [
+                "CUA Lab Set Value Field",
+                "ID: cua.lab.set-value-field"
+              ]
+            },
+            "value": "cua-lab-set-value"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "controls.setValue",
+              "value": "cua-lab-set-value"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "type-text",
+      "title": "Type text",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "focus-type-text",
+          "description": "Focus the synthetic typing field with an indexed click.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "text",
+              "lineIncludes": [
+                "CUA Lab Type Text Field",
+                "ID: cua.lab.type-text-field"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "focus.control",
+              "value": "type-text"
+            }
+          ]
+        },
+        {
+          "id": "type-text",
+          "description": "Type a fixed synthetic string into the current focus.",
+          "preObservation": "full",
+          "action": {
+            "method": "type_text",
+            "text": "cua-lab-type-text"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "controls.typeText",
+              "value": "cua-lab-type-text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "press-key",
+      "title": "Press key",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "focus-set-value-for-tab",
+          "description": "Focus the first field before keyboard navigation.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "text",
+              "lineIncludes": [
+                "CUA Lab Set Value Field",
+                "ID: cua.lab.set-value-field"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "focus.control",
+              "value": "set-value"
+            }
+          ]
+        },
+        {
+          "id": "press-tab",
+          "description": "Move focus to the next synthetic field.",
+          "preObservation": "full",
+          "action": {
+            "method": "press_key",
+            "key": "Tab"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "focus.control",
+              "value": "type-text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "select-text",
+      "title": "Select text",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "seed-select-text",
+          "description": "Seed the editable field with deterministic text.",
+          "preObservation": "full",
+          "action": {
+            "method": "set_value",
+            "selector": {
+              "roleHint": "text",
+              "lineIncludes": [
+                "CUA Lab Select Text Field",
+                "ID: cua.lab.select-text-field"
+              ]
+            },
+            "value": "prefix target suffix"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "controls.selectTextValue",
+              "value": "prefix target suffix"
+            }
+          ]
+        },
+        {
+          "id": "select-text",
+          "description": "Select the disambiguated middle token.",
+          "preObservation": "full",
+          "action": {
+            "method": "select_text",
+            "selector": {
+              "roleHint": "text",
+              "lineIncludes": [
+                "CUA Lab Select Text Field",
+                "ID: cua.lab.select-text-field"
+              ]
+            },
+            "text": "target",
+            "prefix": "prefix ",
+            "suffix": " suffix",
+            "selection_type": "text"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "selection.text",
+              "value": "target"
+            },
+            {
+              "operator": "equals",
+              "path": "selection.type",
+              "value": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checkbox",
+      "title": "Checkbox",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "checkbox",
+          "description": "Toggle one indexed synthetic checkbox.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "checkbox",
+              "lineIncludes": [
+                "CUA Lab Checkbox",
+                "ID: cua.lab.checkbox"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "controls.checkboxChecked",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slider-secondary-action",
+      "title": "Slider secondary action",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "slider-increment",
+          "description": "Invoke the slider's declared Increment AX action.",
+          "preObservation": "full",
+          "action": {
+            "method": "perform_secondary_action",
+            "selector": {
+              "roleHint": "slider",
+              "lineIncludes": [
+                "CUA Lab Slider",
+                "ID: cua.lab.slider"
+              ]
+            },
+            "action": "Increment"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "controls.sliderValue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "title": "Scroll",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "scroll",
+          "description": "Scroll the indexed synthetic scroll region down one page.",
+          "preObservation": "full",
+          "action": {
+            "method": "scroll",
+            "selector": {
+              "roleHint": "scroll",
+              "lineIncludes": [
+                "CUA Lab Scroll Region",
+                "ID: cua.lab.scroll-region"
+              ]
+            },
+            "direction": "down",
+            "pages": 1
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "controls.scrollOffset"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modal",
+      "title": "Modal",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "open-modal",
+          "description": "Open the synthetic modal.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Open Modal",
+                "ID: cua.lab.modal-open"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "modal.open",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "close-modal",
+          "description": "Close the synthetic modal using its indexed button.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Modal Close",
+                "ID: cua.lab.modal-close"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "modal.open",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multi-window",
+      "title": "Multiple windows",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "open-secondary-window",
+          "description": "Open a second standard AppKit window.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Open Secondary Window",
+                "ID: cua.lab.secondary-open"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "secondaryWindow.open",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "secondary-button-click",
+          "description": "Click a control in the second window.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Secondary Button",
+                "ID: cua.lab.secondary-button"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "secondaryWindow.buttonClickCount"
+            }
+          ]
+        },
+        {
+          "id": "secondary-scroll",
+          "description": "Scroll a region in the second window.",
+          "preObservation": "full",
+          "action": {
+            "method": "scroll",
+            "selector": {
+              "roleHint": "scroll",
+              "lineIncludes": [
+                "CUA Lab Secondary Scroll Region",
+                "ID: cua.lab.secondary-scroll-region"
+              ]
+            },
+            "direction": "down",
+            "pages": 1
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "secondaryWindow.scrollOffset"
+            }
+          ]
+        },
+        {
+          "id": "close-secondary-window",
+          "description": "Close the second window and return to the main window.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Secondary Close",
+                "ID: cua.lab.secondary-close"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "secondaryWindow.open",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dynamic-hierarchy-stale-element",
+      "title": "Dynamic hierarchy stale element",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "mutate-hierarchy",
+          "description": "Capture the old target index, then mutate the hierarchy.",
+          "preObservation": "full",
+          "captures": [
+            {
+              "name": "stale-target",
+              "selector": {
+                "roleHint": "button",
+                "lineIncludes": [
+                  "CUA Lab Stale Target",
+                  "ID: cua.lab.stale-target"
+                ]
+              }
+            }
+          ],
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Mutate Hierarchy",
+                "ID: cua.lab.hierarchy-mutate"
+              ]
+            }
+          },
+          "postObservation": "oracle-only",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "hierarchy.generation"
+            },
+            {
+              "operator": "equals",
+              "path": "hierarchy.mode",
+              "value": "unique-replacement"
+            }
+          ]
+        },
+        {
+          "id": "stale-click",
+          "description": "Reuse the captured old index without another state request after the hierarchy changed.",
+          "preObservation": "cached",
+          "action": {
+            "method": "click",
+            "capturedIndex": "stale-target"
+          },
+          "allowActionError": true,
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "not-less-than-before",
+              "path": "hierarchy.staleTargetClickCount"
+            },
+            {
+              "operator": "unchanged",
+              "path": "hierarchy.wrongTargetClickCount"
+            }
+          ]
+        },
+        {
+          "id": "fresh-click-after-stale",
+          "description": "Resolve the target again from a fresh tree and click it.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Stale Target",
+                "ID: cua.lab.stale-target"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "hierarchy.staleTargetClickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stale-element-missing",
+      "title": "Stale element missing after refetch",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "remove-stale-target",
+          "description": "Capture the target index, then remove every matching target.",
+          "preObservation": "full",
+          "captures": [
+            {
+              "name": "missing-target",
+              "selector": {
+                "roleHint": "button",
+                "lineIncludes": [
+                  "CUA Lab Stale Target",
+                  "ID: cua.lab.stale-target"
+                ]
+              }
+            }
+          ],
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Remove Stale Target",
+                "ID: cua.lab.hierarchy-remove"
+              ]
+            }
+          },
+          "postObservation": "oracle-only",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "hierarchy.generation"
+            },
+            {
+              "operator": "equals",
+              "path": "hierarchy.mode",
+              "value": "missing"
+            }
+          ]
+        },
+        {
+          "id": "click-missing-stale-target",
+          "description": "Reuse the old index after the target has disappeared.",
+          "preObservation": "cached",
+          "action": {
+            "method": "click",
+            "capturedIndex": "missing-target"
+          },
+          "allowActionError": true,
+          "requireActionError": true,
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "unchanged",
+              "path": "hierarchy.staleTargetClickCount"
+            },
+            {
+              "operator": "unchanged",
+              "path": "hierarchy.wrongTargetClickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stale-element-ambiguous",
+      "title": "Stale element ambiguous after refetch",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "duplicate-stale-target",
+          "description": "Capture the target index, then create two matching replacements.",
+          "preObservation": "full",
+          "captures": [
+            {
+              "name": "ambiguous-target",
+              "selector": {
+                "roleHint": "button",
+                "lineIncludes": [
+                  "CUA Lab Stale Target",
+                  "ID: cua.lab.stale-target"
+                ]
+              }
+            }
+          ],
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Duplicate Stale Target",
+                "ID: cua.lab.hierarchy-duplicate"
+              ]
+            }
+          },
+          "postObservation": "oracle-only",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "hierarchy.generation"
+            },
+            {
+              "operator": "equals",
+              "path": "hierarchy.mode",
+              "value": "ambiguous"
+            }
+          ]
+        },
+        {
+          "id": "click-ambiguous-stale-target",
+          "description": "Reuse the old index when two replacements now match.",
+          "preObservation": "cached",
+          "action": {
+            "method": "click",
+            "capturedIndex": "ambiguous-target"
+          },
+          "allowActionError": true,
+          "requireActionError": true,
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "unchanged",
+              "path": "hierarchy.staleTargetClickCount"
+            },
+            {
+              "operator": "unchanged",
+              "path": "hierarchy.wrongTargetClickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ambiguous-same-name",
+      "title": "Ambiguous same-name controls",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "ambiguous-second",
+          "description": "Select the second of two same-name buttons and verify the oracle target.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Duplicate Action"
+              ],
+              "expectedMatches": 2,
+              "occurrence": 2
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "equals",
+              "path": "ambiguous.lastTarget",
+              "value": "second"
+            },
+            {
+              "operator": "greater-than-before",
+              "path": "ambiguous.clickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coordinate-click",
+      "title": "Coordinate click",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "coordinate-click",
+          "description": "Click the fixed synthetic coordinate target from the immediately preceding screenshot.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "coordinateFromOracle": {
+              "xPath": "coordinate.target.x",
+              "yPath": "coordinate.target.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "coordinate.clickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coordinate-stale-revision",
+      "title": "Stale screenshot coordinate",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "mutate-coordinate-layout",
+          "description": "Capture the target coordinate, then swap target and decoy without re-observing.",
+          "preObservation": "full",
+          "captures": [
+            {
+              "name": "old-target-coordinate",
+              "coordinateFromOracle": {
+                "xPath": "coordinate.target.x",
+                "yPath": "coordinate.target.y"
+              }
+            }
+          ],
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Move Coordinate Target",
+                "ID: cua.lab.coordinate-mutate"
+              ]
+            }
+          },
+          "postObservation": "oracle-only",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "coordinate.generation"
+            }
+          ]
+        },
+        {
+          "id": "click-old-coordinate",
+          "description": "Click the pre-mutation coordinate without a new screenshot.",
+          "preObservation": "cached",
+          "action": {
+            "method": "click",
+            "capturedCoordinate": "old-target-coordinate"
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "unchanged",
+              "path": "coordinate.clickCount"
+            },
+            {
+              "operator": "greater-than-before",
+              "path": "coordinate.decoyClickCount"
+            }
+          ]
+        },
+        {
+          "id": "click-fresh-coordinate",
+          "description": "Use a fresh screenshot-derived target coordinate after the mutation.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "coordinateFromOracle": {
+              "xPath": "coordinate.target.x",
+              "yPath": "coordinate.target.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "coordinate.clickCount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drag-target",
+      "title": "Drag target",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "drag-target",
+          "description": "Drag the synthetic token using coordinates derived from the current layout.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "drag.start.x",
+              "fromYPath": "drag.start.y",
+              "toXPath": "drag.end.x",
+              "toYPath": "drag.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "controls.dragPosition.x"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "window-move",
+      "title": "Window move",
+      "steps": [
+        {
+          "id": "reset",
+          "description": "Reset only the synthetic lab state.",
+          "preObservation": "full",
+          "action": {
+            "method": "click",
+            "selector": {
+              "roleHint": "button",
+              "lineIncludes": [
+                "CUA Lab Reset",
+                "ID: cua.lab.reset"
+              ]
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "greater-than-before",
+              "path": "meta.resetCount"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            },
+            {
+              "operator": "equals",
+              "path": "window.width",
+              "value": 1025
+            }
+          ]
+        },
+        {
+          "id": "move-left-1",
+          "description": "Move the main window left using fresh screenshot coordinates.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-left-2",
+          "description": "Continue moving left after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-left-3",
+          "description": "Continue moving left after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-left-4",
+          "description": "Continue moving left after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-left-5",
+          "description": "Continue moving left after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-left-6",
+          "description": "Continue moving left after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.end.x",
+              "toYPath": "windowMove.end.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "move-right-1",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-right-2",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-right-3",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-right-4",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-right-5",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            }
+          ]
+        },
+        {
+          "id": "move-right-6",
+          "description": "Return the window toward the primary display after a fresh observation.",
+          "preObservation": "full",
+          "action": {
+            "method": "drag",
+            "coordinatesFromOracle": {
+              "fromXPath": "windowMove.start.x",
+              "fromYPath": "windowMove.start.y",
+              "toXPath": "windowMove.returnEnd.x",
+              "toYPath": "windowMove.returnEnd.y"
+            }
+          },
+          "postObservation": "full",
+          "oracle": [
+            {
+              "operator": "changed",
+              "path": "window.x"
+            },
+            {
+              "operator": "equals",
+              "path": "window.onSecondaryScreen",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
