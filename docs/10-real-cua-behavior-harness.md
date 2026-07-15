@@ -12,10 +12,10 @@ The only target is:
 bundle id:
   com.openai.codex.cualab
 application:
-  /Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/
+  /Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/test-app/build/
   Codex CUA Lab.app
 oracle:
-  /Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/runtime/
+  /Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/test-app/runtime/
   state.json
 ```
 
@@ -61,13 +61,13 @@ Import the runner in a Computer Use-enabled `node_repl` session:
 
 ```js
 var lab = await import(
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/scripts/real-cua-lab-runner.mjs"
+  "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/scripts/real-cua-lab-runner.mjs"
 );
 var result = await lab.runRealCuaLab({
   execute: true,
   scenarioIds: ["button-click"],
   outputPath:
-    "/Users/haoqing/Documents/Learning/codex-computer-use-lab/fixtures/real-cua/button-click-result.json"
+    "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/fixtures/real-cua/button-click-result.json"
 });
 nodeRepl.write(JSON.stringify(result, null, 2));
 ```
@@ -228,7 +228,7 @@ already exist. It is bounded to 1 MiB and must include:
   "synthetic": true,
   "syntheticMarker": "CUA Lab Synthetic Surface",
   "bundleIdentifier": "com.openai.codex.cualab",
-  "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
+  "appPath": "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
 }
 ```
 

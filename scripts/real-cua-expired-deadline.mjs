@@ -3,11 +3,11 @@ import { lstat, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { LAB_FIXTURE_ROOT } from "../lib/cua-lab-scenarios.mjs";
 
 const HELPER_PATH =
   "/Users/haoqing/.codex/cua-lab-expired-deadline-helper.mjs";
-const OUTPUT_PATH =
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/fixtures/real-cua/expired-deadline.json";
+const OUTPUT_PATH = path.join(LAB_FIXTURE_ROOT, "expired-deadline.json");
 const APPROVAL_STORE_PATH = path.join(
   os.homedir(),
   "Library",

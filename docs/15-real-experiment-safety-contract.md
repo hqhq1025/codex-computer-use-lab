@@ -12,7 +12,7 @@ This contract applies to any lab command that uses the production
 ```text
 bundle identifier: com.openai.codex.cualab
 expected app root:
-  /Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/
+  /Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/test-app/build/
   Codex CUA Lab.app
 ```
 

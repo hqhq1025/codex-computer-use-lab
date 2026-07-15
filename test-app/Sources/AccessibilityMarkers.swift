@@ -2,7 +2,7 @@ import AppKit
 
 enum LabContract {
     static let bundleIdentifier = "com.openai.codex.cualab"
-    static let appPath = "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
+    static let appPath = Bundle.main.bundleURL.standardizedFileURL.path
     static let syntheticMarker = "CUA Lab Synthetic Surface"
 }
 

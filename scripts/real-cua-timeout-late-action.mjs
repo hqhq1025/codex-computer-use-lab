@@ -13,6 +13,7 @@ import { pathToFileURL } from "node:url";
 import {
   LAB_APP_BUNDLE_ID,
   LAB_APP_PATH,
+  LAB_FIXTURE_ROOT,
   LAB_STATE_PATH,
   resolveElementIndex
 } from "../lib/cua-lab-scenarios.mjs";
@@ -72,8 +73,7 @@ const APPROVAL_STORE_PATH = path.join(
   "Software",
   "ComputerUseAppApprovals.json"
 );
-const OUTPUT_PATH =
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/fixtures/real-cua/timeout-late-action.json";
+const OUTPUT_PATH = path.join(LAB_FIXTURE_ROOT, "timeout-late-action.json");
 
 export async function runTimeoutLateActionExperiment() {
   assertNodeReplHost();

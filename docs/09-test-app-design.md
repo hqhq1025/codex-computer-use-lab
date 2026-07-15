@@ -94,7 +94,7 @@ The JSON identity is fixed:
   "synthetic": true,
   "syntheticMarker": "CUA Lab Synthetic Surface",
   "bundleIdentifier": "com.openai.codex.cualab",
-  "appPath": "/Users/haoqing/Documents/Learning/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
+  "appPath": "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/test-app/build/Codex CUA Lab.app"
 }
 ```
 

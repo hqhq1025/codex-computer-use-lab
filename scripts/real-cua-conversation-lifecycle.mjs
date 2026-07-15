@@ -14,6 +14,7 @@ import { pathToFileURL } from "node:url";
 import {
   LAB_APP_BUNDLE_ID,
   LAB_APP_PATH,
+  LAB_FIXTURE_ROOT,
   LAB_STATE_PATH
 } from "../lib/cua-lab-scenarios.mjs";
 
@@ -46,8 +47,7 @@ const APPROVAL_STORE_PATH = path.join(
   "Software",
   "ComputerUseAppApprovals.json"
 );
-const OUTPUT_PATH =
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/fixtures/real-cua/conversation-lifecycle.json";
+const OUTPUT_PATH = path.join(LAB_FIXTURE_ROOT, "conversation-lifecycle.json");
 const HELPER_SOURCE = `import { pathToFileURL } from "node:url";
 const CLIENT = ${JSON.stringify(CLIENT_MODULE_PATH)};
 const APP = ${JSON.stringify(LAB_APP_PATH)};
@@ -282,7 +282,7 @@ async function runTurnEnded(threadID, turnID) {
     type: "agent-turn-complete",
     "thread-id": threadID,
     "turn-id": turnID,
-    cwd: "/Users/haoqing/Documents/Learning",
+    cwd: path.dirname(LAB_APP_PATH),
     client: "cua-lab-conversation-lifecycle",
     "input-messages": [],
     "last-assistant-message": null

@@ -314,7 +314,7 @@ Reproduction is intentionally two-phase:
 
 ```js
 var experiment = await import(
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/scripts/real-cua-cross-client-baseline.mjs"
+  "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/scripts/real-cua-cross-client-baseline.mjs"
 );
 await experiment.runCrossClientPhaseA();
 ```
@@ -323,7 +323,7 @@ Then call `mcp__node_repl.js_reset`, and in the new kernel:
 
 ```js
 var experiment = await import(
-  "/Users/haoqing/Documents/Learning/codex-computer-use-lab/scripts/real-cua-cross-client-baseline.mjs"
+  "/Users/haoqing/Documents/Learning/computer-use-research/codex-computer-use-lab/scripts/real-cua-cross-client-baseline.mjs"
 );
 await experiment.runCrossClientPhaseB();
 ```
