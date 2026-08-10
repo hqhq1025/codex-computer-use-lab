@@ -42,7 +42,7 @@ Current August line:
 | Repository / PR | State | Disposition |
 |---|---|---|
 | `maka-agent/maka-cu#2` | open, ready for review; head `40ba676` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
-| `maka-agent/maka-agent#2627` | open draft; head `4b80a2059`; CI running | pins source `40ba676`, binary SHA-256 `20361a198e834f181ee893de03687db597ac6f49c3588b546ffe1f703144a264`, and integrates stable ids/difference rendering; keep draft until source merge and final repin |
+| `maka-agent/maka-agent#2627` | open draft; head `4b80a2059`; full CI green | pins source `40ba676`, binary SHA-256 `20361a198e834f181ee893de03687db597ac6f49c3588b546ffe1f703144a264`, and integrates stable ids/difference rendering; keep draft until source merge and final repin |
 
 Current verification:
 
@@ -183,15 +183,14 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Finish CI on `maka-agent/maka-agent#2627`; keep it draft while checks run.
-2. Review and merge `maka-agent/maka-cu#2`.
-3. After source merge, rebuild and repin #2627 to the final `maka/base` merge
+1. Review and merge `maka-agent/maka-cu#2`.
+2. After source merge, rebuild and repin #2627 to the final `maka/base` merge
    commit before marking it ready.
-4. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
+3. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
    oracle matrix. Do not substitute deterministic routing tests for this gate.
-5. Complete stable signing, hardened runtime, notarization, and packaged-app
+4. Complete stable signing, hardened runtime, notarization, and packaged-app
    verification; `distributionReady` remains false until all four are real.
-6. Keep a Kimi-style MCP adapter separate from the executor and translate only
+5. Keep a Kimi-style MCP adapter separate from the executor and translate only
    to `maka.cu/2`; do not duplicate AX indexing, refetch, or fallback logic.
 
 ## Review Dispositions
