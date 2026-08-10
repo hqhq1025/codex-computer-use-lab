@@ -240,10 +240,18 @@ Current implementation worktrees:
 - `maka-agent-cu-web-reflow-pin`: clean branch
   `codex/cu-webcontent-frame-refetch-pin`, head `cee52376e`; integration PR
   #2638 merged as `221e63b00`.
+- `codex-computer-use-lab-web-text`: clean branch
+  `codex/maka-web-text-fixture`, head `4e7c754`; adds the offline WKWebView text
+  field, DOM input/change oracle, and the dedicated Maka Web text probe.
+- `maka-cu-web-text`: clean branch `codex/webcontent-text-value`, head
+  `a1582d2`; renderer-only set-value candidate with exact focus, full selection,
+  renderer-PID text delivery, bounded readback, and unknown-outcome fencing.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
 
-The screen is unlocked. Modal/secondary functionality is qualified, but the
-background-focus gate remains open; preserve the bounded aggregate fixture and
-high-frequency sentinel as the regression path.
+The screen is currently locked. Modal/secondary functionality is qualified, but
+the native background-focus gate remains open. The Web text candidate has 330
+source tests with 26 explicit live skips and no failures, but its baseline and
+candidate live probes are pending unlock; do not open or merge the source PR
+until the DOM input oracle and foreground sentinel pass.
