@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 
 import { execFileSync, spawn } from "node:child_process";
-import { mkdir, mkdtemp, readFile, realpath, rm, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  realpath,
+  rm,
+  stat,
+  writeFile
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -9,15 +18,20 @@ const root = path.resolve(import.meta.dirname, "..");
 const lab = path.join(root, "test-app");
 const oraclePath = path.join(lab, "runtime", "state.json");
 const sourceInput = process.env.MAKA_CU_SOURCE_DIR;
-const outputPath = path.join(
-  root,
-  "fixtures",
-  "real-cua",
-  "maka-web-text-baseline.json"
-);
+const fixtureRoot = path.join(root, "fixtures", "real-cua");
+const outputPath = process.env.MAKA_CU_OUTPUT
+  ? path.resolve(process.env.MAKA_CU_OUTPUT)
+  : path.join(fixtureRoot, "maka-web-text.json");
+const requirePass = process.env.MAKA_CU_REQUIRE_PASS !== "0";
 
 if (!sourceInput) {
   throw new Error("MAKA_CU_SOURCE_DIR must name a clean maka-cu checkout");
+}
+if (
+  outputPath !== fixtureRoot &&
+  !outputPath.startsWith(`${fixtureRoot}${path.sep}`)
+) {
+  throw new Error(`MAKA_CU_OUTPUT must stay below ${fixtureRoot}`);
 }
 
 const sourceDir = await realpath(sourceInput);
@@ -32,14 +46,46 @@ const sourceCommit = execFileSync("git", ["rev-parse", "HEAD"], {
   cwd: sourceDir,
   encoding: "utf8"
 }).trim();
+const sourceBranch =
+  process.env.MAKA_CU_SOURCE_BRANCH?.trim() ||
+  execFileSync("git", ["branch", "--show-current"], {
+    cwd: sourceDir,
+    encoding: "utf8"
+  }).trim();
 execFileSync("swift", ["build", "-c", "release"], {
   cwd: sourceDir,
   stdio: "inherit"
 });
+const sourceStatusAfterBuild = execFileSync(
+  "git",
+  ["status", "--porcelain"],
+  { cwd: sourceDir, encoding: "utf8" }
+).trim();
+const sourceCommitAfterBuild = execFileSync(
+  "git",
+  ["rev-parse", "HEAD"],
+  { cwd: sourceDir, encoding: "utf8" }
+).trim();
+if (sourceStatusAfterBuild || sourceCommitAfterBuild !== sourceCommit) {
+  throw new Error("maka-cu source changed during the release build");
+}
 const binary = await realpath(
   path.join(sourceDir, ".build", "release", "OpenComputerUse")
 );
+const binaryBytes = await readFile(binary);
+const binaryStat = await stat(binary);
 const imageDir = await mkdtemp(path.join(tmpdir(), "maka-web-text-"));
+const sentinelBinary = path.join(imageDir, "frontmost-sentinel");
+execFileSync(
+  "xcrun",
+  [
+    "swiftc",
+    path.join(root, "scripts", "frontmost-sentinel.swift"),
+    "-o",
+    sentinelBinary
+  ],
+  { stdio: "ignore" }
+);
 const child = spawn(binary, ["host"], {
   stdio: ["pipe", "pipe", "pipe"]
 });
@@ -48,6 +94,7 @@ let nextId = 1;
 let stdout = "";
 let stderr = "";
 const pending = new Map();
+let sentinel;
 
 child.stdout.setEncoding("utf8");
 child.stdout.on("data", (chunk) => {
@@ -105,12 +152,82 @@ function deepestElement(snapshot, label, role) {
   };
 }
 
+async function startForegroundSentinel(targetPid) {
+  const output = path.join(imageDir, "foreground-sentinel.json");
+  const process = spawn(
+    sentinelBinary,
+    [String(targetPid), output],
+    { stdio: ["ignore", "pipe", "pipe"] }
+  );
+  let processStderr = "";
+  process.stderr.setEncoding("utf8");
+  process.stderr.on("data", (chunk) => {
+    processStderr += chunk;
+  });
+  await new Promise((resolve, reject) => {
+    let ready = "";
+    const timer = setTimeout(() => {
+      reject(new Error(`foreground sentinel did not become ready: ${processStderr}`));
+    }, 15_000);
+    process.stdout.setEncoding("utf8");
+    process.stdout.on("data", (chunk) => {
+      ready += chunk;
+      if (!ready.includes("READY\n")) {
+        return;
+      }
+      clearTimeout(timer);
+      resolve();
+    });
+    process.once("exit", (code) => {
+      clearTimeout(timer);
+      reject(
+        new Error(
+          `foreground sentinel exited before ready (${code}): ${processStderr}`
+        )
+      );
+    });
+  });
+
+  let summaryPromise;
+  return {
+    async stop() {
+      if (!summaryPromise) {
+        summaryPromise = new Promise((resolve, reject) => {
+          process.once("exit", async (code) => {
+            if (code !== 0 && code !== null) {
+              reject(new Error(`foreground sentinel exited ${code}: ${processStderr}`));
+              return;
+            }
+            try {
+              resolve(JSON.parse(await readFile(output, "utf8")));
+            } catch (error) {
+              reject(error);
+            }
+          });
+        });
+        process.kill("SIGTERM");
+      }
+      return summaryPromise;
+    }
+  };
+}
+
 const session = `maka-web-text-${process.pid}`;
 const requested = "Maka Web text";
 const report = {
   schemaVersion: 1,
   capturedAt: new Date().toISOString(),
-  sourceCommit,
+  source: {
+    commit: sourceCommit,
+    branch: sourceBranch,
+    dirty: false,
+    buildCommand: "swift build -c release"
+  },
+  binary: {
+    path: "<maka-cu-source>/.build/release/OpenComputerUse",
+    sha256: createHash("sha256").update(binaryBytes).digest("hex"),
+    size: binaryStat.size
+  },
   requested,
   passed: false
 };
@@ -125,6 +242,8 @@ try {
     "-e",
     'tell application "Google Chrome" to activate'
   ]);
+  const initialOracle = JSON.parse(await readFile(oraclePath, "utf8"));
+  sentinel = await startForegroundSentinel(initialOracle.oop.hostPID);
 
   report.hello = await request("host.hello", {
     protocol: "maka.cu/2",
@@ -165,15 +284,25 @@ try {
   });
   await new Promise((resolve) => setTimeout(resolve, 300));
   report.oracle = JSON.parse(await readFile(oraclePath, "utf8")).oop;
+  report.foregroundSentinel = await sentinel.stop();
   report.passed =
     report.dispatch.result?.outcome === "ok" &&
     report.oracle.textValue === requested &&
-    report.oracle.textInputCount > 0;
+    report.oracle.textInputCount > 0 &&
+    report.oracle.lastTextEventTrusted === true &&
+    report.foregroundSentinel.targetForegroundSamples === 0 &&
+    report.foregroundSentinel.sampleCount >= 5 &&
+    report.foregroundSentinel.maxGapMilliseconds <= 250;
   await request("session.end", { session });
 } catch (error) {
   report.failure = error instanceof Error ? error.message : String(error);
   report.stderr = stderr;
 } finally {
+  if (sentinel) {
+    try {
+      report.foregroundSentinel ??= await sentinel.stop();
+    } catch {}
+  }
   try {
     execFileSync(path.join(lab, "stop.sh"), { stdio: "ignore" });
   } catch {}
@@ -191,10 +320,12 @@ process.stdout.write(
     outcome: report.dispatch?.result?.outcome,
     path: report.dispatch?.result?.path,
     effect: report.dispatch?.result?.effect,
-    oracle: report.oracle
+    oracle: report.oracle,
+    foregroundSentinel: report.foregroundSentinel,
+    failure: report.failure
   })}\n`
 );
 
-if (!report.passed) {
+if (requirePass && !report.passed) {
   process.exitCode = 1;
 }
