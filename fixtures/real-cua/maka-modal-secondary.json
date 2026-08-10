@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-10T07:18:46.582Z",
+  "binary": {
+    "bytes": 3270176,
+    "sha256": "1eb8a2973fd787364569b1a3f5384613dcf334c46a842a6fc2e51fe61435e4f2"
+  },
+  "target": {
+    "bundleIdentifier": "com.openai.codex.cualab",
+    "appPath": "test-app/build/Codex CUA Lab.app",
+    "statePath": "test-app/runtime/state.json"
+  },
+  "modal": {
+    "passed": true,
+    "mainWindowId": 13800,
+    "sheetWindowId": 13803,
+    "returnedWindowId": 13800,
+    "openPath": "ax_action",
+    "closePath": "ax_action",
+    "foreground": {
+      "before": {
+        "pid": 10680,
+        "bundleIdentifier": "com.google.Chrome"
+      },
+      "afterOpen": {
+        "pid": 10680,
+        "bundleIdentifier": "com.google.Chrome"
+      },
+      "afterClose": {
+        "pid": 10680,
+        "bundleIdentifier": "com.google.Chrome"
+      }
+    },
+    "targetRemainedBackground": true
+  },
+  "secondary": {
+    "passed": true,
+    "mainWindowId": 13804,
+    "secondaryWindowId": 13815,
+    "returnedWindowId": 13804,
+    "appSelectedSecondaryWindow": true,
+    "buttonPath": "ax_action",
+    "scrollPath": "ax_action",
+    "closePath": "ax_action",
+    "buttonClickCount": 1,
+    "scrollOffset": 140,
+    "foreground": {
+      "before": {
+        "pid": 10680,
+        "bundleIdentifier": "com.google.Chrome"
+      },
+      "after": {
+        "pid": 10680,
+        "bundleIdentifier": "com.google.Chrome"
+      }
+    },
+    "targetRemainedBackground": true
+  },
+  "hello": {
+    "capabilities": {
+      "imageFormats": [
+        "png"
+      ],
+      "captureStream": false,
+      "elementActions": [
+        "click",
+        "set_value",
+        "select_text",
+        "secondary_action",
+        "scroll",
+        "move_window",
+        "resize_window",
+        "minimize_window"
+      ],
+      "pointActions": [
+        "move",
+        "left_click",
+        "right_click",
+        "middle_click",
+        "double_click",
+        "triple_click",
+        "drag",
+        "scroll"
+      ],
+      "keyActions": [
+        "type",
+        "key"
+      ]
+    },
+    "executor": {
+      "name": "maka-cu",
+      "version": "0.3.0",
+      "commit": "unknown"
+    },
+    "pid": 86576,
+    "limits": {
+      "treeWalkCeilingMs": 6000,
+      "maxResponseBytes": 1048576,
+      "maxTextChars": 500,
+      "settleCeilingMs": 2500,
+      "maxDepth": 64,
+      "snapshotsPerSession": 8,
+      "menuWalkCeilingMs": 1500,
+      "shutdownGraceMs": 3000,
+      "imageDirBudgetBytes": 268435456,
+      "snapshotTtlMs": 120000,
+      "maxElements": 1500,
+      "maxMenuElements": 500
+    },
+    "ok": true,
+    "protocol": "maka.cu/2"
+  },
+  "permissions": {
+    "ok": true,
+    "accessibility": true,
+    "screenRecordingProbe": "capture_succeeded",
+    "screenRecording": true
+  },
+  "passed": true,
+  "protocol": {
+    "requestCount": 20,
+    "responseCount": 20,
+    "stderrCharacters": 0
+  }
+}

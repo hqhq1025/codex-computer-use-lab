@@ -42,7 +42,8 @@ Current August line:
 | Repository / PR | State | Disposition |
 |---|---|---|
 | `maka-agent/maka-cu#2` | merged 2026-08-10; merge `058ee576` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
-| `maka-agent/maka-agent#2627` | open, ready for review; head `d121d787d`; full CI green | pins `maka/base@058ee576`, binary SHA-256 `50e6e4309e9917f9f2a2e431b4c76021456b89cb55860c534a30e0fcdcb56675`, and integrates stable ids/difference rendering |
+| `maka-agent/maka-agent#2627` | merged 2026-08-10; merge `b62462a92` | pins `maka/base@058ee576` and integrates stable ids/difference rendering |
+| `maka-agent/maka-cu#3` | open; head `176bce6` | confirms press-driven window topology, waits for new AX windows, wraps native press in synthetic focus, and requests exact previous-frontmost restoration |
 
 Current verification:
 
@@ -55,8 +56,9 @@ Current verification:
   target remained background;
 - stable AX revision/difference evidence is native + hermetic host evidence, not
   a provider-model qualification cell;
-- screen remains locked, so modal open/close/button/scroll live qualification is
-  still pending.
+- modal/secondary live matrix passed 5 consecutive runs: app→sheet routing,
+  exact secondary button/scroll/close, return to main, all `ax_action`, scroll
+  offset 140, and the CUA Lab target never became frontmost.
 
 The July table below is retained as the legacy foundation-stack record:
 
@@ -183,12 +185,11 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Review and merge ready PR `maka-agent/maka-agent#2627`.
-2. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
-   oracle matrix. Do not substitute deterministic routing tests for this gate.
+1. Review and merge `maka-agent/maka-cu#3`, then repin Maka main to its merge.
+2. Complete and review the independent `codex/cu-mcp-adapter` branch.
 3. Complete stable signing, hardened runtime, notarization, and packaged-app
    verification; `distributionReady` remains false until all four are real.
-4. Keep a Kimi-style MCP adapter separate from the executor and translate only
+4. Keep the Kimi-style MCP adapter separate from the executor and translate only
    to `maka.cu/2`; do not duplicate AX indexing, refetch, or fallback logic.
 
 ## Review Dispositions
@@ -214,10 +215,14 @@ Current implementation worktrees:
 - `maka-cu-web`: clean, branch `codex/webcontent-native-actions`, head
   `40ba676`; source PR merged as `058ee576` on `maka/base`.
 - `maka-agent-cu-web`: clean, branch `codex/cu-webcontent-integration`, head
-  `d121d787d`, tracking the pushed draft integration PR.
+  `d121d787d`; integration PR merged as `b62462a92`.
+- `maka-cu-close-fix`: clean after commit, branch
+  `codex/closed-target-outcome`, head `176bce6`, source PR #3.
+- `maka-agent-cu-mcp`: active branch `codex/cu-mcp-adapter`; standard MCP
+  adapter implementation and tests are still uncommitted.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
 
-The screen is locked. Live modal qualification must wait for unlock; source,
-hermetic protocol, and deterministic routing work may continue meanwhile.
+The screen is unlocked. The modal/secondary live gate is complete; preserve the
+bounded fixture and probe as the regression path.
