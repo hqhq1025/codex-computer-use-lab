@@ -62,7 +62,8 @@ maka-web-matrix.json
 ```
 
 Its runner requires a clean Maka CU source checkout, builds the release binary
-itself, records the source commit and binary SHA-256, and runs five bounded
+itself, and can require a prepared Maka Agent binary to match those exact bytes.
+It records the source commit and binary SHA-256, then runs five bounded
 background Web matrices. The gate covers primary AX effect, unique and missing
 stale refetch, slider 42, scroll 76, trusted out-of-process WebContent click,
-one mouse down/up pair, and a 10 ms foreground sentinel.
+one mouse down/up pair, and a 10 ms foreground sentinel around every scenario.

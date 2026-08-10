@@ -38,11 +38,13 @@ const sourceCommit = execFileSync("git", ["rev-parse", "HEAD"], {
   cwd: sourceDir,
   encoding: "utf8"
 }).trim();
-const sourceBranch = execFileSync(
-  "git",
-  ["branch", "--show-current"],
-  { cwd: sourceDir, encoding: "utf8" }
-).trim();
+const sourceBranch =
+  process.env.MAKA_CU_SOURCE_BRANCH?.trim() ||
+  execFileSync(
+    "git",
+    ["branch", "--show-current"],
+    { cwd: sourceDir, encoding: "utf8" }
+  ).trim();
 const buildCommand = "swift build -c release";
 execFileSync("swift", ["build", "-c", "release"], {
   cwd: sourceDir,
@@ -70,15 +72,22 @@ if (
 const builtBinary = await realpath(
   path.join(sourceDir, ".build", "release", "OpenComputerUse")
 );
+let binary = builtBinary;
 if (process.env.MAKA_CU_BIN) {
   const requestedBinary = await realpath(process.env.MAKA_CU_BIN);
-  if (requestedBinary !== builtBinary) {
+  const builtSha256 = createHash("sha256")
+    .update(await readFile(builtBinary))
+    .digest("hex");
+  const requestedSha256 = createHash("sha256")
+    .update(await readFile(requestedBinary))
+    .digest("hex");
+  if (requestedSha256 !== builtSha256) {
     throw new Error(
-      `MAKA_CU_BIN must be the clean source build: ${builtBinary}`
+      `MAKA_CU_BIN bytes do not match the clean source build: ${requestedSha256} != ${builtSha256}`
     );
   }
+  binary = requestedBinary;
 }
-const binary = builtBinary;
 const binaryBytes = await readFile(binary);
 const binaryStat = await stat(binary);
 const binarySha256 = createHash("sha256").update(binaryBytes).digest("hex");
@@ -659,7 +668,9 @@ const aggregate = {
     buildCommand
   },
   binary: {
-    path: "<maka-cu-source>/.build/release/OpenComputerUse",
+    path: process.env.MAKA_CU_BIN
+      ? "<maka-agent-worktree>/apps/desktop/resources/bin/maka-cu"
+      : "<maka-cu-source>/.build/release/OpenComputerUse",
     sha256: binarySha256,
     size: binaryStat.size
   },

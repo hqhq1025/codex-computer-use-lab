@@ -20,7 +20,7 @@ test("Maka Web matrix is source-bound, normalized, and fully passing", async () 
   assert.equal(fixture.source.buildCommand, "swift build -c release");
   assert.equal(
     fixture.binary.path,
-    "<maka-cu-source>/.build/release/OpenComputerUse"
+    "<maka-agent-worktree>/apps/desktop/resources/bin/maka-cu"
   );
   assert.match(fixture.binary.sha256, /^[0-9a-f]{64}$/);
   assert.equal(fixture.runCount, 5);
