@@ -44,7 +44,7 @@ Current August line:
 | `maka-agent/maka-cu#2` | merged 2026-08-10; merge `058ee576` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
 | `maka-agent/maka-agent#2627` | merged 2026-08-10; merge `b62462a92` | pins `maka/base@058ee576` and integrates stable ids/difference rendering |
 | `maka-agent/maka-cu#3` | merged 2026-08-10; merge `97ca3c3` | confirms press-driven window topology, waits for new AX windows, wraps native press in synthetic focus, and requests exact previous-frontmost restoration |
-| `maka-agent/maka-agent#2631` | open; head `54edab6f7`; blocking CI green | pins `maka/base@97ca3c3`; awaiting parallel review and non-blocking Windows baseline |
+| `maka-agent/maka-agent#2631` | merged 2026-08-10; merge `0a9fc5c84` | pins `maka/base@97ca3c3` and records honest modal/foreground evidence |
 
 Current verification:
 
@@ -189,11 +189,9 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Complete parallel review and merge `maka-agent/maka-agent#2631` only after
-   evidence overclaims are removed.
-2. Fix transient foreground theft for native AX press, then rerun the exact
+1. Fix transient foreground theft for native AX press, then rerun the exact
    pinned-binary aggregate matrix.
-3. Complete stable signing, hardened runtime, notarization, and packaged-app
+2. Complete stable signing, hardened runtime, notarization, and packaged-app
    verification; `distributionReady` remains false until all four are real.
 
 ## Review Dispositions
@@ -224,7 +222,7 @@ Current implementation worktrees:
   `codex/closed-target-outcome`, head `176bce6`; source PR #3 merged as
   `97ca3c3`.
 - `maka-agent-cu-final-pin`: clean branch `codex/cu-window-transition-pin`,
-  head `54edab6f7`, integration PR #2631.
+  head `44dfef15e`; integration PR #2631 merged as `0a9fc5c84`.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
