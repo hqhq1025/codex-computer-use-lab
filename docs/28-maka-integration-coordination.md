@@ -41,8 +41,8 @@ Current August line:
 
 | Repository / PR | State | Disposition |
 |---|---|---|
-| `maka-agent/maka-cu#2` | open, ready for review; head `40ba676` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
-| `maka-agent/maka-agent#2627` | open draft; head `4b80a2059`; full CI green | pins source `40ba676`, binary SHA-256 `20361a198e834f181ee893de03687db597ac6f49c3588b546ffe1f703144a264`, and integrates stable ids/difference rendering; keep draft until source merge and final repin |
+| `maka-agent/maka-cu#2` | merged 2026-08-10; merge `058ee576` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
+| `maka-agent/maka-agent#2627` | open, ready for review; head `d121d787d`; full CI green | pins `maka/base@058ee576`, binary SHA-256 `50e6e4309e9917f9f2a2e431b4c76021456b89cb55860c534a30e0fcdcb56675`, and integrates stable ids/difference rendering |
 
 Current verification:
 
@@ -183,14 +183,12 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Review and merge `maka-agent/maka-cu#2`.
-2. After source merge, rebuild and repin #2627 to the final `maka/base` merge
-   commit before marking it ready.
-3. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
+1. Review and merge ready PR `maka-agent/maka-agent#2627`.
+2. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
    oracle matrix. Do not substitute deterministic routing tests for this gate.
-4. Complete stable signing, hardened runtime, notarization, and packaged-app
+3. Complete stable signing, hardened runtime, notarization, and packaged-app
    verification; `distributionReady` remains false until all four are real.
-5. Keep a Kimi-style MCP adapter separate from the executor and translate only
+4. Keep a Kimi-style MCP adapter separate from the executor and translate only
    to `maka.cu/2`; do not duplicate AX indexing, refetch, or fallback logic.
 
 ## Review Dispositions
@@ -214,9 +212,9 @@ The merged #893/#910 review comments are not all merge requirements:
 Current implementation worktrees:
 
 - `maka-cu-web`: clean, branch `codex/webcontent-native-actions`, head
-  `40ba676`, tracking the pushed source PR.
+  `40ba676`; source PR merged as `058ee576` on `maka/base`.
 - `maka-agent-cu-web`: clean, branch `codex/cu-webcontent-integration`, head
-  `4b80a2059`, tracking the pushed draft integration PR.
+  `d121d787d`, tracking the pushed draft integration PR.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
