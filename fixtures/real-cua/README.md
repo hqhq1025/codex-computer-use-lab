@@ -54,3 +54,15 @@ executable hash.
 `runner-final-semantic-matrix-v3.json` is the last pre-WebKit 20-scenario
 matrix. V4 adds the in-memory WKWebView OOP coordinate scenario and re-runs
 every earlier scenario against one WebKit-enabled App binary.
+
+The Maka Web regression fixture is:
+
+```text
+maka-web-matrix.json
+```
+
+Its runner requires a clean Maka CU source checkout, builds the release binary
+itself, records the source commit and binary SHA-256, and runs five bounded
+background Web matrices. The gate covers primary AX effect, unique and missing
+stale refetch, slider 42, scroll 76, trusted out-of-process WebContent click,
+one mouse down/up pair, and a 10 ms foreground sentinel.

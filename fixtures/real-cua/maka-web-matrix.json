@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-10T09:03:56.209Z",
+  "source": {
+    "commit": "d2382ac94c2d072a3b17297c05326a3219ee612b",
+    "branch": "codex/webcontent-frame-refetch",
+    "dirty": false,
+    "buildCommand": "swift build -c release"
+  },
+  "binary": {
+    "path": "<maka-cu-source>/.build/release/OpenComputerUse",
+    "sha256": "6ea63359c591e1e89ef8385de99f657a74a7173958348dc87a324a7d9613b0a1",
+    "size": 3270368
+  },
+  "runCount": 5,
+  "passed": true,
+  "runs": [
+    {
+      "index": 1,
+      "primary": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "unverifiable",
+        "verification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "buttonClickCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 67,
+          "sampleCount": 391,
+          "targetForegroundSamples": 0
+        }
+      },
+      "uniqueRefetch": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "staleTargetClickCount": 1,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 83,
+          "sampleCount": 163,
+          "targetForegroundSamples": 0
+        }
+      },
+      "missingRefetch": {
+        "refusal": "element_released",
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 49,
+          "sampleCount": 134,
+          "targetForegroundSamples": 0
+        }
+      },
+      "slider": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "value_readback",
+          "observedChange": true
+        },
+        "value": 42,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 72,
+          "sampleCount": 93,
+          "targetForegroundSamples": 0
+        }
+      },
+      "scroll": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "offset": 76,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 60,
+          "sampleCount": 90,
+          "targetForegroundSamples": 0
+        }
+      },
+      "oop": {
+        "outcome": "ok",
+        "path": "skylight_pid",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "clickCount": 1,
+        "mouseDownCount": 1,
+        "mouseUpCount": 1,
+        "isTrusted": true,
+        "hostPid": 12168,
+        "webContentPid": 12186,
+        "candidateCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 53,
+          "sampleCount": 183,
+          "targetForegroundSamples": 0
+        }
+      }
+    },
+    {
+      "index": 2,
+      "primary": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "unverifiable",
+        "verification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "buttonClickCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 52,
+          "sampleCount": 131,
+          "targetForegroundSamples": 0
+        }
+      },
+      "uniqueRefetch": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "staleTargetClickCount": 1,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 58,
+          "sampleCount": 162,
+          "targetForegroundSamples": 0
+        }
+      },
+      "missingRefetch": {
+        "refusal": "element_released",
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 61,
+          "sampleCount": 138,
+          "targetForegroundSamples": 0
+        }
+      },
+      "slider": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "value_readback",
+          "observedChange": true
+        },
+        "value": 42,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 56,
+          "sampleCount": 101,
+          "targetForegroundSamples": 0
+        }
+      },
+      "scroll": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "offset": 76,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 60,
+          "sampleCount": 126,
+          "targetForegroundSamples": 0
+        }
+      },
+      "oop": {
+        "outcome": "ok",
+        "path": "skylight_pid",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "clickCount": 1,
+        "mouseDownCount": 1,
+        "mouseUpCount": 1,
+        "isTrusted": true,
+        "hostPid": 13044,
+        "webContentPid": 13087,
+        "candidateCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 72,
+          "sampleCount": 135,
+          "targetForegroundSamples": 0
+        }
+      }
+    },
+    {
+      "index": 3,
+      "primary": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "unverifiable",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonClickCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 65,
+          "sampleCount": 120,
+          "targetForegroundSamples": 0
+        }
+      },
+      "uniqueRefetch": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "staleTargetClickCount": 1,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 69,
+          "sampleCount": 161,
+          "targetForegroundSamples": 0
+        }
+      },
+      "missingRefetch": {
+        "refusal": "element_released",
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 65,
+          "sampleCount": 147,
+          "targetForegroundSamples": 0
+        }
+      },
+      "slider": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "value_readback",
+          "observedChange": true
+        },
+        "value": 42,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 66,
+          "sampleCount": 110,
+          "targetForegroundSamples": 0
+        }
+      },
+      "scroll": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "offset": 76,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 65,
+          "sampleCount": 118,
+          "targetForegroundSamples": 0
+        }
+      },
+      "oop": {
+        "outcome": "ok",
+        "path": "skylight_pid",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "clickCount": 1,
+        "mouseDownCount": 1,
+        "mouseUpCount": 1,
+        "isTrusted": true,
+        "hostPid": 13740,
+        "webContentPid": 13748,
+        "candidateCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 67,
+          "sampleCount": 137,
+          "targetForegroundSamples": 0
+        }
+      }
+    },
+    {
+      "index": 4,
+      "primary": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "unverifiable",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonClickCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 63,
+          "sampleCount": 123,
+          "targetForegroundSamples": 0
+        }
+      },
+      "uniqueRefetch": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "staleTargetClickCount": 1,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 61,
+          "sampleCount": 178,
+          "targetForegroundSamples": 0
+        }
+      },
+      "missingRefetch": {
+        "refusal": "element_released",
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 62,
+          "sampleCount": 131,
+          "targetForegroundSamples": 0
+        }
+      },
+      "slider": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "value_readback",
+          "observedChange": true
+        },
+        "value": 42,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 67,
+          "sampleCount": 97,
+          "targetForegroundSamples": 0
+        }
+      },
+      "scroll": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "offset": 76,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 68,
+          "sampleCount": 94,
+          "targetForegroundSamples": 0
+        }
+      },
+      "oop": {
+        "outcome": "ok",
+        "path": "skylight_pid",
+        "effect": "confirmed",
+        "verification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "clickCount": 1,
+        "mouseDownCount": 1,
+        "mouseUpCount": 1,
+        "isTrusted": true,
+        "hostPid": 14489,
+        "webContentPid": 14495,
+        "candidateCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 61,
+          "sampleCount": 136,
+          "targetForegroundSamples": 0
+        }
+      }
+    },
+    {
+      "index": 5,
+      "primary": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "unverifiable",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonClickCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 49,
+          "sampleCount": 128,
+          "targetForegroundSamples": 0
+        }
+      },
+      "uniqueRefetch": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "staleTargetClickCount": 1,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 66,
+          "sampleCount": 168,
+          "targetForegroundSamples": 0
+        }
+      },
+      "missingRefetch": {
+        "refusal": "element_released",
+        "staleTargetClickCount": 0,
+        "wrongTargetClickCount": 0,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 72,
+          "sampleCount": 133,
+          "targetForegroundSamples": 0
+        }
+      },
+      "slider": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "value_readback",
+          "observedChange": true
+        },
+        "value": 42,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 62,
+          "sampleCount": 103,
+          "targetForegroundSamples": 0
+        }
+      },
+      "scroll": {
+        "outcome": "ok",
+        "path": "ax_action",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "offset": 76,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 54,
+          "sampleCount": 106,
+          "targetForegroundSamples": 0
+        }
+      },
+      "oop": {
+        "outcome": "ok",
+        "path": "skylight_pid",
+        "effect": "confirmed",
+        "verification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "clickCount": 1,
+        "mouseDownCount": 1,
+        "mouseUpCount": 1,
+        "isTrusted": true,
+        "hostPid": 15275,
+        "webContentPid": 15281,
+        "candidateCount": 1,
+        "foregroundBefore": 10680,
+        "foregroundAfter": 10680,
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 65,
+          "sampleCount": 137,
+          "targetForegroundSamples": 0
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "id": 1,
+    "jsonrpc": "2.0",
+    "result": {
+      "executor": {
+        "commit": "unknown",
+        "name": "maka-cu",
+        "version": "0.3.0"
+      },
+      "capabilities": {
+        "imageFormats": [
+          "png"
+        ],
+        "captureStream": false,
+        "keyActions": [
+          "type",
+          "key"
+        ],
+        "pointActions": [
+          "move",
+          "left_click",
+          "right_click",
+          "middle_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "scroll"
+        ],
+        "elementActions": [
+          "click",
+          "set_value",
+          "select_text",
+          "secondary_action",
+          "scroll",
+          "move_window",
+          "resize_window",
+          "minimize_window"
+        ]
+      },
+      "limits": {
+        "snapshotTtlMs": 120000,
+        "maxResponseBytes": 1048576,
+        "treeWalkCeilingMs": 6000,
+        "shutdownGraceMs": 3000,
+        "maxTextChars": 500,
+        "menuWalkCeilingMs": 1500,
+        "maxDepth": 64,
+        "settleCeilingMs": 2500,
+        "maxMenuElements": 500,
+        "imageDirBudgetBytes": 268435456,
+        "snapshotsPerSession": 8,
+        "maxElements": 1500
+      },
+      "ok": true,
+      "pid": 11448,
+      "protocol": "maka.cu/2"
+    }
+  },
+  "permissions": {
+    "result": {
+      "screenRecording": true,
+      "ok": true,
+      "accessibility": true,
+      "screenRecordingProbe": "capture_succeeded"
+    },
+    "id": 2,
+    "jsonrpc": "2.0"
+  },
+  "summary": {
+    "primaryClickCounts": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "oopPaths": [
+      "skylight_pid",
+      "skylight_pid",
+      "skylight_pid",
+      "skylight_pid",
+      "skylight_pid"
+    ],
+    "oopTrustedAllRuns": true,
+    "oopSinglePairAllRuns": true,
+    "sliderValues": [
+      42,
+      42,
+      42,
+      42,
+      42
+    ],
+    "scrollOffsets": [
+      76,
+      76,
+      76,
+      76,
+      76
+    ],
+    "uniqueRefetchWrongTargetClicks": 0,
+    "missingRefetchWrongTargetClicks": 0,
+    "targetRemainedBackgroundAllRuns": true,
+    "targetForegroundSamples": 0,
+    "minimumSentinelSamples": 90,
+    "maximumSentinelGapMilliseconds": 83
+  }
+}
