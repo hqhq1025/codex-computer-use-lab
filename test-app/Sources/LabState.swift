@@ -41,6 +41,10 @@ final class LabState {
     var oopWebContentPID = 0
     var oopTargetX = 0
     var oopTargetY = 0
+    var oopTextValue = ""
+    var oopTextInputCount = 0
+    var oopTextChangeCount = 0
+    var oopLastTextEventTrusted: Bool?
 
     var coordinateClickCount = 0
     var coordinateDecoyClickCount = 0
@@ -99,6 +103,10 @@ final class LabState {
         oopLastEventTrusted = nil
         oopHostLocalMouseDownCount = 0
         oopHostLocalMouseUpCount = 0
+        oopTextValue = ""
+        oopTextInputCount = 0
+        oopTextChangeCount = 0
+        oopLastTextEventTrusted = nil
         coordinateClickCount = 0
         coordinateDecoyClickCount = 0
         coordinateGeneration = 0
@@ -172,6 +180,11 @@ final class LabState {
                 "hostLocalMouseUpCount": oopHostLocalMouseUpCount,
                 "hostPID": oopHostPID,
                 "webContentPID": oopWebContentPID,
+                "textValue": oopTextValue,
+                "textInputCount": oopTextInputCount,
+                "textChangeCount": oopTextChangeCount,
+                "lastTextEventTrusted":
+                    (oopLastTextEventTrusted as Any?) ?? NSNull(),
                 "target": [
                     "x": oopTargetX,
                     "y": oopTargetY

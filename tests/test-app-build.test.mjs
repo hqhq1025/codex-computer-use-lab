@@ -190,6 +190,10 @@ test("Swift source has no network, clipboard, user-default, or external-read API
   assert.match(oopSource, /addLocalMonitorForEvents/);
   assert.match(oopSource, /removeMonitor/);
   assert.match(oopSource, /CUA Lab OOP Button/);
+  assert.match(oopSource, /CUA Lab OOP Text Field/);
+  assert.match(oopSource, /action: "text-input"/);
+  assert.match(oopSource, /action: "text-change"/);
+  assert.match(oopSource, /isTrusted: event\.isTrusted/);
 
   assert.match(source, /appendingPathComponent\("runtime"/);
   assert.match(source, /appendingPathComponent\("state\.json"/);
@@ -227,6 +231,10 @@ test("Swift source has no network, clipboard, user-default, or external-read API
   assert.match(source, /restorePrimaryWindowGeometry\(\)/);
   assert.match(source, /"webContentPID": oopWebContentPID/);
   assert.match(source, /"hostPID": oopHostPID/);
+  assert.match(source, /"textValue": oopTextValue/);
+  assert.match(source, /"textInputCount": oopTextInputCount/);
+  assert.match(source, /"textChangeCount": oopTextChangeCount/);
+  assert.match(source, /"lastTextEventTrusted":/);
   assert.match(source, /"lastEventTrusted":/);
   assert.match(source, /"hostLocalMouseDownCount":/);
   assert.match(source, /"hostLocalMouseUpCount":/);

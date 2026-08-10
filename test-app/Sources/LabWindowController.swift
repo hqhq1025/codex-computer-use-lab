@@ -367,6 +367,22 @@ final class LabWindowController: NSWindowController, NSWindowDelegate {
             self.oopSurface.setClickCount(self.state.oopClickCount)
             self.publishState()
         }
+        oopSurface.onTextInput = { [weak self] value, isTrusted in
+            guard let self else { return }
+            self.state.oopTextValue = value
+            self.state.oopTextInputCount += 1
+            self.state.oopLastTextEventTrusted = isTrusted
+            self.state.lastAction = "oop-text-input"
+            self.publishState()
+        }
+        oopSurface.onTextChange = { [weak self] value, isTrusted in
+            guard let self else { return }
+            self.state.oopTextValue = value
+            self.state.oopTextChangeCount += 1
+            self.state.oopLastTextEventTrusted = isTrusted
+            self.state.lastAction = "oop-text-change"
+            self.publishState()
+        }
         oopSurface.onHostLocalMouseEvent = { [weak self] eventType in
             guard let self else { return }
             switch eventType {
@@ -520,6 +536,7 @@ final class LabWindowController: NSWindowController, NSWindowDelegate {
         loadingIndicator.stopAnimation(nil)
         rebuildHierarchy(mode: .initial)
         oopSurface.setClickCount(state.oopClickCount)
+        oopSurface.setTextValue(state.oopTextValue)
         oopSurface.refreshWebContentProcessIdentifier()
         oopSurface.requestTargetMeasurement()
         updateDiffStatus()

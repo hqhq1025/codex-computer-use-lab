@@ -30,6 +30,8 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
     private static let messageName = "oopClick"
 
     var onClick: ((Bool) -> Void)?
+    var onTextInput: ((String, Bool) -> Void)?
+    var onTextChange: ((String, Bool) -> Void)?
     var onHostLocalMouseEvent: ((NSEvent.EventType) -> Void)?
     var onTargetCenterChange: ((NSPoint) -> Void)?
     var onWebContentProcessIdentifierChange: ((Int) -> Void)?
@@ -40,6 +42,7 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
     private let accessibilityButton = OOPAccessibilityButtonElement()
     private var localMouseMonitor: Any?
     private var clickCount = 0
+    private var textValue = ""
 
     override init(frame frameRect: NSRect) {
         let contentController = WKUserContentController()
@@ -77,6 +80,20 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
             "CUA Lab OOP Click Count: \(value)"
         )
         webView.evaluateJavaScript("window.setOOPClickCount(\(value));")
+    }
+
+    func setTextValue(_ value: String) {
+        textValue = value
+        let encoded = try? JSONSerialization.data(
+            withJSONObject: value,
+            options: [.fragmentsAllowed]
+        )
+        guard let encoded,
+              let literal = String(data: encoded, encoding: .utf8)
+        else {
+            return
+        }
+        webView.evaluateJavaScript("window.setOOPTextValue(\(literal));")
     }
 
     func requestTargetMeasurement() {
@@ -184,6 +201,17 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
                 )
             )
             onTargetCenterChange?(webView.convert(webPoint, to: nil))
+        case "text-input", "text-change":
+            guard let value = body["value"] as? String,
+                  let isTrusted = body["isTrusted"] as? Bool
+            else {
+                return
+            }
+            if action == "text-input" {
+                onTextInput?(value, isTrusted)
+            } else {
+                onTextChange?(value, isTrusted)
+            }
         default:
             break
         }
@@ -192,6 +220,7 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         refreshWebContentProcessIdentifier()
         setClickCount(clickCount)
+        setTextValue(textValue)
         requestTargetMeasurement()
     }
 
@@ -256,9 +285,9 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
         }
         main {
           width: min(100%, 320px);
-          padding: 18px;
+          padding: 12px;
           display: grid;
-          gap: 14px;
+          gap: 8px;
           border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
           border-radius: 6px;
         }
@@ -269,7 +298,7 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
           letter-spacing: 0;
         }
         button {
-          min-height: 42px;
+          min-height: 36px;
           border: 0;
           border-radius: 5px;
           padding: 0 14px;
@@ -286,6 +315,20 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
           outline: 3px solid #74c0fc;
           outline-offset: 2px;
         }
+        input {
+          width: 100%;
+          min-height: 34px;
+          border: 1px solid color-mix(in srgb, CanvasText 30%, transparent);
+          border-radius: 5px;
+          padding: 6px 9px;
+          background: Canvas;
+          color: CanvasText;
+          font: inherit;
+        }
+        input:focus-visible {
+          outline: 3px solid #74c0fc;
+          outline-offset: 1px;
+        }
         [role="status"] {
           min-height: 18px;
           color: color-mix(in srgb, CanvasText 72%, transparent);
@@ -296,6 +339,22 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
     <body aria-label="CUA Lab OOP Web Surface">
       <main id="\(AXMarker.oopSurface)" aria-label="CUA Lab OOP Web Surface">
         <h2>CUA Lab OOP Web Surface</h2>
+        <input
+          id="\(AXMarker.oopText)"
+          type="text"
+          aria-label="CUA Lab OOP Text Field"
+          aria-describedby="\(AXMarker.oopTextStatus)"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <div
+          id="\(AXMarker.oopTextStatus)"
+          role="status"
+          aria-live="polite"
+          aria-label="CUA Lab OOP Text Value"
+        >
+          CUA Lab OOP Text Value:
+        </div>
         <button
           id="\(AXMarker.oopButton)"
           type="button"
@@ -316,9 +375,16 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
       <script>
         const button = document.getElementById("\(AXMarker.oopButton)");
         const countValue = document.getElementById("\(AXMarker.oopCount)");
+        const textInput = document.getElementById("\(AXMarker.oopText)");
+        const textStatus = document.getElementById("\(AXMarker.oopTextStatus)");
 
         window.setOOPClickCount = (value) => {
           countValue.textContent = `CUA Lab OOP Click Count: ${value}`;
+        };
+
+        window.setOOPTextValue = (value) => {
+          textInput.value = value;
+          textStatus.textContent = `CUA Lab OOP Text Value: ${value}`;
         };
 
         window.publishOOPTarget = () => {
@@ -335,6 +401,23 @@ final class OOPWebViewSurface: NSView, WKNavigationDelegate, WKScriptMessageHand
         button.addEventListener("click", (event) => {
           window.webkit.messageHandlers.\(messageName).postMessage({
             action: "click",
+            isTrusted: event.isTrusted
+          });
+        });
+
+        textInput.addEventListener("input", (event) => {
+          textStatus.textContent = `CUA Lab OOP Text Value: ${textInput.value}`;
+          window.webkit.messageHandlers.\(messageName).postMessage({
+            action: "text-input",
+            value: textInput.value,
+            isTrusted: event.isTrusted
+          });
+        });
+
+        textInput.addEventListener("change", (event) => {
+          window.webkit.messageHandlers.\(messageName).postMessage({
+            action: "text-change",
+            value: textInput.value,
             isTrusted: event.isTrusted
           });
         });

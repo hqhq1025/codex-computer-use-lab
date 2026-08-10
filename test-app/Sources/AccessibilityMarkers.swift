@@ -45,6 +45,8 @@ enum AXMarker {
     static let oopSurface = "cua.lab.oop-surface"
     static let oopButton = "cua.lab.oop-button"
     static let oopCount = "cua.lab.oop-count"
+    static let oopText = "cua.lab.oop-text"
+    static let oopTextStatus = "cua.lab.oop-text-status"
     static let windowHandle = "cua.lab.window-handle"
     static let stateOutput = "cua.lab.state-output"
 }

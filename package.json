@@ -22,6 +22,7 @@
     "collect:native-oop": "node scripts/native-oop-targeting-probe.mjs --out fixtures/native/oop-targeting.json",
     "collect:native-url-policy": "node scripts/native-url-policy-probe.mjs --out fixtures/native/url-policy.json",
     "probe:maka-web": "node scripts/probe-maka-web-matrix.mjs",
+    "probe:maka-web-text": "node scripts/probe-maka-web-text.mjs",
     "plan:real-cua": "node scripts/real-cua-lab-runner.mjs --out fixtures/real-cua/dry-run-plan.json",
     "snapshot:real-cua": "node scripts/real-cua-snapshot.mjs --label manual --out fixtures/real-cua/manual-snapshot.json",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",

@@ -67,3 +67,9 @@ It records the source commit and binary SHA-256, then runs five bounded
 background Web matrices. The gate covers primary AX effect, unique and missing
 stale refetch, slider 42, scroll 76, trusted out-of-process WebContent click,
 one mouse down/up pair, and a 10 ms foreground sentinel around every scenario.
+
+The Web text candidate adds an offline WKWebView text field with DOM
+`input`/`change` counters, trusted-event flags, and a business-state oracle.
+`scripts/probe-maka-web-text.mjs` intentionally fails until `set_value` both
+reads back the requested value and produces a DOM input event. A locked-screen
+run is not retained as behavior evidence.
