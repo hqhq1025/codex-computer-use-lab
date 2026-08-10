@@ -43,7 +43,8 @@ Current August line:
 |---|---|---|
 | `maka-agent/maka-cu#2` | merged 2026-08-10; merge `058ee576` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
 | `maka-agent/maka-agent#2627` | merged 2026-08-10; merge `b62462a92` | pins `maka/base@058ee576` and integrates stable ids/difference rendering |
-| `maka-agent/maka-cu#3` | open; head `176bce6` | confirms press-driven window topology, waits for new AX windows, wraps native press in synthetic focus, and requests exact previous-frontmost restoration |
+| `maka-agent/maka-cu#3` | merged 2026-08-10; merge `97ca3c3` | confirms press-driven window topology, waits for new AX windows, wraps native press in synthetic focus, and requests exact previous-frontmost restoration |
+| `maka-agent/maka-agent#2631` | open; head `54edab6f7`; blocking CI green | pins `maka/base@97ca3c3`; awaiting parallel review and non-blocking Windows baseline |
 
 Current verification:
 
@@ -56,9 +57,12 @@ Current verification:
   target remained background;
 - stable AX revision/difference evidence is native + hermetic host evidence, not
   a provider-model qualification cell;
-- modal/secondary live matrix passed 5 consecutive runs: app→sheet routing,
-  exact secondary button/scroll/close, return to main, all `ax_action`, scroll
-  offset 140, and the CUA Lab target never became frontmost.
+- exact pinned-binary modal/secondary functional matrix passed 5 consecutive
+  runs: app→sheet routing, exact secondary button/scroll/close, return to main,
+  all 30 dispatch paths `ax_action`, scroll offset 140.
+- high-frequency foreground safety failed: 1,738 target-frontmost samples across
+  ten spans, minimum 189 samples/span, maximum 96 ms gap. Stage-level snapshots
+  had hidden the transient focus theft.
 
 The July table below is retained as the legacy foundation-stack record:
 
@@ -185,12 +189,12 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Review and merge `maka-agent/maka-cu#3`, then repin Maka main to its merge.
-2. Complete and review the independent `codex/cu-mcp-adapter` branch.
+1. Complete parallel review and merge `maka-agent/maka-agent#2631` only after
+   evidence overclaims are removed.
+2. Fix transient foreground theft for native AX press, then rerun the exact
+   pinned-binary aggregate matrix.
 3. Complete stable signing, hardened runtime, notarization, and packaged-app
    verification; `distributionReady` remains false until all four are real.
-4. Keep the Kimi-style MCP adapter separate from the executor and translate only
-   to `maka.cu/2`; do not duplicate AX indexing, refetch, or fallback logic.
 
 ## Review Dispositions
 
@@ -217,12 +221,14 @@ Current implementation worktrees:
 - `maka-agent-cu-web`: clean, branch `codex/cu-webcontent-integration`, head
   `d121d787d`; integration PR merged as `b62462a92`.
 - `maka-cu-close-fix`: clean after commit, branch
-  `codex/closed-target-outcome`, head `176bce6`, source PR #3.
-- `maka-agent-cu-mcp`: active branch `codex/cu-mcp-adapter`; standard MCP
-  adapter implementation and tests are still uncommitted.
+  `codex/closed-target-outcome`, head `176bce6`; source PR #3 merged as
+  `97ca3c3`.
+- `maka-agent-cu-final-pin`: clean branch `codex/cu-window-transition-pin`,
+  head `54edab6f7`, integration PR #2631.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
 
-The screen is unlocked. The modal/secondary live gate is complete; preserve the
-bounded fixture and probe as the regression path.
+The screen is unlocked. Modal/secondary functionality is qualified, but the
+background-focus gate remains open; preserve the bounded aggregate fixture and
+high-frequency sentinel as the regression path.

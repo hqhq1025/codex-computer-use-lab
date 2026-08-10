@@ -22,12 +22,16 @@ if (!(await stat(binary)).isFile()) {
   throw new Error(`MAKA_CU_BIN is not a file: ${binary}`);
 }
 
-const outputPath = path.join(
-  root,
-  "fixtures",
-  "real-cua",
-  "maka-modal-secondary.json"
-);
+const fixtureRoot = path.join(root, "fixtures", "real-cua");
+const outputPath = process.env.MAKA_CU_OUTPUT
+  ? path.resolve(process.env.MAKA_CU_OUTPUT)
+  : path.join(fixtureRoot, "maka-modal-secondary.json");
+if (
+  outputPath !== fixtureRoot &&
+  !outputPath.startsWith(`${fixtureRoot}${path.sep}`)
+) {
+  throw new Error(`MAKA_CU_OUTPUT must stay below ${fixtureRoot}`);
+}
 const imageDir = await mkdtemp(path.join(tmpdir(), "maka-cu-modal-secondary-"));
 await mkdir(path.dirname(outputPath), { recursive: true });
 
@@ -224,18 +228,94 @@ function assertGreater(actual, before, message) {
   }
 }
 
-function assertTargetRemainedBackground(samples, message) {
-  const foregroundTarget = samples.find(
-    ({ sample }) => sample.bundleIdentifier === LAB_APP_BUNDLE_ID
+function assertAxAction(result, message) {
+  assertEqual(result.path, "ax_action", `${message} path`);
+}
+
+async function startForegroundSentinelForPid(targetPid, label) {
+  const output = path.join(
+    imageDir,
+    `${label}-foreground-sentinel.json`
   );
-  if (foregroundTarget) {
-    throw new Error(
-      `${message}: target became frontmost during ${foregroundTarget.stage} at pid ${foregroundTarget.sample.pid}`
-    );
-  }
+  const compiled = process.env.MAKA_CU_SENTINEL_BIN;
+  const command = compiled ?? "xcrun";
+  const args = compiled
+    ? [String(targetPid), output]
+    : [
+        "swift",
+        path.join(root, "scripts", "frontmost-sentinel.swift"),
+        String(targetPid),
+        output
+      ];
+  const sentinel = spawn(command, args, {
+    stdio: ["ignore", "pipe", "pipe"]
+  });
+  let stderr = "";
+  sentinel.stderr.setEncoding("utf8");
+  sentinel.stderr.on("data", (chunk) => {
+    stderr += chunk;
+  });
+  await new Promise((resolve, reject) => {
+    let readyBuffer = "";
+    const timer = setTimeout(() => {
+      reject(new Error(`foreground sentinel did not become ready: ${stderr}`));
+    }, 15_000);
+    sentinel.stdout.setEncoding("utf8");
+    sentinel.stdout.on("data", (chunk) => {
+      readyBuffer += chunk;
+      if (!readyBuffer.includes("READY\n")) return;
+      clearTimeout(timer);
+      resolve();
+    });
+    sentinel.once("exit", (code) => {
+      clearTimeout(timer);
+      reject(
+        new Error(
+          `foreground sentinel exited before ready (${code}): ${stderr}`
+        )
+      );
+    });
+  });
+
+  let summaryPromise;
+  return {
+    async stop(message, enforce = true) {
+      if (!summaryPromise) {
+        summaryPromise = new Promise((resolve, reject) => {
+          sentinel.once("exit", async (code) => {
+            if (code !== 0 && code !== null) {
+              reject(
+                new Error(
+                  `foreground sentinel exited ${code}: ${stderr}`
+                )
+              );
+              return;
+            }
+            try {
+              resolve(JSON.parse(await readFile(output, "utf8")));
+            } catch (error) {
+              reject(error);
+            }
+          });
+        });
+        sentinel.kill("SIGTERM");
+      }
+      const summary = await summaryPromise;
+      if (
+        enforce &&
+        (summary.sampleCount < 5 || summary.maxGapMilliseconds > 250)
+      ) {
+        throw new Error(
+          `${message}: foreground sentinel coverage is too sparse: ${JSON.stringify(summary)}`
+        );
+      }
+      return summary;
+    }
+  };
 }
 
 const session = `maka-modal-secondary-${process.pid}`;
+const activeSentinels = [];
 const report = {
   schemaVersion: 1,
   capturedAt: new Date().toISOString(),
@@ -275,6 +355,12 @@ try {
   );
 
   await resetLab();
+  const modalTargetPid = (await oracle()).oop.hostPID;
+  const modalSentinel = await startForegroundSentinelForPid(
+    modalTargetPid,
+    "modal"
+  );
+  activeSentinels.push(modalSentinel);
   const modalForegroundBefore = frontmost();
   const modalMain = await observeApp(session);
   const openModal = findElement(
@@ -289,6 +375,7 @@ try {
     { kind: "click", button: "left", count: 1 },
     "open-modal"
   );
+  assertAxAction(modalOpened.result, "modal open");
   assertEqual(modalOpened.oracle.modal.open, true, "modal open oracle");
   const modalForegroundAfterOpen = frontmost();
 
@@ -310,18 +397,14 @@ try {
     { kind: "click", button: "left", count: 1 },
     "close-modal"
   );
+  assertAxAction(modalClosed.result, "modal close");
   assertEqual(modalClosed.oracle.modal.open, false, "modal close oracle");
   const modalForegroundAfterClose = frontmost();
   const modalReturned = await observeApp(session);
   if (modalReturned.target.title === "CUA Lab Modal") {
     throw new Error("app observation remained on the closed modal");
   }
-  assertTargetRemainedBackground(
-    [
-      { stage: "before", sample: modalForegroundBefore },
-      { stage: "after-open", sample: modalForegroundAfterOpen },
-      { stage: "after-close", sample: modalForegroundAfterClose }
-    ],
+  const modalSentinelResult = await modalSentinel.stop(
     "modal foreground safety"
   );
   report.modal = {
@@ -331,15 +414,25 @@ try {
     returnedWindowId: modalReturned.target.windowId,
     openPath: modalOpened.result.path,
     closePath: modalClosed.result.path,
+    openVerification: modalOpened.result.verification,
+    closeVerification: modalClosed.result.verification,
     foreground: {
       before: modalForegroundBefore,
       afterOpen: modalForegroundAfterOpen,
       afterClose: modalForegroundAfterClose
     },
-    targetRemainedBackground: true
+    targetRemainedBackground:
+      modalSentinelResult.targetForegroundSamples === 0,
+    foregroundSentinel: modalSentinelResult
   };
 
   await resetLab();
+  const secondaryTargetPid = (await oracle()).oop.hostPID;
+  const secondarySentinel = await startForegroundSentinelForPid(
+    secondaryTargetPid,
+    "secondary"
+  );
+  activeSentinels.push(secondarySentinel);
   const secondaryForegroundBefore = frontmost();
   const secondaryMain = await observeApp(session);
   const openSecondary = findElement(
@@ -354,6 +447,7 @@ try {
     { kind: "click", button: "left", count: 1 },
     "open-secondary"
   );
+  assertAxAction(secondaryOpened.result, "secondary open");
   assertEqual(
     secondaryOpened.oracle.secondaryWindow.open,
     true,
@@ -398,6 +492,7 @@ try {
     { kind: "click", button: "left", count: 1 },
     "secondary-button"
   );
+  assertAxAction(buttonClicked.result, "secondary button");
   assertGreater(
     buttonClicked.oracle.secondaryWindow.buttonClickCount,
     buttonBefore,
@@ -422,6 +517,7 @@ try {
     { kind: "scroll", direction: "down", pages: 1 },
     "secondary-scroll"
   );
+  assertAxAction(scrolled.result, "secondary scroll");
   assertGreater(
     scrolled.oracle.secondaryWindow.scrollOffset,
     scrollBefore,
@@ -445,6 +541,7 @@ try {
     { kind: "click", button: "left", count: 1 },
     "secondary-close"
   );
+  assertAxAction(secondaryClosed.result, "secondary close");
   assertEqual(
     secondaryClosed.oracle.secondaryWindow.open,
     false,
@@ -455,11 +552,7 @@ try {
   if (secondaryReturned.target.windowId === secondaryWindow.windowId) {
     throw new Error("app observation remained on the closed secondary window");
   }
-  assertTargetRemainedBackground(
-    [
-      { stage: "before", sample: secondaryForegroundBefore },
-      { stage: "after", sample: secondaryForegroundAfter }
-    ],
+  const secondarySentinelResult = await secondarySentinel.stop(
     "secondary foreground safety"
   );
   report.secondary = {
@@ -468,9 +561,14 @@ try {
     secondaryWindowId: secondaryWindow.windowId,
     returnedWindowId: secondaryReturned.target.windowId,
     appSelectedSecondaryWindow: true,
+    openPath: secondaryOpened.result.path,
     buttonPath: buttonClicked.result.path,
     scrollPath: scrolled.result.path,
     closePath: secondaryClosed.result.path,
+    openVerification: secondaryOpened.result.verification,
+    buttonVerification: buttonClicked.result.verification,
+    scrollVerification: scrolled.result.verification,
+    closeVerification: secondaryClosed.result.verification,
     buttonClickCount:
       buttonClicked.oracle.secondaryWindow.buttonClickCount,
     scrollOffset: scrolled.oracle.secondaryWindow.scrollOffset,
@@ -478,12 +576,19 @@ try {
       before: secondaryForegroundBefore,
       after: secondaryForegroundAfter
     },
-    targetRemainedBackground: true
+    targetRemainedBackground:
+      secondarySentinelResult.targetForegroundSamples === 0,
+    foregroundSentinel: secondarySentinelResult
   };
 
   resultOf(await request("session.end", { session }), "session.end");
   report.passed = true;
 } finally {
+  await Promise.all(
+    activeSentinels.map((sentinel) =>
+      sentinel.stop("foreground sentinel cleanup", false)
+    )
+  );
   report.protocol = {
     requestCount: transcript.filter(
       (entry) => entry.direction === "client->server"

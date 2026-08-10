@@ -1,125 +1,470 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-08-10T07:18:46.582Z",
+  "capturedAt": "2026-08-10T07:57:32.384Z",
   "binary": {
-    "bytes": 3270176,
-    "sha256": "1eb8a2973fd787364569b1a3f5384613dcf334c46a842a6fc2e51fe61435e4f2"
+    "bytes": 3269424,
+    "sha256": "7952852d4366ef8d671756fb1cc1ab7f8c6d34f2ee262c8116ffb832d842f758"
   },
-  "target": {
-    "bundleIdentifier": "com.openai.codex.cualab",
-    "appPath": "test-app/build/Codex CUA Lab.app",
-    "statePath": "test-app/runtime/state.json"
-  },
-  "modal": {
-    "passed": true,
-    "mainWindowId": 13800,
-    "sheetWindowId": 13803,
-    "returnedWindowId": 13800,
-    "openPath": "ax_action",
-    "closePath": "ax_action",
-    "foreground": {
-      "before": {
-        "pid": 10680,
-        "bundleIdentifier": "com.google.Chrome"
-      },
-      "afterOpen": {
-        "pid": 10680,
-        "bundleIdentifier": "com.google.Chrome"
-      },
-      "afterClose": {
-        "pid": 10680,
-        "bundleIdentifier": "com.google.Chrome"
-      }
-    },
-    "targetRemainedBackground": true
-  },
-  "secondary": {
-    "passed": true,
-    "mainWindowId": 13804,
-    "secondaryWindowId": 13815,
-    "returnedWindowId": 13804,
-    "appSelectedSecondaryWindow": true,
-    "buttonPath": "ax_action",
-    "scrollPath": "ax_action",
-    "closePath": "ax_action",
-    "buttonClickCount": 1,
-    "scrollOffset": 140,
-    "foreground": {
-      "before": {
-        "pid": 10680,
-        "bundleIdentifier": "com.google.Chrome"
-      },
-      "after": {
-        "pid": 10680,
-        "bundleIdentifier": "com.google.Chrome"
-      }
-    },
-    "targetRemainedBackground": true
-  },
-  "hello": {
-    "capabilities": {
-      "imageFormats": [
-        "png"
-      ],
-      "captureStream": false,
-      "elementActions": [
-        "click",
-        "set_value",
-        "select_text",
-        "secondary_action",
-        "scroll",
-        "move_window",
-        "resize_window",
-        "minimize_window"
-      ],
-      "pointActions": [
-        "move",
-        "left_click",
-        "right_click",
-        "middle_click",
-        "double_click",
-        "triple_click",
-        "drag",
-        "scroll"
-      ],
-      "keyActions": [
-        "type",
-        "key"
-      ]
-    },
-    "executor": {
-      "name": "maka-cu",
-      "version": "0.3.0",
-      "commit": "unknown"
-    },
-    "pid": 86576,
-    "limits": {
-      "treeWalkCeilingMs": 6000,
-      "maxResponseBytes": 1048576,
-      "maxTextChars": 500,
-      "settleCeilingMs": 2500,
-      "maxDepth": 64,
-      "snapshotsPerSession": 8,
-      "menuWalkCeilingMs": 1500,
-      "shutdownGraceMs": 3000,
-      "imageDirBudgetBytes": 268435456,
-      "snapshotTtlMs": 120000,
-      "maxElements": 1500,
-      "maxMenuElements": 500
-    },
-    "ok": true,
-    "protocol": "maka.cu/2"
-  },
-  "permissions": {
-    "ok": true,
-    "accessibility": true,
-    "screenRecordingProbe": "capture_succeeded",
-    "screenRecording": true
-  },
+  "runCount": 5,
   "passed": true,
-  "protocol": {
-    "requestCount": 20,
-    "responseCount": 20,
-    "stderrCharacters": 0
-  }
+  "summary": {
+    "allDispatchPathsAxAction": true,
+    "targetForegroundSamples": 1738,
+    "minimumSentinelSamples": 189,
+    "maximumSentinelGapMilliseconds": 96,
+    "targetRemainedBackgroundAllRuns": false,
+    "topologyRecoveryEvidenceCount": 0
+  },
+  "runs": [
+    {
+      "index": 1,
+      "capturedAt": "2026-08-10T07:56:09.503Z",
+      "modal": {
+        "passed": true,
+        "mainWindowId": 14084,
+        "sheetWindowId": 14087,
+        "returnedWindowId": 14084,
+        "openPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "closeVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterOpen": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterClose": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 89,
+          "sampleCount": 677,
+          "targetForegroundSamples": 0
+        }
+      },
+      "secondary": {
+        "passed": true,
+        "mainWindowId": 14096,
+        "secondaryWindowId": 14099,
+        "returnedWindowId": 14096,
+        "appSelectedSecondaryWindow": true,
+        "openPath": "ax_action",
+        "buttonPath": "ax_action",
+        "scrollPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "scrollVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "closeVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "buttonClickCount": 1,
+        "scrollOffset": 140,
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "after": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": false,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 57,
+          "sampleCount": 467,
+          "targetForegroundSamples": 403
+        }
+      },
+      "protocol": {
+        "requestCount": 20,
+        "responseCount": 20,
+        "stderrCharacters": 0
+      }
+    },
+    {
+      "index": 2,
+      "capturedAt": "2026-08-10T07:56:34.644Z",
+      "modal": {
+        "passed": true,
+        "mainWindowId": 14109,
+        "sheetWindowId": 14112,
+        "returnedWindowId": 14109,
+        "openPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterOpen": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterClose": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 74,
+          "sampleCount": 189,
+          "targetForegroundSamples": 0
+        }
+      },
+      "secondary": {
+        "passed": true,
+        "mainWindowId": 14113,
+        "secondaryWindowId": 14124,
+        "returnedWindowId": 14113,
+        "appSelectedSecondaryWindow": true,
+        "openPath": "ax_action",
+        "buttonPath": "ax_action",
+        "scrollPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "scrollVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "buttonClickCount": 1,
+        "scrollOffset": 140,
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "after": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": false,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 52,
+          "sampleCount": 470,
+          "targetForegroundSamples": 408
+        }
+      },
+      "protocol": {
+        "requestCount": 20,
+        "responseCount": 20,
+        "stderrCharacters": 0
+      }
+    },
+    {
+      "index": 3,
+      "capturedAt": "2026-08-10T07:56:47.363Z",
+      "modal": {
+        "passed": true,
+        "mainWindowId": 14135,
+        "sheetWindowId": 14138,
+        "returnedWindowId": 14135,
+        "openPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterOpen": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "afterClose": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 56,
+          "sampleCount": 209,
+          "targetForegroundSamples": 0
+        }
+      },
+      "secondary": {
+        "passed": true,
+        "mainWindowId": 14139,
+        "secondaryWindowId": 14150,
+        "returnedWindowId": 14139,
+        "appSelectedSecondaryWindow": true,
+        "openPath": "ax_action",
+        "buttonPath": "ax_action",
+        "scrollPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "buttonVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "scrollVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "buttonClickCount": 1,
+        "scrollOffset": 140,
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "after": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          }
+        },
+        "targetRemainedBackground": false,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 55,
+          "sampleCount": 477,
+          "targetForegroundSamples": 404
+        }
+      },
+      "protocol": {
+        "requestCount": 20,
+        "responseCount": 20,
+        "stderrCharacters": 0
+      }
+    },
+    {
+      "index": 4,
+      "capturedAt": "2026-08-10T07:57:00.844Z",
+      "modal": {
+        "passed": true,
+        "mainWindowId": 14152,
+        "sheetWindowId": 14164,
+        "returnedWindowId": 14152,
+        "openPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "foreground": {
+          "before": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          },
+          "afterOpen": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          },
+          "afterClose": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          }
+        },
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 67,
+          "sampleCount": 258,
+          "targetForegroundSamples": 0
+        }
+      },
+      "secondary": {
+        "passed": true,
+        "mainWindowId": 14165,
+        "secondaryWindowId": 14177,
+        "returnedWindowId": 14165,
+        "appSelectedSecondaryWindow": true,
+        "openPath": "ax_action",
+        "buttonPath": "ax_action",
+        "scrollPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "buttonVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "scrollVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "buttonClickCount": 1,
+        "scrollOffset": 140,
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "after": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          }
+        },
+        "targetRemainedBackground": false,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 96,
+          "sampleCount": 534,
+          "targetForegroundSamples": 114
+        }
+      },
+      "protocol": {
+        "requestCount": 20,
+        "responseCount": 20,
+        "stderrCharacters": 0
+      }
+    },
+    {
+      "index": 5,
+      "capturedAt": "2026-08-10T07:57:16.177Z",
+      "modal": {
+        "passed": true,
+        "mainWindowId": 14191,
+        "sheetWindowId": 14195,
+        "returnedWindowId": 14191,
+        "openPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "foreground": {
+          "before": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          },
+          "afterOpen": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          },
+          "afterClose": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          }
+        },
+        "targetRemainedBackground": true,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 49,
+          "sampleCount": 204,
+          "targetForegroundSamples": 0
+        }
+      },
+      "secondary": {
+        "passed": true,
+        "mainWindowId": 14197,
+        "secondaryWindowId": 14210,
+        "returnedWindowId": 14197,
+        "appSelectedSecondaryWindow": true,
+        "openPath": "ax_action",
+        "buttonPath": "ax_action",
+        "scrollPath": "ax_action",
+        "closePath": "ax_action",
+        "openVerification": {
+          "method": "tree_delta",
+          "observedChange": false
+        },
+        "buttonVerification": {
+          "observedChange": false,
+          "method": "tree_delta"
+        },
+        "scrollVerification": {
+          "observedChange": true,
+          "method": "tree_delta"
+        },
+        "closeVerification": {
+          "method": "tree_delta",
+          "observedChange": true
+        },
+        "buttonClickCount": 1,
+        "scrollOffset": 140,
+        "foreground": {
+          "before": {
+            "pid": 10680,
+            "bundleIdentifier": "com.google.Chrome"
+          },
+          "after": {
+            "pid": 2461,
+            "bundleIdentifier": "com.openai.codex"
+          }
+        },
+        "targetRemainedBackground": false,
+        "foregroundSentinel": {
+          "maxGapMilliseconds": 65,
+          "sampleCount": 488,
+          "targetForegroundSamples": 409
+        }
+      },
+      "protocol": {
+        "requestCount": 20,
+        "responseCount": 20,
+        "stderrCharacters": 0
+      }
+    }
+  ]
 }
