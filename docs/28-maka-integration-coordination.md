@@ -244,14 +244,14 @@ Current implementation worktrees:
   `codex/maka-web-text-fixture`, head `4e7c754`; adds the offline WKWebView text
   field, DOM input/change oracle, and the dedicated Maka Web text probe.
 - `maka-cu-web-text`: clean branch `codex/webcontent-text-value`, head
-  `a1582d2`; renderer-only set-value candidate with exact focus, full selection,
+  `3c1a938`; renderer-only set-value candidate with exact focus, full selection,
   renderer-PID text delivery, bounded readback, and unknown-outcome fencing.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
 
 The screen is currently locked. Modal/secondary functionality is qualified, but
-the native background-focus gate remains open. The Web text candidate has 330
+the native background-focus gate remains open. The Web text candidate has 331
 source tests with 26 explicit live skips and no failures, but its baseline and
 candidate live probes are pending unlock; do not open or merge the source PR
 until the DOM input oracle and foreground sentinel pass.
