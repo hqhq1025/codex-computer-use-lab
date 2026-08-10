@@ -45,16 +45,28 @@ Current August line:
 | `maka-agent/maka-agent#2627` | merged 2026-08-10; merge `b62462a92` | pins `maka/base@058ee576` and integrates stable ids/difference rendering |
 | `maka-agent/maka-cu#3` | merged 2026-08-10; merge `97ca3c3` | confirms press-driven window topology, waits for new AX windows, wraps native press in synthetic focus, and requests exact previous-frontmost restoration |
 | `maka-agent/maka-agent#2631` | merged 2026-08-10; merge `0a9fc5c84` | pins `maka/base@97ca3c3` and records honest modal/foreground evidence |
+| `maka-agent/maka-cu#4` | merged 2026-08-10; merge `4a9787d2` | uniquely refetches a direct renderer-owned binding after frame-only Web reflow; native AX frame changes and missing/ambiguous renderer replacements remain fail closed |
+| `maka-agent/maka-agent#2638` | merged 2026-08-10; merge `221e63b00` | pins `maka/base@4a9787d2` and the prepared binary `e457a314...`; records source-bound exact-binary Web evidence |
 
 Current verification:
 
-- native source: `swift test` 320 tests, 26 explicit live-test skips, 0 failures;
+- native source: `swift test` 326 tests, 26 explicit live-test skips, 0 failures;
 - host Computer Use dist suite: 124/124;
 - observation renderer source suite: 22/22;
-- provenance suite: 3/3;
+- provenance suite: 7/7;
 - Web/control CUA Lab: 10 consecutive passes, trusted DOM event, one mouse
   down/up pair, slider oracle 42, scroll oracle 76, zero wrong-target clicks,
   target remained background;
+- final exact pinned-binary Web matrix: clean source merge
+  `4a9787d2c7f2fbc6a29b33d691916c6b84543661`, binary SHA-256
+  `e457a3143544ba8385c489e5259f206d9450feb1c692eb562413b41b9f38de21`,
+  size 3269920, five complete runs, primary oracle 1, every OOP path
+  `skylight_pid`, `MouseEvent.isTrusted=true`, one down/up pair, slider 42,
+  scroll 76, zero stale wrong-target effects, and zero target-frontmost samples
+  across all 30 scenario spans; minimum 91 samples/span, maximum 84 ms gap;
+- integration verification: serial build, all-workspace typecheck, 192 script
+  tests, and every serial workspace suite passed; required GitHub CI, e2e, and
+  Windows baseline checks were green before #2638 merged;
 - stable AX revision/difference evidence is native + hermetic host evidence, not
   a provider-model qualification cell;
 - exact pinned-binary modal/secondary functional matrix passed 5 consecutive
@@ -223,6 +235,11 @@ Current implementation worktrees:
   `97ca3c3`.
 - `maka-agent-cu-final-pin`: clean branch `codex/cu-window-transition-pin`,
   head `44dfef15e`; integration PR #2631 merged as `0a9fc5c84`.
+- `maka-cu-web-reflow`: clean branch `codex/webcontent-frame-refetch`, source
+  commit `d2382ac`; source PR #4 merged as `4a9787d2`.
+- `maka-agent-cu-web-reflow-pin`: clean branch
+  `codex/cu-webcontent-frame-refetch-pin`, head `cee52376e`; integration PR
+  #2638 merged as `221e63b00`.
 - the original `maka-agent` worktree remains dirty with unrelated Desktop
   message-queue work and must not be reset, rebased, staged, or used for this
   Computer Use line.
