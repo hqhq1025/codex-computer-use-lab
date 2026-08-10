@@ -1,6 +1,6 @@
 # Maka Computer Use Integration Coordination
 
-Updated: 2026-07-14
+Updated: 2026-08-10
 
 This is the handoff document for Codex sessions working on the Maka Computer
 Use integration. Reverse-engineering sessions own evidence in this lab.
@@ -29,12 +29,36 @@ Primary evidence:
 
 - `docs/08-wrapper-policy-and-toctou.md`
 - `docs/18-v5-dynamic-edge-cases.md`
+- `docs/22-native-ax-diff-refetch-and-instance-isolation.md`
 - `docs/23-plugin-to-model-input-output-contract.md`
 - `docs/24-oop-webcontent-and-cross-client-dynamics.md`
 - `docs/25-timeout-deadline-url-policy-and-lifecycle.md`
 - `docs/26-application-target-identity-resolution-and-process-lifetime.md`
 
 ## Current Pull Request State
+
+Current August line:
+
+| Repository / PR | State | Disposition |
+|---|---|---|
+| `maka-agent/maka-cu#2` | open, ready for review; head `40ba676` | WebContent trusted click, unique retained refetch, numeric slider, semantic scroll, doctor diagnostics, modal routing, stable AX revision ids, and bounded post-action differences |
+| `maka-agent/maka-agent#2627` | open draft; head `4b80a2059`; CI running | pins source `40ba676`, binary SHA-256 `20361a198e834f181ee893de03687db597ac6f49c3588b546ffe1f703144a264`, and integrates stable ids/difference rendering; keep draft until source merge and final repin |
+
+Current verification:
+
+- native source: `swift test` 320 tests, 26 explicit live-test skips, 0 failures;
+- host Computer Use dist suite: 124/124;
+- observation renderer source suite: 22/22;
+- provenance suite: 3/3;
+- Web/control CUA Lab: 10 consecutive passes, trusted DOM event, one mouse
+  down/up pair, slider oracle 42, scroll oracle 76, zero wrong-target clicks,
+  target remained background;
+- stable AX revision/difference evidence is native + hermetic host evidence, not
+  a provider-model qualification cell;
+- screen remains locked, so modal open/close/button/scroll live qualification is
+  still pending.
+
+The July table below is retained as the legacy foundation-stack record:
 
 | PR | State | Disposition |
 |---|---|---|
@@ -159,16 +183,16 @@ Real-model validation session:
 
 ## Immediate Queue
 
-1. Review and merge #926, #928, #929, #930, #931, #932, and #933.
-2. Replace remaining author-local fixture paths in the merged legacy E2E
-   harnesses with repository-owned or hash-pinned fixtures.
-3. Rebase the active real-model modal/secondary-window validation branch after
-   its current uncommitted work is complete, then pin it to the merged executor
-   identity baseline including #931, #932, and #933.
-4. Follow up merged review findings: failed host reads completing after stop
-   must not bypass the stop fence; every post-delivery verification exception
-   must preserve `outcome_unknown`.
-5. Expand the provider matrix with the merged #924 evidence.
+1. Finish CI on `maka-agent/maka-agent#2627`; keep it draft while checks run.
+2. Review and merge `maka-agent/maka-cu#2`.
+3. After source merge, rebuild and repin #2627 to the final `maka/base` merge
+   commit before marking it ready.
+4. When the Mac is unlocked, run the modal/secondary open-close-button-scroll
+   oracle matrix. Do not substitute deterministic routing tests for this gate.
+5. Complete stable signing, hardened runtime, notarization, and packaged-app
+   verification; `distributionReady` remains false until all four are real.
+6. Keep a Kimi-style MCP adapter separate from the executor and translate only
+   to `maka.cu/2`; do not duplicate AX indexing, refetch, or fallback logic.
 
 ## Review Dispositions
 
@@ -188,10 +212,15 @@ The merged #893/#910 review comments are not all merge requirements:
 
 ## Active Validation Worktree
 
-`cu-real-ax-provider-runner-upstream` currently contains active uncommitted work
-for modal and secondary-window scenarios. Do not rebase or edit it from another
-session while those changes are present. At the 2026-07-14 handoff it was three
-commits behind and two commits ahead of `origin/main`; its working tree modified
-the real AX model E2E docs, launcher, harness, contract test, and package scripts.
-The owning validation session should commit or discard that work first, then
-rebase and rerun against the merged executor identity PRs.
+Current implementation worktrees:
+
+- `maka-cu-web`: clean, branch `codex/webcontent-native-actions`, head
+  `40ba676`, tracking the pushed source PR.
+- `maka-agent-cu-web`: clean, branch `codex/cu-webcontent-integration`, head
+  `4b80a2059`, tracking the pushed draft integration PR.
+- the original `maka-agent` worktree remains dirty with unrelated Desktop
+  message-queue work and must not be reset, rebased, staged, or used for this
+  Computer Use line.
+
+The screen is locked. Live modal qualification must wait for unlock; source,
+hermetic protocol, and deterministic routing work may continue meanwhile.
